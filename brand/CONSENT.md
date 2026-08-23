@@ -5,16 +5,32 @@ consent. This file is the record.
 
 ## Status: NOT YET CONFIRMED
 
-The images currently in `src/assets/photos/` are cropped from the studio's
-public social-media posts and are in place for the demo only. Rights and
-consent have not been confirmed.
+The images in `src/assets/photos/` are placeholders for the demo. Rights and
+consent have not been confirmed with Linda.
 
-| File                | Source            | Photographer | Identifiable people | Consent recorded |
-| ------------------- | ----------------- | ------------ | ------------------- | ---------------- |
-| head-spa-basin.jpg  | Instagram collage | unknown      | hands only          | no               |
-| linda-i-studion.jpg | Instagram collage | unknown      | Linda               | no               |
-| produkter.jpg       | Instagram collage | unknown      | none                | no               |
-| behandlingsrum.jpg  | Instagram collage | unknown      | none                | no               |
+| File                    | Source                                | Shows              | Identifiable people                                | Consent recorded |
+| ----------------------- | ------------------------------------- | ------------------ | -------------------------------------------------- | ---------------- |
+| head-spa-behandling.jpg | Studio Taube's own Bokadirekt profile | Head spa treatment | Therapist; client's face partly visible in profile | no               |
+| linda.jpg               | Linda's Bokadirekt staff photo        | Linda              | Linda                                              | no               |
+| head-spa-basin.jpg      | Instagram collage                     | Basin, hands only  | no                                                 | no               |
+| produkter.jpg           | Instagram collage                     | Products           | no                                                 | no               |
+| behandlingsrum.jpg      | Instagram collage                     | Treatment room     | no                                                 | no               |
 
-Before launch, fill in the photographer for each image, confirm the studio may
-publish it, and change the status above.
+## Open questions for Linda
+
+1. **The client in `head-spa-behandling.jpg`.** The photo is published on the
+   salon's own Bokadirekt profile, so it is already public, but that is not the
+   same as consent to reuse it on the website. Her face is partly visible in
+   profile. Confirm, or swap the image.
+2. **Who took these photos**, and does the studio hold the rights to publish
+   them? A photographer retains copyright unless it was transferred.
+3. **Full-resolution originals** would be better than these, which are
+   downloads from Bokadirekt and social media.
+
+## Correction on file
+
+An earlier version of this site used a crop from the Instagram collage captioned
+as Linda. Linda's own Bokadirekt staff photo shows a different person, so the
+crop was misattributed. It has been removed, and the About page now uses her
+actual staff photo. The therapist in `head-spa-behandling.jpg` is **not**
+named in the alt text, because who is pictured has not been confirmed.

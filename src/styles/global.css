@@ -60,3 +60,52 @@ body {
 .tabular {
   font-variant-numeric: tabular-nums;
 }
+
+/*
+ * Navigation link states.
+ *
+ * The current page is marked by a rule as well as by colour: colour alone
+ * fails WCAG 2.2 SC 1.4.1, and a letterspaced uppercase label gives the eye
+ * little else to go on. The rule is drawn on a pseudo-element so showing it
+ * never reflows the row, and it is scaled rather than toggled so the motion
+ * reads as one gesture.
+ */
+.nav-link {
+  position: relative;
+  transition: color 150ms ease;
+}
+
+.nav-link > .nav-link-label {
+  position: relative;
+}
+
+.nav-link > .nav-link-label::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: -0.35rem;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+
+.nav-link:hover > .nav-link-label::after,
+.nav-link:focus-visible > .nav-link-label::after,
+.nav-link[aria-current='page'] > .nav-link-label::after {
+  transform: scaleX(1);
+}
+
+/* Pressed feedback matters here: every click costs a page load, so the link
+   has to acknowledge the press before the next document paints. */
+.nav-link:active {
+  color: var(--color-ink);
+  translate: 0 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link:active {
+    translate: none;
+  }
+}

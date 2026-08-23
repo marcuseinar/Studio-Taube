@@ -23,11 +23,11 @@ const t = useTranslations(locale);
             href={href}
             aria-current={isCurrent ? 'page' : undefined}
             class:list={[
-              'wordmark-label inline-flex min-h-11 items-center text-[0.7rem]',
+              'nav-link wordmark-label inline-flex min-h-11 items-center text-[0.7rem]',
               isCurrent ? 'text-sand-ink' : 'text-ink-muted hover:text-sand-ink',
             ]}
           >
-            {t(item.labelKey)}
+            <span class="nav-link-label">{t(item.labelKey)}</span>
           </a>
         </li>
       );

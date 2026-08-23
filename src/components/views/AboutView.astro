@@ -6,7 +6,7 @@ import Section from '../Section.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPage, getStaff } from '../../lib/content.ts';
 import { useTranslations, type Locale } from '../../i18n/index.ts';
-import lindaImage from '../../assets/photos/linda-i-studion.jpg';
+import lindaImage from '../../assets/photos/linda.jpg';
 
 interface Props {
   locale: Locale;
@@ -19,7 +19,7 @@ const page = await getPage('om-oss', locale);
 const { Content } = await render(page);
 const staff = await getStaff(locale);
 
-const imageAlt = locale === 'sv' ? 'Linda i Studio Taubes salong' : 'Linda in the Studio Taube salon';
+const imageAlt = locale === 'sv' ? 'Linda, grundare av Studio Taube' : 'Linda, founder of Studio Taube';
 ---
 
 <BaseLayout locale={locale} title={page.data.title} description={page.data.description}>

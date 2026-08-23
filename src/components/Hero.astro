@@ -4,7 +4,7 @@ import BookingButton from './BookingButton.astro';
 import Wordmark from './Wordmark.astro';
 import { SALON } from '../lib/site.ts';
 import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
-import heroImage from '../assets/photos/head-spa-basin.jpg';
+import heroImage from '../assets/photos/head-spa-behandling.jpg';
 
 interface Props {
   locale: Locale;
@@ -37,7 +37,7 @@ const t = useTranslations(locale);
     <Image
       src={heroImage}
       alt={imageAlt}
-      widths={[420, 640, 900]}
+      widths={[480, 720, 1040]}
       sizes="(min-width: 1024px) 45vw, 100vw"
       class="rounded-card w-full object-cover"
       loading="eager"
