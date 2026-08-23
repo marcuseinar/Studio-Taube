@@ -133,13 +133,20 @@ Constraints:
 
 ## 6. Logo
 
-Source screenshots live in `brand/source/`. The dark-background version has the
-highest contrast and is the best tracing source.
+`brand/source/logo-wordmark-hires.png` (1524×353) is the tracing source. It was
+published by Nääs Fabriker and is far better than the social-media screenshots
+alongside it: clean edges, no JPEG artefacts, and — critically — the complete
+composition, including the rule under "Taube" that the screenshots crop off.
 
-Plan: trace with potrace, hand-clean the paths, and ship a single SVG using
-`currentColor` so one file serves both light and dark contexts. Provide an
-accessible name (`Studio Taube — Skönhet & Hälsa`), not an empty `alt`.
+The wordmark is traced with potrace at 2× with `optTolerance: 0.4`, then
+optimised with SVGO. That combination was chosen by comparing renders: higher
+upscales added path nodes without visible benefit. The result is 14.5 kB and
+uses `currentColor`, so one file serves light and dark contexts. It carries an
+accessible name (`Studio Taube — Skönhet & Hälsa`), never an empty `alt`.
 
-**Caveat to raise with Linda:** a trace of a screenshot gets very close but is
-not identical to the original vector. If she can obtain the designer's source
-file, that beats any trace and should replace it.
+The script is illegible at favicon sizes, so `public/favicon.svg` crops to the
+initial S and strokes it to survive 32 px, light on ink for contrast in a
+browser tab.
+
+**Still worth asking Linda:** even a clean trace is not the original vector. If
+the designer's source file exists, it beats this and should replace it.
