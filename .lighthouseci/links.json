@@ -1,0 +1,6 @@
+{
+  "http://localhost:42409/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1787497147520-29780.report.html",
+  "http://localhost:42409/behandlingar/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1787497148062-39536.report.html",
+  "http://localhost:42409/priser/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1787497148563-1458.report.html",
+  "http://localhost:42409/kontakt/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1787497149022-60757.report.html"
+}

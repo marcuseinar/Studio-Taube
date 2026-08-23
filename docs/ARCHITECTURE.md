@@ -8,7 +8,17 @@ Markdown + tokens ──► Astro build ──► static HTML/CSS/JS ──► G
               Sveltia CMS ┘ (commits to main)      studiotaube.se ┘ (Loopia DNS)
 ```
 
-No server, no database, no runtime. Everything is decided at build time.
+No server and no database. Pages are rendered at build time; Svelte islands
+hydrate in the browser only on the routes that use them.
+
+## Islands
+
+| Island                   | Route            | Cost                            |
+| ------------------------ | ---------------- | ------------------------------- |
+| `TreatmentFilter.svelte` | `/behandlingar/` | ~16.5 kB gzipped, `client:idle` |
+
+The home page ships no JavaScript at all. An island enhances server-rendered
+markup and never replaces it — see CLAUDE.md §3a.
 
 ---
 

@@ -31,28 +31,30 @@ const lead =
         [...byCategory.entries()].map(([category, entries]) => (
           <div>
             <h2 class="text-ink font-serif text-2xl">{categoryLabel(category as ServiceCategory, locale)}</h2>
-            <table class="mt-4 w-full">
-              <thead class="sr-only">
-                <tr>
-                  <th scope="col">{t('treatments.title')}</th>
-                  <th scope="col">{t('treatments.duration')}</th>
-                  <th scope="col">{t('treatments.price')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {entries.map((service) => (
-                  <PriceRow
-                    locale={locale}
-                    slug={entrySlug(service.id)}
-                    title={service.data.title}
-                    durationMinutes={service.data.durationMinutes}
-                    priceSek={service.data.priceSek}
-                    priceFrom={service.data.priceFrom}
-                    isFree={service.data.isFree}
-                  />
-                ))}
-              </tbody>
-            </table>
+            <div class="mt-4 overflow-x-auto">
+              <table class="w-full min-w-[20rem]">
+                <thead class="sr-only">
+                  <tr>
+                    <th scope="col">{t('treatments.title')}</th>
+                    <th scope="col">{t('treatments.duration')}</th>
+                    <th scope="col">{t('treatments.price')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {entries.map((service) => (
+                    <PriceRow
+                      locale={locale}
+                      slug={entrySlug(service.id)}
+                      title={service.data.title}
+                      durationMinutes={service.data.durationMinutes}
+                      priceSek={service.data.priceSek}
+                      priceFrom={service.data.priceFrom}
+                      isFree={service.data.isFree}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         ))
       }

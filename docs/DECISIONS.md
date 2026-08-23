@@ -10,8 +10,8 @@ that amends the entry and states the new rationale.
 
 **Decided.** Astro 5 with TypeScript.
 
-Astro ships static HTML with zero JavaScript by default, which suits a
-brochure-and-booking-entry site hosted on GitHub Pages. It gives typed content
+Astro ships static HTML and adds JavaScript only where a component asks for it,
+which suits a brochure-and-booking-entry site hosted on GitHub Pages. It gives typed content
 collections (invalid content fails the build), first-class image optimisation,
 built-in i18n routing, and islands for the day the booking widget needs to be
 interactive — without paying a framework runtime cost on every page.
@@ -152,3 +152,45 @@ preserves recognition for the audience that already follows them, and the
 warm charcoal keeps text readable without the harshness of `#000`.
 
 See `docs/DESIGN.md` for the full token set and contrast obligations.
+
+---
+
+## D9 — Bokadirekt is the source of truth for the catalogue
+
+**Decided.** Treatment names, prices, durations and descriptions come from the
+salon's Bokadirekt listing, captured in `data/bokadirekt-catalogue.json`.
+
+The salon already maintains this data because bookings depend on it. Keeping a
+second, hand-typed copy on the website would drift, and a wrong price on a
+website is a customer-facing problem. `scripts/seed-content.mjs` turns the
+snapshot into content entries and never overwrites an existing file, so edits
+made in the CMS survive.
+
+Spelling corrections applied to display names are listed in
+`docs/CONTENT-REVIEW.md` for Linda to confirm. Prices, durations and ids are
+never altered.
+
+_Revisit if:_ Bokadirekt's API module is taken, at which point the catalogue
+could refresh automatically instead of from a snapshot.
+
+---
+
+## D10 — Svelte 5 for interactivity
+
+**Decided.** Svelte 5 as the island framework, via `@astrojs/svelte`.
+
+JavaScript is welcome where it improves the page. Svelte was chosen over React
+for a compiled output with no virtual DOM: the treatment filter costs about
+16.5 kB gzipped including the runtime, where React's runtime alone is roughly
+three times that before any component code. Astro loads it per-route, so the
+home page still ships nothing.
+
+The binding constraint is not the amount of JavaScript but where rendering
+happens: **islands enhance server-rendered markup, they do not produce it.** The
+catalogue must be in the delivered HTML for local search to work, which
+`tests/e2e/treatment-filter.spec.ts` asserts by loading the page with scripts
+disabled.
+
+_Revisit if:_ a future feature genuinely needs client-side routing or shared
+state across pages, which would be an argument for SvelteKit rather than for
+React.

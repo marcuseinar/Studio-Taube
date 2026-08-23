@@ -6,6 +6,7 @@ import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
 interface Props {
   locale: Locale;
   slug: string;
+  category: string;
   title: string;
   summary: string;
   durationMinutes: number;
@@ -19,6 +20,7 @@ interface Props {
 const {
   locale,
   slug,
+  category,
   title,
   summary,
   durationMinutes,
@@ -31,9 +33,17 @@ const {
 
 const t = useTranslations(locale);
 const price = isFree ? (locale === 'sv' ? 'Kostnadsfri' : 'Free') : formatPriceRange(priceSek, priceFrom, locale);
+
+/* Lower-cased once here so the filter island never has to re-derive it. */
+const searchIndex = `${title} ${summary}`.toLowerCase();
 ---
 
-<article class="border-sand/50 bg-cream rounded-card flex flex-col border p-6">
+<article
+  class="border-sand/50 bg-cream rounded-card flex flex-col border p-6"
+  data-treatment
+  data-category={category}
+  data-search={searchIndex}
+>
   <h3 class="text-ink font-serif text-xl leading-snug">
     <a class="hover:text-sand-ink" href={localisePath(`/behandlingar/${slug}/`, locale)}>{title}</a>
   </h3>

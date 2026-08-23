@@ -2,6 +2,7 @@
 import PageHeading from '../PageHeading.astro';
 import Section from '../Section.astro';
 import TreatmentCard from '../TreatmentCard.astro';
+import TreatmentFilter from '../islands/TreatmentFilter.svelte';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { entrySlug, getServices, groupByCategory } from '../../lib/content.ts';
 import { categoryLabel } from '../../i18n/categories.ts';
@@ -17,22 +18,53 @@ const t = useTranslations(locale);
 
 const services = await getServices(locale);
 const byCategory = groupByCategory(services);
+
+const categories = [...byCategory.keys()].map((slug) => ({
+  slug,
+  label: categoryLabel(slug as ServiceCategory, locale),
+}));
+
+const filterLabels = {
+  sv: {
+    search: 'Sök behandling',
+    searchPlaceholder: 'Till exempel head spa, bryn, laser…',
+    all: 'Alla',
+    noResults: 'Inga behandlingar matchar din sökning.',
+    clear: 'Rensa',
+    resultCountOne: '{count} behandling',
+    resultCountMany: '{count} behandlingar',
+  },
+  en: {
+    search: 'Search treatments',
+    searchPlaceholder: 'For example head spa, brows, laser…',
+    all: 'All',
+    noResults: 'No treatments match your search.',
+    clear: 'Clear',
+    resultCountOne: '{count} treatment',
+    resultCountMany: '{count} treatments',
+  },
+}[locale];
 ---
 
 <BaseLayout locale={locale} title={t('treatments.title')} description={t('treatments.intro')}>
   <Section>
     <PageHeading eyebrow={t('nav.treatments')} title={t('treatments.title')} lead={t('treatments.intro')} />
+
+    <div class="mt-10">
+      <TreatmentFilter client:idle categories={categories} labels={filterLabels} />
+    </div>
   </Section>
 
   {
     [...byCategory.entries()].map(([category, entries], index) => (
-      <Section tone={index % 2 === 0 ? 'shell' : 'cream'}>
+      <Section tone={index % 2 === 0 ? 'shell' : 'cream'} data-treatment-section>
         <h2 class="text-ink font-serif text-3xl">{categoryLabel(category as ServiceCategory, locale)}</h2>
         <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((service) => (
             <TreatmentCard
               locale={locale}
               slug={entrySlug(service.id)}
+              category={service.data.category}
               title={service.data.title}
               summary={service.data.summary}
               durationMinutes={service.data.durationMinutes}

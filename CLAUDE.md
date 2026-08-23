@@ -60,7 +60,8 @@ change is. CI enforces most of them; the rest are on you.
    points go through the `BookingProvider` abstraction.
 6. **No third-party script without an explicit decision.** No Google Fonts CDN,
    no Google Analytics, no tracking pixels, no chat widgets. Fonts are
-   self-hosted; analytics is cookieless.
+   self-hosted; analytics is cookieless. This is about third-party code and
+   tracking — our own JavaScript is welcome, see §3a.
 7. **No secrets in the repo**, and no personal data of clients — including
    photographs of identifiable clients — without written consent recorded in
    `brand/CONSENT.md`.
@@ -90,6 +91,24 @@ change is. CI enforces most of them; the rest are on you.
 Do not add a dependency without justifying it in the PR description. Prefer the
 platform over a package; prefer a 20-line utility over a 200 kB library.
 
+### 3a. When to reach for an island
+
+JavaScript is encouraged where it makes the page better. The rule is not "avoid
+JS", it is "put it where it earns its place".
+
+- Build interactivity as a **Svelte island** in `src/components/islands/`.
+- Choose the directive by need: `client:idle` for enhancements below the fold or
+  after first paint, `client:load` only for something the visitor interacts with
+  immediately, `client:visible` for anything far down the page.
+- **Content is rendered by Astro, never by an island.** An island may filter,
+  sort, reveal or otherwise enhance server-rendered markup; it must not be the
+  only thing that produces it. Search engines index the delivered HTML, and a
+  local salon depends on local search. `tests/e2e/treatment-filter.spec.ts`
+  enforces this by loading the page with scripts disabled.
+- For accessible interactive primitives — dialog, popover, combobox — prefer
+  a headless Svelte library such as Bits UI over hand-rolling focus traps and
+  ARIA wiring. Hand-rolled dialog semantics are a reliable source of bugs.
+
 ---
 
 ## 4. Repository map
@@ -100,6 +119,7 @@ brand/                 Derived brand assets (vectorised logo, consent records).
 docs/                  Architecture, design, content and decision records.
 public/                Files served verbatim. Favicons, robots.txt, CNAME.
 src/components/        Presentational Astro components. No data fetching.
+src/components/islands/  Svelte components that hydrate in the browser.
 src/layouts/           Page shells.
 src/pages/             Routes. Swedish at /, English at /en/.
 src/content/           Content collections (services, campaigns, pages, staff).

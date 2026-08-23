@@ -1,0 +1,36 @@
+---
+import { MAIN_NAV } from '../lib/navigation.ts';
+import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+  class?: string;
+}
+
+const { locale, pathname, class: className = '' } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<ul class={className}>
+  {
+    MAIN_NAV.map((item) => {
+      const href = localisePath(item.path, locale);
+      const isCurrent = pathname === href;
+      return (
+        <li>
+          <a
+            href={href}
+            aria-current={isCurrent ? 'page' : undefined}
+            class:list={[
+              'wordmark-label inline-flex min-h-11 items-center text-[0.7rem]',
+              isCurrent ? 'text-sand-ink' : 'text-ink-muted hover:text-sand-ink',
+            ]}
+          >
+            {t(item.labelKey)}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

@@ -1,5 +1,6 @@
 ---
 import { bookingProvider } from '../lib/booking/index.ts';
+import { cn } from '../lib/cn.ts';
 import { useTranslations, type Locale } from '../i18n/index.ts';
 
 interface Props {
@@ -24,7 +25,11 @@ const styles = {
 
 <a
   href={href}
-  class={`inline-flex min-h-11 items-center justify-center rounded-pill px-7 py-3 text-sm wordmark-label transition-colors ${styles[variant]} ${className}`}
+  class={cn(
+    'wordmark-label rounded-pill inline-flex min-h-11 items-center justify-center px-7 py-3 text-sm transition-colors',
+    styles[variant],
+    className,
+  )}
   {...opensExternally ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
 >
   {label ?? t('booking.cta.primary')}

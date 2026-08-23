@@ -1,0 +1,148 @@
+# Sveltia CMS. Edits commit Markdown straight to this repository, so content is
+# versioned and reviewable and there is no database to pay for.
+# See docs/DECISIONS.md D4.
+backend:
+  name: github
+  repo: marcuseinar/Studio-Taube
+  branch: main
+  site_domain: studiotaube.se
+  # Set base_url to the Cloudflare Worker that performs the GitHub OAuth
+  # exchange. Until it is deployed, /admin will not be able to sign in.
+  # base_url: https://studiotaube-auth.<subdomain>.workers.dev
+
+publish_mode: editorial_workflow
+media_folder: src/assets/photos
+public_folder: /src/assets/photos
+
+i18n:
+  structure: multiple_folders
+  locales: [sv, en]
+  default_locale: sv
+
+collections:
+  - name: campaigns
+    label: Erbjudanden
+    label_singular: Erbjudande
+    folder: src/content/campaigns
+    create: true
+    i18n: true
+    fields:
+      - { name: title, label: Rubrik, widget: string, i18n: true }
+      - { name: summary, label: Kort beskrivning, widget: text, i18n: true }
+      - { name: priceSek, label: Kampanjpris (kr), widget: number, value_type: int, i18n: duplicate }
+      - {
+          name: ordinaryPriceSek,
+          label: Ordinarie pris (kr),
+          widget: number,
+          value_type: int,
+          required: false,
+          i18n: duplicate,
+        }
+      - { name: durationMinutes, label: Tid (minuter), widget: number, value_type: int, i18n: duplicate }
+      - { name: validFrom, label: Gäller från, widget: datetime, required: false, i18n: duplicate }
+      - {
+          name: validTo,
+          label: Gäller till,
+          widget: datetime,
+          required: false,
+          hint: Lämna tomt om erbjudandet löper tills vidare,
+          i18n: duplicate,
+        }
+      - {
+          name: bokadirektServiceId,
+          label: Bokadirekt tjänst-ID,
+          widget: number,
+          value_type: int,
+          required: false,
+          i18n: duplicate,
+        }
+      - { name: bokadirektSlug, label: Bokadirekt slug, widget: string, i18n: duplicate }
+      - { name: requiresConsultation, label: Kräver konsultation, widget: boolean, default: false, i18n: duplicate }
+      - { name: priority, label: Ordning, widget: number, value_type: int, default: 0, i18n: duplicate }
+      - { name: body, label: Text, widget: markdown, i18n: true }
+
+  - name: services
+    label: Behandlingar
+    label_singular: Behandling
+    folder: src/content/services
+    create: false
+    i18n: true
+    fields:
+      - { name: title, label: Namn, widget: string, i18n: true }
+      - { name: summary, label: Kort beskrivning, widget: text, i18n: true }
+      - {
+          name: category,
+          label: Kategori,
+          widget: select,
+          i18n: duplicate,
+          options:
+            [
+              konsultation,
+              ansiktsbehandlingar,
+              avancerad-hudvard,
+              co2-laser,
+              head-spa,
+              lash-browlift,
+              fransforlangning,
+              fransar-bryn,
+              massage,
+              tandblekning,
+              elevbehandlingar,
+            ],
+        }
+      - { name: durationMinutes, label: Tid (minuter), widget: number, value_type: int, i18n: duplicate }
+      - { name: priceSek, label: Pris (kr), widget: number, value_type: int, i18n: duplicate }
+      - { name: priceFrom, label: 'Pris "från"', widget: boolean, default: false, i18n: duplicate }
+      - { name: isFree, label: Kostnadsfri, widget: boolean, default: false, i18n: duplicate }
+      - { name: requiresConsultation, label: Kräver konsultation, widget: boolean, default: false, i18n: duplicate }
+      - { name: performedByStudent, label: Utförs av elev, widget: boolean, default: false, i18n: duplicate }
+      - {
+          name: bokadirektServiceId,
+          label: Bokadirekt tjänst-ID,
+          widget: number,
+          value_type: int,
+          required: false,
+          i18n: duplicate,
+        }
+      - { name: bokadirektSlug, label: Bokadirekt slug, widget: string, i18n: duplicate }
+      - { name: order, label: Ordning, widget: number, value_type: int, default: 0, i18n: duplicate }
+      - { name: featured, label: Visa på startsidan, widget: boolean, default: false, i18n: duplicate }
+      - {
+          name: translationStatus,
+          label: Översättningsstatus,
+          widget: select,
+          options: [human, needs-review],
+          default: human,
+          i18n: true,
+        }
+      - { name: body, label: Text, widget: markdown, i18n: true }
+
+  - name: pages
+    label: Sidor
+    folder: src/content/pages
+    create: false
+    i18n: true
+    fields:
+      - { name: title, label: Rubrik, widget: string, i18n: true }
+      - { name: description, label: Beskrivning, widget: text, i18n: true }
+      - { name: updated, label: Uppdaterad, widget: datetime, i18n: duplicate }
+      - { name: body, label: Text, widget: markdown, i18n: true }
+
+  - name: staff
+    label: Personal
+    folder: src/content/staff
+    create: true
+    i18n: true
+    fields:
+      - { name: name, label: Namn, widget: string, i18n: duplicate }
+      - { name: role, label: Roll, widget: string, i18n: true }
+      - {
+          name: bokadirektStaffId,
+          label: Bokadirekt personal-ID,
+          widget: number,
+          value_type: int,
+          required: false,
+          i18n: duplicate,
+        }
+      - { name: order, label: Ordning, widget: number, value_type: int, default: 0, i18n: duplicate }
+      - { name: body, label: Text, widget: markdown, i18n: true }
