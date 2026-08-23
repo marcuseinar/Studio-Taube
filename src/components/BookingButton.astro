@@ -1,0 +1,32 @@
+---
+import { bookingProvider } from '../lib/booking/index.ts';
+import { useTranslations, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  service?: { slug: string; bokadirektServiceId?: number | undefined };
+  variant?: 'primary' | 'secondary';
+  label?: string;
+  class?: string;
+}
+
+const { locale, service, variant = 'primary', label, class: className = '' } = Astro.props;
+const t = useTranslations(locale);
+
+const href = service ? bookingProvider.bookingUrlFor(service) : bookingProvider.salonBookingUrl();
+const opensExternally = !bookingProvider.supportsInlineBooking();
+
+const styles = {
+  primary: 'bg-sand-ink text-cream hover:bg-ink',
+  secondary: 'border border-sand-deep text-sand-ink hover:bg-shell',
+} as const;
+---
+
+<a
+  href={href}
+  class={`inline-flex min-h-11 items-center justify-center rounded-pill px-7 py-3 text-sm wordmark-label transition-colors ${styles[variant]} ${className}`}
+  {...opensExternally ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  {label ?? t('booking.cta.primary')}
+  {opensExternally && <span class="sr-only">({t('booking.opensExternally')})</span>}
+</a>

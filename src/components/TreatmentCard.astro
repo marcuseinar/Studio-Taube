@@ -1,0 +1,63 @@
+---
+import BookingButton from './BookingButton.astro';
+import { formatDuration, formatPriceRange } from '../lib/format.ts';
+import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+  title: string;
+  summary: string;
+  durationMinutes: number;
+  priceSek: number;
+  priceFrom: boolean;
+  isFree: boolean;
+  requiresConsultation: boolean;
+  bokadirektServiceId?: number | undefined;
+}
+
+const {
+  locale,
+  slug,
+  title,
+  summary,
+  durationMinutes,
+  priceSek,
+  priceFrom,
+  isFree,
+  requiresConsultation,
+  bokadirektServiceId,
+} = Astro.props;
+
+const t = useTranslations(locale);
+const price = isFree ? (locale === 'sv' ? 'Kostnadsfri' : 'Free') : formatPriceRange(priceSek, priceFrom, locale);
+---
+
+<article class="border-sand/50 bg-cream rounded-card flex flex-col border p-6">
+  <h3 class="text-ink font-serif text-xl leading-snug">
+    <a class="hover:text-sand-ink" href={localisePath(`/behandlingar/${slug}/`, locale)}>{title}</a>
+  </h3>
+
+  <p class="text-ink-muted mt-3 grow text-sm">{summary}</p>
+
+  <dl class="text-ink-muted mt-5 flex flex-wrap gap-x-6 text-sm">
+    <div class="flex gap-2">
+      <dt class="wordmark-label text-[0.65rem]">{t('treatments.duration')}</dt>
+      <dd class="tabular">{formatDuration(durationMinutes, locale)}</dd>
+    </div>
+    <div class="flex gap-2">
+      <dt class="wordmark-label text-[0.65rem]">{t('treatments.price')}</dt>
+      <dd class="tabular text-ink">{price}</dd>
+    </div>
+  </dl>
+
+  {requiresConsultation && <p class="text-sand-ink mt-4 text-xs">{t('booking.consultationRequired')}</p>}
+
+  <BookingButton
+    locale={locale}
+    service={{ slug, bokadirektServiceId }}
+    variant="secondary"
+    label={t('booking.cta.service')}
+    class="mt-6 self-start"
+  />
+</article>

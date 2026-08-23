@@ -1,0 +1,68 @@
+---
+import Wordmark from './Wordmark.astro';
+import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
+import { formatPhoneForHumans } from '../lib/format.ts';
+import { SALON } from '../lib/site.ts';
+import { bookingProvider } from '../lib/booking/index.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-shell border-sand/40 mt-24 border-t">
+  <div class="mx-auto grid max-w-[1200px] gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <Wordmark class="text-ink w-[200px]" label={`${SALON.name} ${SALON.tagline}`} />
+    </div>
+
+    <div>
+      <h2 class="wordmark-label text-ink text-xs">{t('contact.address')}</h2>
+      <address class="text-ink-muted mt-3 not-italic">
+        {SALON.street}<br />
+        {SALON.postalCode}
+        {SALON.city}<br />
+        {SALON.area}
+      </address>
+      <p class="mt-3">
+        <a class="text-sand-ink hover:text-ink" href={`tel:${SALON.phone}`}>{formatPhoneForHumans(SALON.phone)}</a>
+      </p>
+      <p>
+        <a class="text-sand-ink hover:text-ink" href={`mailto:${SALON.email}`}>{SALON.email}</a>
+      </p>
+    </div>
+
+    <div>
+      <h2 class="wordmark-label text-ink text-xs">{t('footer.followUs')}</h2>
+      <ul class="text-ink-muted mt-3 space-y-1">
+        <li>
+          <a class="hover:text-sand-ink" href={SALON.instagram} rel="noopener noreferrer" target="_blank">Instagram</a>
+        </li>
+        <li>
+          <a class="hover:text-sand-ink" href={SALON.facebook} rel="noopener noreferrer" target="_blank">Facebook</a>
+        </li>
+        <li>
+          <a
+            class="hover:text-sand-ink"
+            href={bookingProvider.salonBookingUrl()}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {t('footer.bookVia')} Bokadirekt
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-sand/40 border-t">
+    <div class="text-ink-muted mx-auto flex max-w-[1200px] flex-wrap gap-x-6 gap-y-2 px-5 py-5 text-xs">
+      <p>© {year} {SALON.name}. {t('footer.rights')}.</p>
+      <a class="hover:text-sand-ink" href={localisePath('/integritetspolicy/', locale)}>{t('footer.privacy')}</a>
+    </div>
+  </div>
+</footer>

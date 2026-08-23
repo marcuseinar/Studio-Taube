@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import BookingButton from '../BookingButton.astro';
+import OpeningHours from '../OpeningHours.astro';
+import PageHeading from '../PageHeading.astro';
+import Section from '../Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatPhoneForHumans } from '../../lib/format.ts';
+import { mapUrl } from '../../lib/seo.ts';
+import { SALON } from '../../lib/site.ts';
+import { useTranslations, type Locale } from '../../i18n/index.ts';
+import studioImage from '../../assets/photos/behandlingsrum.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const copy = {
+  sv: {
+    lead: 'Du hittar oss i Nääs Fabriker i Tollered, mellan Floda och Alingsås.',
+    imageAlt: 'Behandlingsrummet hos Studio Taube',
+  },
+  en: {
+    lead: 'You will find us at Nääs Fabriker in Tollered, between Floda and Alingsås.',
+    imageAlt: 'The treatment room at Studio Taube',
+  },
+}[locale];
+---
+
+<BaseLayout locale={locale} title={t('contact.title')} description={copy.lead}>
+  <Section>
+    <PageHeading eyebrow={t('nav.contact')} title={t('contact.title')} lead={copy.lead} />
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-2">
+      <div class="space-y-8">
+        <div>
+          <h2 class="wordmark-label text-ink text-xs">{t('contact.address')}</h2>
+          <address class="text-ink-muted mt-3 not-italic">
+            {SALON.name}<br />
+            {SALON.street}<br />
+            {SALON.postalCode}
+            {SALON.city}<br />
+            {SALON.area}
+          </address>
+          <p class="mt-3">
+            <a class="text-sand-ink hover:text-ink" href={mapUrl()} rel="noopener noreferrer" target="_blank">
+              {t('contact.viewOnMap')}
+            </a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="wordmark-label text-ink text-xs">{t('contact.phone')}</h2>
+          <p class="mt-3">
+            <a class="text-sand-ink hover:text-ink" href={`tel:${SALON.phone}`}>{formatPhoneForHumans(SALON.phone)}</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="wordmark-label text-ink text-xs">{t('contact.email')}</h2>
+          <p class="mt-3">
+            <a class="text-sand-ink hover:text-ink" href={`mailto:${SALON.email}`}>{SALON.email}</a>
+          </p>
+        </div>
+
+        <OpeningHours locale={locale} />
+
+        <BookingButton locale={locale} />
+      </div>
+
+      <Image
+        src={studioImage}
+        alt={copy.imageAlt}
+        widths={[400, 640]}
+        sizes="(min-width: 1024px) 45vw, 100vw"
+        class="rounded-card w-full object-cover"
+      />
+    </div>
+  </Section>
+</BaseLayout>

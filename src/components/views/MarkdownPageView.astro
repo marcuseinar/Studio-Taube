@@ -1,0 +1,26 @@
+---
+import { render } from 'astro:content';
+import PageHeading from '../PageHeading.astro';
+import Section from '../Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPage } from '../../lib/content.ts';
+import type { Locale } from '../../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+const page = await getPage(slug, locale);
+const { Content } = await render(page);
+---
+
+<BaseLayout locale={locale} title={page.data.title} description={page.data.description}>
+  <Section>
+    <PageHeading title={page.data.title} />
+    <div class="prose-taube text-ink-muted mt-8 max-w-[68ch]">
+      <Content />
+    </div>
+  </Section>
+</BaseLayout>

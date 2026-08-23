@@ -1,0 +1,61 @@
+---
+import PageHeading from '../PageHeading.astro';
+import PriceRow from '../PriceRow.astro';
+import Section from '../Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { entrySlug, getServices, groupByCategory } from '../../lib/content.ts';
+import { categoryLabel } from '../../i18n/categories.ts';
+import { useTranslations, type Locale } from '../../i18n/index.ts';
+import type { ServiceCategory } from '../../content.config.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const byCategory = groupByCategory(await getServices(locale));
+
+const lead =
+  locale === 'sv'
+    ? 'Alla priser i kronor, inklusive moms. Priserna hämtas från vårt bokningssystem.'
+    : 'All prices in Swedish kronor, including VAT. Prices come from our booking system.';
+---
+
+<BaseLayout locale={locale} title={t('nav.prices')} description={lead}>
+  <Section>
+    <PageHeading eyebrow={t('nav.prices')} title={t('nav.prices')} lead={lead} />
+
+    <div class="mt-12 space-y-12">
+      {
+        [...byCategory.entries()].map(([category, entries]) => (
+          <div>
+            <h2 class="text-ink font-serif text-2xl">{categoryLabel(category as ServiceCategory, locale)}</h2>
+            <table class="mt-4 w-full">
+              <thead class="sr-only">
+                <tr>
+                  <th scope="col">{t('treatments.title')}</th>
+                  <th scope="col">{t('treatments.duration')}</th>
+                  <th scope="col">{t('treatments.price')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {entries.map((service) => (
+                  <PriceRow
+                    locale={locale}
+                    slug={entrySlug(service.id)}
+                    title={service.data.title}
+                    durationMinutes={service.data.durationMinutes}
+                    priceSek={service.data.priceSek}
+                    priceFrom={service.data.priceFrom}
+                    isFree={service.data.isFree}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+</BaseLayout>

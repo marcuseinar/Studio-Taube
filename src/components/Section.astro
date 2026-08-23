@@ -1,0 +1,16 @@
+---
+interface Props {
+  tone?: 'cream' | 'shell' | 'blush';
+  class?: string;
+}
+
+const { tone = 'cream', class: className = '' } = Astro.props;
+
+const tones = { cream: 'bg-cream', shell: 'bg-shell', blush: 'bg-blush' } as const;
+---
+
+<section class={`${tones[tone]} ${className}`}>
+  <div class="mx-auto max-w-[1200px] px-5 py-16 sm:py-20">
+    <slot />
+  </div>
+</section>

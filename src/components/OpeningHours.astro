@@ -1,0 +1,48 @@
+---
+import { OPENING_HOURS } from '../lib/site.ts';
+import { useTranslations, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const WEEK = [1, 2, 3, 4, 5, 6, 0] as const;
+type Weekday = (typeof WEEK)[number];
+type DayHours = { opens: string; closes: string };
+
+const hoursByWeekday = new Map<Weekday, DayHours>(
+  OPENING_HOURS.map((hours) => [hours.weekday, { opens: hours.opens, closes: hours.closes }]),
+);
+
+const weekdayKeys = {
+  0: 'weekday.0',
+  1: 'weekday.1',
+  2: 'weekday.2',
+  3: 'weekday.3',
+  4: 'weekday.4',
+  5: 'weekday.5',
+  6: 'weekday.6',
+} as const;
+---
+
+<table class="w-full max-w-sm text-sm">
+  <caption class="wordmark-label text-ink mb-3 text-left text-xs">{t('contact.openingHours')}</caption>
+  <tbody>
+    {
+      WEEK.map((weekday) => {
+        const hours = hoursByWeekday.get(weekday);
+        return (
+          <tr class="border-sand/30 border-b last:border-0">
+            <th scope="row" class="text-ink-muted py-2 text-left font-normal">
+              {t(weekdayKeys[weekday])}
+            </th>
+            <td class="tabular py-2 text-right">{hours ? `${hours.opens}–${hours.closes}` : t('contact.closed')}</td>
+          </tr>
+        );
+      })
+    }
+  </tbody>
+</table>

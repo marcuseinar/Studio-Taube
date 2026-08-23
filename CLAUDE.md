@@ -6,12 +6,12 @@ general habits and defaults.
 
 Companion documents, read them when the task touches their area:
 
-| Document | Read it when |
-|---|---|
-| `docs/ARCHITECTURE.md` | Adding pages, routes, integrations, build tooling |
-| `docs/DESIGN.md` | Touching anything visual: colour, type, spacing, components |
-| `docs/CONTENT.md` | Adding or changing content collections, copy, translations |
-| `docs/DECISIONS.md` | You are about to contradict a locked decision |
+| Document               | Read it when                                                |
+| ---------------------- | ----------------------------------------------------------- |
+| `docs/ARCHITECTURE.md` | Adding pages, routes, integrations, build tooling           |
+| `docs/DESIGN.md`       | Touching anything visual: colour, type, spacing, components |
+| `docs/CONTENT.md`      | Adding or changing content collections, copy, translations  |
+| `docs/DECISIONS.md`    | You are about to contradict a locked decision               |
 
 ---
 
@@ -20,14 +20,14 @@ Companion documents, read them when the task touches their area:
 A marketing and booking-entry website for **Studio Taube — Skönhet & Hälsa**, a
 beauty and skin-care studio at Nääs Fabriker.
 
-| Fact | Value |
-|---|---|
-| Address | Spinnerivägen 1, 448 50 Tollered (Nääs Fabriker) |
-| Domain | `studiotaube.se` (owned, currently parked at Loopia) |
-| Hosting | GitHub Pages, static only |
-| Booking | Bokadirekt, salon id `studio-taube-56559` |
-| Staff | Linda (owner), Wilma |
-| Languages | Swedish (primary), English |
+| Fact              | Value                                                |
+| ----------------- | ---------------------------------------------------- |
+| Address           | Spinnerivägen 1, 448 50 Tollered (Nääs Fabriker)     |
+| Domain            | `studiotaube.se` (owned, currently parked at Loopia) |
+| Hosting           | GitHub Pages, static only                            |
+| Booking           | Bokadirekt, salon id `studio-taube-56559`            |
+| Staff             | Linda (owner), Wilma                                 |
+| Languages         | Swedish (primary), English                           |
 | Existing presence | Instagram `@linda_studiotaube`, Facebook, Bokadirekt |
 
 The site does **not** take payments and does **not** store customer data. It
@@ -48,7 +48,7 @@ change is. CI enforces most of them; the rest are on you.
 2. **Never write medical or clinical claims.** This studio performs CO2-laser,
    peels and skin treatments. Swedish marketing law restricts health and
    efficacy claims, and unsupported ones create real legal exposure for Linda.
-   Describe what a treatment *is* and what it *involves*. Do not write that it
+   Describe what a treatment _is_ and what it _involves_. Do not write that it
    cures, heals, removes, rejuvenates, or is medically proven. Flag any copy you
    are unsure about instead of shipping it.
 3. **No content in markup.** Every user-visible string lives in a content
@@ -75,17 +75,17 @@ change is. CI enforces most of them; the rest are on you.
 
 ## 3. Stack
 
-| Layer | Choice | Why |
-|---|---|---|
-| Framework | Astro 5 | Static output, zero JS by default, typed content collections, islands when we need interactivity |
-| Language | TypeScript, `strict` | Content schemas and booking logic are worth type-checking |
-| Styling | Tailwind CSS v4, theme bound to CSS custom properties | Palette swap = one file |
-| Content | Astro Content Collections + Zod | Invalid content fails the build, not production |
-| CMS | Sveltia CMS at `/admin`, GitHub backend | Free, git-based, no database |
-| Auth for CMS | Cloudflare Worker (OAuth relay) | Free tier, only moving part outside GitHub |
-| Tests | Vitest (units), Playwright (journeys + axe) | |
-| CI/CD | GitHub Actions → GitHub Pages | |
-| Analytics | Cloudflare Web Analytics | Cookieless, so no consent banner is required |
+| Layer        | Choice                                                | Why                                                                                              |
+| ------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Framework    | Astro 5                                               | Static output, zero JS by default, typed content collections, islands when we need interactivity |
+| Language     | TypeScript, `strict`                                  | Content schemas and booking logic are worth type-checking                                        |
+| Styling      | Tailwind CSS v4, theme bound to CSS custom properties | Palette swap = one file                                                                          |
+| Content      | Astro Content Collections + Zod                       | Invalid content fails the build, not production                                                  |
+| CMS          | Sveltia CMS at `/admin`, GitHub backend               | Free, git-based, no database                                                                     |
+| Auth for CMS | Cloudflare Worker (OAuth relay)                       | Free tier, only moving part outside GitHub                                                       |
+| Tests        | Vitest (units), Playwright (journeys + axe)           |                                                                                                  |
+| CI/CD        | GitHub Actions → GitHub Pages                         |                                                                                                  |
+| Analytics    | Cloudflare Web Analytics                              | Cookieless, so no consent banner is required                                                     |
 
 Do not add a dependency without justifying it in the PR description. Prefer the
 platform over a package; prefer a 20-line utility over a 200 kB library.
@@ -136,6 +136,7 @@ work. The principles below are the operative ones; where the book's advice and
 readability conflict, readability wins, but you must be able to explain why.
 
 ### Naming
+
 - Names reveal intent. `treatmentDurationMinutes`, not `dur`, not `x`.
 - No abbreviations except universally understood ones (`id`, `url`, `html`).
 - Booleans read as assertions: `isBookable`, `hasCampaign`, not `campaign` or `flag`.
@@ -144,6 +145,7 @@ readability conflict, readability wins, but you must be able to explain why.
   English. Do not mix the two inside one identifier.
 
 ### Functions
+
 - One reason to exist. If you need "and" to describe it, split it.
 - No flag arguments. `renderCard(service, true)` is forbidden; write two
   functions or pass a named option object.
@@ -152,6 +154,7 @@ readability conflict, readability wins, but you must be able to explain why.
 - Prefer pure functions in `src/lib/`. They are the parts we unit-test.
 
 ### Components
+
 - A component does one of two things, never both:
   - **Presentational** — receives props, renders markup. No data access.
   - **Container** — reads content collections, composes presentational children.
@@ -162,11 +165,13 @@ readability conflict, readability wins, but you must be able to explain why.
   inside it.
 
 ### Duplication
+
 - Two occurrences: note it. Three: extract it.
 - Do not abstract prematurely. A shared component built from one use case is
   usually the wrong shape.
 
 ### Comments
+
 - Comments explain **why**, never **what**. If a comment explains what the code
   does, rename things until it is unnecessary and delete the comment.
 - No commented-out code. Git remembers.
@@ -176,12 +181,14 @@ readability conflict, readability wins, but you must be able to explain why.
   here.
 
 ### Error handling
+
 - Content errors fail the build. Do not swallow a Zod error to keep the build
   green.
 - Runtime code that touches a third party (the booking embed) degrades
   gracefully: if the widget fails to load, the user still gets a working link.
 
 ### Boy Scout rule
+
 Leave code cleaner than you found it — but keep unrelated cleanups in a
 separate commit so a reviewer can see the actual change.
 
@@ -245,16 +252,16 @@ a provider must not require touching a single page or component.
 
 CI fails the build if any of these regress:
 
-| Metric | Budget |
-|---|---|
-| Lighthouse performance | ≥ 95 |
-| Lighthouse accessibility | 100 |
-| Lighthouse SEO | ≥ 95 |
-| axe violations | 0 |
-| Largest Contentful Paint | ≤ 2.0 s (throttled) |
-| Cumulative Layout Shift | ≤ 0.05 |
-| JS shipped to the landing page | ≤ 25 kB gzipped |
-| Any single image | ≤ 250 kB served |
+| Metric                         | Budget              |
+| ------------------------------ | ------------------- |
+| Lighthouse performance         | ≥ 95                |
+| Lighthouse accessibility       | 100                 |
+| Lighthouse SEO                 | ≥ 95                |
+| axe violations                 | 0                   |
+| Largest Contentful Paint       | ≤ 2.0 s (throttled) |
+| Cumulative Layout Shift        | ≤ 0.05              |
+| JS shipped to the landing page | ≤ 25 kB gzipped     |
+| Any single image               | ≤ 250 kB served     |
 
 Images are processed through Astro's image pipeline. Never commit an unoptimised
 photograph straight from a phone into `public/`.

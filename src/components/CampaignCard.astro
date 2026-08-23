@@ -1,0 +1,70 @@
+---
+import BookingButton from './BookingButton.astro';
+import { discountPercent } from '../lib/campaigns.ts';
+import { formatDuration, formatPrice } from '../lib/format.ts';
+import { useTranslations, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+  title: string;
+  summary: string;
+  priceSek: number;
+  ordinaryPriceSek?: number | undefined;
+  durationMinutes: number;
+  requiresConsultation: boolean;
+  bokadirektServiceId?: number | undefined;
+  bokadirektSlug: string;
+}
+
+const {
+  locale,
+  title,
+  summary,
+  priceSek,
+  ordinaryPriceSek,
+  durationMinutes,
+  requiresConsultation,
+  bokadirektServiceId,
+  bokadirektSlug,
+} = Astro.props;
+
+const t = useTranslations(locale);
+const saving = ordinaryPriceSek ? discountPercent(priceSek, ordinaryPriceSek) : undefined;
+---
+
+<article class="border-sand/50 bg-cream rounded-card flex flex-col border p-6">
+  <div class="flex items-start justify-between gap-4">
+    <h3 class="text-ink font-serif text-xl leading-snug">{title}</h3>
+    {
+      saving !== undefined && (
+        <span class="bg-blush text-ink rounded-pill px-3 py-1 text-xs whitespace-nowrap">−{saving}%</span>
+      )
+    }
+  </div>
+
+  <p class="text-ink-muted mt-3 grow text-sm">{summary}</p>
+
+  <p class="mt-5 flex items-baseline gap-3">
+    <span class="text-ink tabular font-serif text-2xl">{formatPrice(priceSek, locale)}</span>
+    {
+      ordinaryPriceSek !== undefined && (
+        <span class="text-ink-muted tabular text-sm">
+          <span class="sr-only">{t('campaigns.ordinaryPrice')}: </span>
+          <s>{formatPrice(ordinaryPriceSek, locale)}</s>
+        </span>
+      )
+    }
+  </p>
+
+  <p class="text-ink-muted tabular mt-1 text-sm">{formatDuration(durationMinutes, locale)}</p>
+
+  {requiresConsultation && <p class="text-sand-ink mt-4 text-xs">{t('booking.consultationRequired')}</p>}
+
+  <BookingButton
+    locale={locale}
+    service={{ slug: bokadirektSlug, bokadirektServiceId }}
+    label={t('booking.cta.service')}
+    class="mt-6 self-start"
+  />
+</article>

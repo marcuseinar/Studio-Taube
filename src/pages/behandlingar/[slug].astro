@@ -1,0 +1,13 @@
+---
+import TreatmentView from '../../components/views/TreatmentView.astro';
+import { entrySlug, getServices } from '../../lib/content.ts';
+
+export async function getStaticPaths() {
+  const services = await getServices('sv');
+  return services.map((service) => ({ params: { slug: entrySlug(service.id) }, props: { service } }));
+}
+
+const { service } = Astro.props;
+---
+
+<TreatmentView locale="sv" service={service} />

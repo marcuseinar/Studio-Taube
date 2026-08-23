@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import BookingButton from './BookingButton.astro';
+import Wordmark from './Wordmark.astro';
+import { SALON } from '../lib/site.ts';
+import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
+import heroImage from '../assets/photos/head-spa-basin.jpg';
+
+interface Props {
+  locale: Locale;
+  lead: string;
+  imageAlt: string;
+}
+
+const { locale, lead, imageAlt } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="bg-blush/40">
+  <div class="mx-auto grid max-w-[1200px] items-center gap-10 px-5 py-16 sm:py-24 lg:grid-cols-2">
+    <div>
+      <Wordmark class="text-ink w-full max-w-[420px]" label={`${SALON.name} ${SALON.tagline}`} />
+      <p class="text-ink-muted mt-8 max-w-[46ch] text-lg">{lead}</p>
+      <p class="wordmark-label text-sand-ink mt-6 text-[0.7rem]">{SALON.area} · {SALON.city}</p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <BookingButton locale={locale} />
+        <a
+          href={localisePath('/behandlingar/', locale)}
+          class="border-sand-deep text-sand-ink hover:bg-shell wordmark-label rounded-pill inline-flex min-h-11 items-center border px-7 py-3 text-sm"
+        >
+          {t('nav.treatments')}
+        </a>
+      </div>
+    </div>
+
+    <Image
+      src={heroImage}
+      alt={imageAlt}
+      widths={[420, 640, 900]}
+      sizes="(min-width: 1024px) 45vw, 100vw"
+      class="rounded-card w-full object-cover"
+      loading="eager"
+    />
+  </div>
+</section>

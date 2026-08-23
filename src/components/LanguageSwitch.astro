@@ -1,0 +1,20 @@
+---
+import { alternatePath, useTranslations, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const target: Locale = locale === 'sv' ? 'en' : 'sv';
+const t = useTranslations(target);
+---
+
+<a
+  href={alternatePath(pathname, target)}
+  hreflang={target === 'sv' ? 'sv-SE' : 'en'}
+  class="wordmark-label text-ink-muted hover:text-sand-ink inline-flex min-h-11 items-center text-xs"
+>
+  {t('language.current')}
+</a>

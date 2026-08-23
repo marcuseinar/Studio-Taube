@@ -1,0 +1,50 @@
+---
+import PageHeading from '../PageHeading.astro';
+import Section from '../Section.astro';
+import TreatmentCard from '../TreatmentCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { entrySlug, getServices, groupByCategory } from '../../lib/content.ts';
+import { categoryLabel } from '../../i18n/categories.ts';
+import { useTranslations, type Locale } from '../../i18n/index.ts';
+import type { ServiceCategory } from '../../content.config.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const services = await getServices(locale);
+const byCategory = groupByCategory(services);
+---
+
+<BaseLayout locale={locale} title={t('treatments.title')} description={t('treatments.intro')}>
+  <Section>
+    <PageHeading eyebrow={t('nav.treatments')} title={t('treatments.title')} lead={t('treatments.intro')} />
+  </Section>
+
+  {
+    [...byCategory.entries()].map(([category, entries], index) => (
+      <Section tone={index % 2 === 0 ? 'shell' : 'cream'}>
+        <h2 class="text-ink font-serif text-3xl">{categoryLabel(category as ServiceCategory, locale)}</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {entries.map((service) => (
+            <TreatmentCard
+              locale={locale}
+              slug={entrySlug(service.id)}
+              title={service.data.title}
+              summary={service.data.summary}
+              durationMinutes={service.data.durationMinutes}
+              priceSek={service.data.priceSek}
+              priceFrom={service.data.priceFrom}
+              isFree={service.data.isFree}
+              requiresConsultation={service.data.requiresConsultation}
+              bokadirektServiceId={service.data.bokadirektServiceId}
+            />
+          ))}
+        </div>
+      </Section>
+    ))
+  }
+</BaseLayout>

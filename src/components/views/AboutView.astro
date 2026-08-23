@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import PageHeading from '../PageHeading.astro';
+import Section from '../Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPage, getStaff } from '../../lib/content.ts';
+import { useTranslations, type Locale } from '../../i18n/index.ts';
+import lindaImage from '../../assets/photos/linda-i-studion.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const page = await getPage('om-oss', locale);
+const { Content } = await render(page);
+const staff = await getStaff(locale);
+
+const imageAlt = locale === 'sv' ? 'Linda i Studio Taubes salong' : 'Linda in the Studio Taube salon';
+---
+
+<BaseLayout locale={locale} title={page.data.title} description={page.data.description}>
+  <Section>
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-start">
+      <div>
+        <PageHeading eyebrow={t('nav.about')} title={page.data.title} />
+        <div class="prose-taube text-ink-muted mt-8 max-w-[68ch]">
+          <Content />
+        </div>
+      </div>
+      <Image
+        src={lindaImage}
+        alt={imageAlt}
+        widths={[420, 640]}
+        sizes="(min-width: 1024px) 45vw, 100vw"
+        class="rounded-card w-full object-cover"
+      />
+    </div>
+  </Section>
+
+  <Section tone="shell">
+    <h2 class="text-ink font-serif text-3xl">{t('about.staff')}</h2>
+    <ul class="mt-8 grid gap-6 sm:grid-cols-2">
+      {
+        staff.map((person) => (
+          <li class="border-sand/50 bg-cream rounded-card border p-6">
+            <h3 class="text-ink font-serif text-xl">{person.data.name}</h3>
+            <p class="wordmark-label text-sand-ink mt-1 text-[0.65rem]">{person.data.role}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+</BaseLayout>

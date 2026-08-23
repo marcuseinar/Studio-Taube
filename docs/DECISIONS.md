@@ -21,7 +21,7 @@ prefixes, and React's weight buys nothing here. Eleventy — fewer guardrails, n
 typed content. WordPress — not free, not static, and a permanent security and
 maintenance burden for a two-person salon.
 
-*Revisit if:* the site grows a genuine application surface (customer accounts,
+_Revisit if:_ the site grows a genuine application surface (customer accounts,
 on-site payments) that static hosting cannot serve.
 
 ---
@@ -36,16 +36,16 @@ a marketing site containing no secrets and no customer data, so a public
 repository costs nothing and removes that constraint. The domain is already
 registered and currently parked at Loopia, so the only change needed is DNS.
 
-*Consequence:* no server-side code, ever. Forms and any future commerce must go
+_Consequence:_ no server-side code, ever. Forms and any future commerce must go
 through a third party.
 
-*Revisit if:* the repository needs to hold anything confidential.
+_Revisit if:_ the repository needs to hold anything confidential.
 
 ---
 
 ## D3 — Campaigns as content, no checkout
 
-**Decided.** The site publishes campaigns, offers and gift-card *information*.
+**Decided.** The site publishes campaigns, offers and gift-card _information_.
 It does not process payments.
 
 Every transaction happens in Bokadirekt. This keeps the site free to run, keeps
@@ -56,7 +56,7 @@ right of withdrawal, returns handling, all of which would land on Linda.
 The content model is nonetheless built so a product collection and a checkout
 provider can be added without restructuring.
 
-*Revisit if:* Linda wants to sell gift cards or retail products directly. The
+_Revisit if:_ Linda wants to sell gift cards or retail products directly. The
 likely route is Stripe Payment Links (no monthly fee, per-transaction cost).
 
 ---
@@ -72,13 +72,13 @@ reviewable, and free — there is no database and no hosting bill. The Cloudflar
 Worker exists only because GitHub OAuth needs a server-side token exchange; it
 is on the free tier and holds no state.
 
-*Consequence:* content schemas must remain CMS-renderable. Clever TypeScript in
+_Consequence:_ content schemas must remain CMS-renderable. Clever TypeScript in
 a schema that Sveltia cannot express is a defect.
 
 Rejected: Decap CMS — same model but a less actively maintained editor. Tina
 Cloud — free tier exists but introduces a vendor dependency for core content.
 
-*Revisit if:* Sveltia's maintenance stalls, or Linda finds the editor unusable.
+_Revisit if:_ Sveltia's maintenance stalls, or Linda finds the editor unusable.
 
 ---
 
@@ -91,7 +91,7 @@ so it is cheaper to build for two locales now than to add the second later.
 Nääs Fabriker draws visitors from outside the immediate area, which makes the
 English surface worth its cost.
 
-*Consequence:* every content entry must exist in both locales or the build
+_Consequence:_ every content entry must exist in both locales or the build
 fails. There is no silent fallback — a half-translated page is worse than an
 obviously missing one.
 
@@ -104,12 +104,12 @@ v1 uses deep links to Bokadirekt.
 
 Bokadirekt's terms as of this decision:
 
-| Capability | Cost |
-|---|---|
-| Deep link to the salon or a treatment | free, works today |
+| Capability                                | Cost                              |
+| ----------------------------------------- | --------------------------------- |
+| Deep link to the salon or a treatment     | free, works today                 |
 | Embed the booking button on your own site | free, included in normal packages |
-| API & Webhooks module | 399 kr/mån |
-| Webhooks only | 199 kr/mån |
+| API & Webhooks module                     | 399 kr/mån                        |
+| Webhooks only                             | 199 kr/mån                        |
 
 Deep links need nothing from anyone and work immediately. The embed is free but
 requires Linda to fetch the snippet from her Bokadirekt business account. The
@@ -119,7 +119,7 @@ demonstrably converts better than the embed.
 The abstraction means moving between these three is a configuration change, not
 a rewrite.
 
-*Revisit when:* Linda supplies the embed snippet — that is a config change, not
+_Revisit when:_ Linda supplies the embed snippet — that is a config change, not
 a decision.
 
 ---
@@ -135,7 +135,7 @@ obligation and a piece of UI that hurts every metric on the page. Fonts are
 self-hosted rather than loaded from Google's CDN, for the same reason as well
 as for performance.
 
-*Revisit if:* Linda needs conversion attribution for paid advertising. That is a
+_Revisit if:_ Linda needs conversion attribution for paid advertising. That is a
 real reason, and it changes the consent picture — do not add tracking without it.
 
 ---

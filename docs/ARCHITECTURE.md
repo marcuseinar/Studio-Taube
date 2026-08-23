@@ -14,18 +14,18 @@ No server, no database, no runtime. Everything is decided at build time.
 
 ## Routing
 
-| Route | Content |
-|---|---|
-| `/` | Swedish home |
-| `/behandlingar/` | Treatment overview |
-| `/behandlingar/<slug>/` | Single treatment |
-| `/priser/` | Full price list |
-| `/kampanjer/` | Active campaigns |
-| `/om-oss/` | About, staff |
-| `/kontakt/` | Address, hours, map, contact |
-| `/integritetspolicy/` | GDPR |
-| `/en/...` | English equivalents |
-| `/admin/` | Sveltia CMS |
+| Route                   | Content                      |
+| ----------------------- | ---------------------------- |
+| `/`                     | Swedish home                 |
+| `/behandlingar/`        | Treatment overview           |
+| `/behandlingar/<slug>/` | Single treatment             |
+| `/priser/`              | Full price list              |
+| `/kampanjer/`           | Active campaigns             |
+| `/om-oss/`              | About, staff                 |
+| `/kontakt/`             | Address, hours, map, contact |
+| `/integritetspolicy/`   | GDPR                         |
+| `/en/...`               | English equivalents          |
+| `/admin/`               | Sveltia CMS                  |
 
 Every page emits a canonical URL and `hreflang` alternates for both locales.
 
@@ -97,14 +97,14 @@ Dependabot for npm and Actions, grouped weekly.
 
 ## Cost model
 
-| Item | Cost |
-|---|---|
-| GitHub Pages, public repo | 0 kr |
-| Domain (already owned) | ~119–200 kr/år, existing |
-| Cloudflare Worker (CMS auth) | 0 kr, free tier |
-| Cloudflare Web Analytics | 0 kr |
-| Bokadirekt embed | 0 kr, included |
-| *Optional:* Bokadirekt API module | 399 kr/mån |
-| *Optional:* contact form service | 0 kr on free tier |
+| Item                              | Cost                     |
+| --------------------------------- | ------------------------ |
+| GitHub Pages, public repo         | 0 kr                     |
+| Domain (already owned)            | ~119–200 kr/år, existing |
+| Cloudflare Worker (CMS auth)      | 0 kr, free tier          |
+| Cloudflare Web Analytics          | 0 kr                     |
+| Bokadirekt embed                  | 0 kr, included           |
+| _Optional:_ Bokadirekt API module | 399 kr/mån               |
+| _Optional:_ contact form service  | 0 kr on free tier        |
 
 Anything that adds recurring cost requires Linda's explicit approval.

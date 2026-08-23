@@ -1,0 +1,2178 @@
+[
+ {
+  "id": 388949,
+  "name": "KAMPANJ",
+  "active": true,
+  "order": 9,
+  "own": true,
+  "services": [
+   {
+    "id": 3464119,
+    "name": "Cool peel Co2 Laser",
+    "price": 2999,
+    "duration": 5400,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-AED8D5FD_F92F_448C_93B5_427B6E64C740",
+      "maxPriceWithoutVat": 2399.2
+     },
+     "inactive": false
+    },
+    "about": {
+     "slug": "cool-peel-co2-laser",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "description": "Erbjudande på cool peel ansikte & hals \n2999:- (ord.3499:-) \n\nOBLIGATORISKT ATT DU ALLTID BOKAR EN KONSULTATION INNAN DU BOKAR EN BEHANDLING SÅ VI KAN SE TILL ATT DU BOKAR DEN BEHANDLINGEN SOM PASSAR DIG BÄST.\n\nEn ytlig fraktionerad ablativ Co2 laser för dig som vill ha kortare återhämtningstid.\n\nDenna laser kan leverera hög laserenergi i korta pulser som ger resultat utan kvardröjande värme som gör att omgivande hud ej tar skada.\n\nDen är bra för bland annat fina linjer, porer, ytliga pigmenteringar, ojämn hudton och textur, akneärr.\n  \nFör bästa resultat rekommenderas 3 behandlingstillfällen med cirka 4-6 veckors mellanrum. \n\nATT TÄNKA PÅ INFÖR OCH EFTER DIN BEHANDLING \nUndvik behandling om du:  \n-Är gravid eller ammar  \n-Äter blodförtunnande medicin (rådgör med läkare) \n-Antibiotika\n\nEfter behandling bör du undvika: \n-Fysisk aktivitet, bastubad och direkt solexponering\n-Undvik smink första dagarna\n-Undvik aktiva ingredienser\n\nFörsta dagarna efter behandling:\n-Återfukta huden\n-Använd solskydd\n-Använd rena sängkläder & handduk.\n\n\nBehandlingen utförs av kvalitetssäkrad  hudterapeut för din säkerhet",
+     "displayDuration": 5400,
+     "product": 817
+    },
+    "priceType": {
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2999
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2399.2
+     },
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "range": "",
+     "durationRange": ""
+    },
+    "priceLabel": "2 999 kr",
+    "durationLabel": "90 min",
+    "createdAt": "2026-05-19T10:17:37.000Z"
+   },
+   {
+    "id": 3464121,
+    "name": "Head spa 60 min ",
+    "price": 760,
+    "duration": 4200,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-CBA562B6_0489_439F_8189_D83F45A020EB",
+      "maxPriceWithoutVat": 608
+     },
+     "inactive": false
+    },
+    "about": {
+     "slug": "head-spa-60-min",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "description": "Headspa 60 minuter \n760:- (ord.950:-) \n\nFör information om behandlingen vänlig läs under fliken headspa.",
+     "displayDuration": 4200,
+     "product": 4083
+    },
+    "priceType": {
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 760
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 608
+     },
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "range": "",
+     "durationRange": ""
+    },
+    "priceLabel": "760 kr",
+    "durationLabel": "70 min",
+    "createdAt": "2026-05-19T10:19:58.000Z"
+   },
+   {
+    "id": 3464124,
+    "name": "Head&face spa lyx 90 min ",
+    "price": 1119,
+    "duration": 6000,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-249F4D9E_1818_45E5_9A7A_1AE86BF712DB",
+      "oldId": null,
+      "maxPriceWithoutVat": 895.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "headface-spa-lyx-90-min",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Head&face spa lyx \n1119:- (ord 1399:-) \n\nInformation om behandlingen hittar du under fliken headspa)",
+     "displayDuration": 6000,
+     "product": 4083,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1119
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 6000
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 895.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 6000
+     }
+    },
+    "priceLabel": "1 119 kr",
+    "durationLabel": "100 min",
+    "createdAt": "2026-05-19T10:23:02.000Z"
+   }
+  ]
+ },
+ {
+  "id": 418182,
+  "name": "Konsultation",
+  "active": true,
+  "order": 10,
+  "own": true,
+  "services": [
+   {
+    "id": 3372866,
+    "name": "Konsultation Co2 Laser (obligatorisk) ",
+    "price": 0,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-5AE8369E_760A_4C7E_9EF6_7C4F7C45D15E",
+      "oldId": null,
+      "maxPriceWithoutVat": 0
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "konsultation-co2-laser-obligatorisk",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Innan du bokar din Co2 Laser så vill vi att du kommer på en kostnadsfri konsultation för att du ska få all informations som krävs innan och efter behandling så att du som kund dig trygg inför din behandling.",
+     "displayDuration": 1800,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 0
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 0
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     }
+    },
+    "priceLabel": "",
+    "durationLabel": "30 min",
+    "createdAt": "2025-12-04T11:21:07.000Z"
+   },
+   {
+    "id": 3424039,
+    "name": "Konsultation hudvård ",
+    "price": 0,
+    "duration": 1200,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-96A664D7_129F_4505_9972_82597EF67600",
+      "oldId": null,
+      "maxPriceWithoutVat": 0
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "konsultation-hudvard",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": true,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Konsultation för den som vill veta mer om vår hudvård. Vi går igenom vad just din hud behöver och vad du själv skulle vilja jobba på.",
+     "displayDuration": 1200,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 0
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 0
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1200
+     }
+    },
+    "priceLabel": "",
+    "durationLabel": "20 min",
+    "createdAt": "2026-03-11T10:04:03.000Z"
+   }
+  ]
+ },
+ {
+  "id": 411629,
+  "name": "Co2 Laser",
+  "active": true,
+  "order": 3,
+  "own": true,
+  "services": [
+   {
+    "id": 3372890,
+    "name": "Co2 -laser uppstramning runt munnen",
+    "price": 2300,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-91A1E405_0C55_4A32_92FE_2AF77EEFE7F4",
+      "oldId": null,
+      "maxPriceWithoutVat": 1840
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "co2-laser-uppstramning-runt-munnen",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Med fraktionerad co2 laser \nHudföryngrande runt munnen \n\nBoka konsultation innan behandling",
+     "displayDuration": 3600,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2300
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1840
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "2 300 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2025-12-04T11:51:22.000Z"
+   },
+   {
+    "id": 3372894,
+    "name": "Co2-laser händer ",
+    "price": 2300,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-4D8857F0_86FF_4DB7_B4B7_1B5B8B577FFA",
+      "oldId": null,
+      "maxPriceWithoutVat": 1840
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "co2-laser-hander",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Med fraktionerad co2 laser jobbar vi på att föryngra huden på händerna.",
+     "displayDuration": 3600,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2300
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1840
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "2 300 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2025-12-04T11:55:00.000Z"
+   },
+   {
+    "id": 3372892,
+    "name": "Co2-laser uppstramning av ögonområde ",
+    "price": 2300,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 2,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-585BD217_EE5F_4FB8_8EC9_93232128AEB9",
+      "oldId": null,
+      "maxPriceWithoutVat": 1840
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "co2-laser-uppstramning-av-ogonomrade",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Med fraktionerad co2 laser arbetar vi för att strama upp ögonområde \n\nBoka konsultation innan behandling",
+     "displayDuration": 3600,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2300
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1840
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "2 300 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2025-12-04T11:53:29.000Z"
+   },
+   {
+    "id": 3372887,
+    "name": "Cool peel co2-laser ansikte+exosomer",
+    "price": 3499,
+    "duration": 5400,
+    "place": 56559,
+    "sorting": 3,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-3FF2287B_859B_4F95_878C_BF5E4DB35A84",
+      "oldId": null,
+      "maxPriceWithoutVat": 2799.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "cool-peel-co2-laser-ansikteexosomer",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Med cool peel behandling jobbar vi på att reducera fina linjer och rynkor, solskador, porer, akne samt förbättra hudens struktur. \n\nBoka konsultation innan behandling",
+     "displayDuration": 5400,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3499
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2799.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     }
+    },
+    "priceLabel": "3 499 kr",
+    "durationLabel": "90 min",
+    "createdAt": "2025-12-04T11:47:43.000Z"
+   }
+  ]
+ },
+ {
+  "id": 375008,
+  "name": "Head spa",
+  "active": true,
+  "order": 7,
+  "own": true,
+  "services": [
+   {
+    "id": 3077572,
+    "name": "Head Spa 60 minuter",
+    "price": 950,
+    "duration": 4200,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-6C0261C7_58F0_4476_8D38_974B5054C4AD",
+      "oldId": null,
+      "maxPriceWithoutVat": 760
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "head-spa-60-minuter",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": true,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "En behandling för dig som behöver varva ner\n\nI denna behandling ingår \n-Ångbad för hår och ansikte\n(återfuktar hår och hårbotten,jämnar ut hårstån och inskar brått)\n-Ansiktsmassage \n(ansiktsrengöring/ansiktsmassage med olja. Bra för dig med spända axlar, spänningshuvudvärk)\n-Hårmassage \n(förbättrar cirkulationen och bidrar till friskare och tjockare hår. Hjälper till att ta bort all ansamling av oljor och produktrester som kan täppa igen hårsäckarna)\n-Herbs & Clay peeling \n(100% naturlig, rengörande, avgiftande peeling för hårbotten)\n-Peeling för ansikte, bröstkorg och hals\n(tar bort döda hudceller och gör din hud mjuk och len)\n-Axel och nackmassage\n-Schamponering\n(100% ekologiska & naturliga)\n-Ansiksmask och fuktkräm  \n-Hårtork",
+     "displayDuration": 4200,
+     "product": 30,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 950
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 760
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     }
+    },
+    "priceLabel": "950 kr",
+    "durationLabel": "70 min",
+    "createdAt": "2024-04-09T20:14:17.000Z"
+   },
+   {
+    "id": 3138993,
+    "name": "Head&face spa lyx",
+    "price": 1399,
+    "duration": 6000,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-B34279CA_97DD_4021_9731_CA19093044F2",
+      "oldId": null,
+      "maxPriceWithoutVat": 1119.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "headface-spa-lyx",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "En lite längre och lyxigare head spa med längre moment samt fokus på inpackning och hudvård.  Har du långt eller tjockt hår så rekommenderar vi denna",
+     "displayDuration": 6000,
+     "product": 30,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1399
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 6000
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1119.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 6000
+     }
+    },
+    "priceLabel": "1 399 kr",
+    "durationLabel": "100 min",
+    "createdAt": "2024-09-18T12:01:06.000Z"
+   }
+  ]
+ },
+ {
+  "id": 373174,
+  "name": "Ansiksbehandling",
+  "active": true,
+  "order": 0,
+  "own": true,
+  "services": [
+   {
+    "id": 3115245,
+    "name": "Ansiktsbehandling classic ",
+    "price": 950,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-1844C5D3_CE79_41A6_B3D3_3276B3AA7A3F",
+      "oldId": null,
+      "maxPriceWithoutVat": 760
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "ansiktsbehandling-classic",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "En ansiktsbehandling som rengör och återfuktar \n\nVad som ingår (skräddarsyr för just din hud) \nRengöring \nPeeling\nAnsiksmassage med ampull\nMask efter dina behov \n\nPassar alla",
+     "displayDuration": 3600,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 950
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 760
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "950 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2024-07-23T09:33:03.000Z"
+   },
+   {
+    "id": 3414968,
+    "name": "Ansiktsbehandling express ",
+    "price": 550,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-699BB1E3_CF78_4228_A531_661C15D94EC4",
+      "oldId": null,
+      "maxPriceWithoutVat": 440
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "ansiktsbehandling-express",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Ansiktsbehandling express är perfekt för den med mindre tid. Passar perfekt för lunchen eller innan festen. Vi fokuserar på glow men skräddarsyr den så den passar just dig. Passar alla hudtyper",
+     "displayDuration": 1800,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 550
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 440
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     }
+    },
+    "priceLabel": "550 kr",
+    "durationLabel": "30 min",
+    "createdAt": "2026-02-24T10:45:44.000Z"
+   },
+   {
+    "id": 3439810,
+    "name": "Ansiktsbehandling tonår",
+    "price": 899,
+    "duration": 4200,
+    "place": 56559,
+    "sorting": 2,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-53F2427F_A217_4D16_BFC6_FDC1D55ADCA5",
+      "oldId": null,
+      "maxPriceWithoutVat": 719.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "ansiktsbehandling-tonar",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 3600,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": {
+       "3600": 600
+      }
+     },
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 899
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 719.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "899 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2026-04-04T21:21:56.000Z"
+   }
+  ]
+ },
+ {
+  "id": 420107,
+  "name": "Avancerad hudvård",
+  "active": true,
+  "order": 1,
+  "own": true,
+  "services": [
+   {
+    "id": 3172185,
+    "name": "Ansiktsbehandling Dr.Schammek Green Peel ",
+    "price": 1450,
+    "duration": 4200,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-2C1C490D_1B06_4515_828E_CD8EDF3B3633",
+      "oldId": null,
+      "maxPriceWithoutVat": 1160
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "ansiktsbehandling-drschammek-green-peel",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": true,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Dr. Schrammek Green Peel är en 100% naturlig och aktiv medicinsk utvecklad peeling som görs på salong. Behandlingen optimerar hudens funktioner från insidan och ut, för att få ökad styrka, sundhet och elasticitet. \n\nNär du kommer på behandling väljer du tillsammans med din terapeut någon av dessa behandlingar: \n\nGreen Peel Fresh Up, 50 minuter – 1 450 kr\nDen mildare varianten som passar alla hudtyper, även känslig hud. Den ger lyster och verkar uppstramande och utslätande, och kallas därför också för ”party peel”. Samtidigt startar behandlingen processer som bromsar åldrandet, förbättrar upptaget av aktiva ingredienser och förbättrar en hud med pormaskar eller akne. Detta är en unik behandling för känslig och tunn, åldrande hud eftersom den stärker hudbarriären.\n\nGreen Peel Energy, 50 minuter- 1 650 kr\nDenna variant är djupare, och passar dig som vill behandla djupare rynkor, pigmentfläckar, stora porer och akne. Efter denna behandling kan du bli lite röd efteråt, men dagen efter brukar huden vara så pass fin att du kan gå på fest! Denna peel är toppen för den upptagna personen som vill ha en mycket effektiv behandling utan att begränsa vardagen.\n\nVad gör behandlingen?\n\nDr.Scrammek Green Peel ger en uppstramande effekt på vävdad och bekämpar förlust av elasticitet samt för tidigt hudåldrande. Med behandlingen får man en synlig förbättring av förstorade porer, akne, ärr, ojämn hudton, pigmenteringar, solskadad hud samt grå och grov hud.\n\nVad består peelingen av?\n\nDr. Schrammek Green Peel består endast av rena växter och örter, bland annat blåstång, aloe vera och spirulina. Tack vare en unik sammansättning av örter behandlas huden med högkoncentrerade näringsämnen som har en läkande och lugnande effekt, samtidigt som örterna är renande och stimulerande.\n\n\nHur fungerar örterna?\n\nÖrterna har samma ph-värde som huden, till skillnad från vanliga kemiska peelingar. Detta gör den extra skonsam, och huden behandlas utan att anstränga den viktiga hudbarriären. Peelingen gör inga hål i huden, men har ändå en djupverkande effekt. Peelen blir som sagt som ett träningspass för huden, och genom den ökade cirkulationen och tillgången till syre ökar ämnesomsättningen i cellerna. Cellförnyelsen i överhuden ökar, produktionen av bindväv i hudens truktur stärks samtidigt som fuktinnehållet balanseras. Örterna innehåller en unik sammansättning som har olika effekter på och i huden. Från insidan verkar örterna kraftigt antibakteriella, antiinflammatoriska, näringsrika, stärkande, renande och beskyddande i flera dagar efter behandlingen.\n\nHemmaprodukter - Oavsett vilken av behandlingarna du väljer är det viktigt med rätt produkter att använda hemma. Detta för att du ska få maximalt resultat efter behandlingen. Dr. Schrammeks produkter har utvecklats för att behandlingen ska uppnå de unika resultaten och för att huden ska utstå så lite stress som möjligt. Produkterna är lugnande samtidigt som de bidrar till att örterna får en längre verkningstid i huden. Utöver det tillsätts uppbyggande, stärkande och närande ingredienser till huden som också ger fukt och är skyddande.\n\nDärför måste man vid behandling alltid köpa med sig ett ”after treatment kit” att använda efter behandlingen, och det kostar 750 kr\n\nNär ska jag helt avstå från behandlingen?\n\nVid...\n\nGraviditet\nAmmning \nSjukdomstillstånd\n\nAvakta med behandlingen \n\nEn vecka efter\n\nHerpesutbrott\nHårborttagning med vax\nMilda syraprodukter\n\n2-4 veckor efter\nAntibiotika\nChlorpromazine\n\n4 veckor efter\nKortisonsalva/kräm/gel\nFillers/botox\n\n4-6 veckor efter\nAntideppressiva med St Johannesört\nMicroneedling/Dermapen\nKortisonspruta/tablett\nPlasmapen\nStarka syraprodukter\nRetinol\n\n2 månader efter\nKemisk peeling\n\n2-3 månader efter\nLaser för pigment eller blodkärl\n\n3 månader efter\n\nCancerbehandling med cellgift\n\n4-6 månader efter\nBluepeel\nTCA\nTrådlyft\nAnsiktslyft\nIsotretinoin\nCo2laser\nLaserbehandling för hudföryngring\nDermabration \nÄrr",
+     "displayDuration": 3600,
+     "product": 74,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": {
+       "3600": 600
+      }
+     },
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1450
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1160
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "Från 1 450 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2024-11-18T12:28:55.000Z"
+   }
+  ]
+ },
+ {
+  "id": 365695,
+  "name": "Lash & Browlift",
+  "active": true,
+  "order": 11,
+  "own": true,
+  "services": [
+   {
+    "id": 3051765,
+    "name": "Browlift & Lashlift ink färgning",
+    "price": 1100,
+    "duration": 5400,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-232371FC_F823_4276_B1D3_D79E1DF40BFB",
+      "oldId": null,
+      "maxPriceWithoutVat": 880
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "browlift-lashlift-ink-fargning",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 5400,
+     "product": 1377,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1100
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 880
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     }
+    },
+    "priceLabel": "1 100 kr",
+    "durationLabel": "90 min",
+    "createdAt": "2024-02-22T11:15:46.000Z"
+   },
+   {
+    "id": 2999025,
+    "name": "Browlift inkl färg & form",
+    "price": 699,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-14C479F6_CEA8_4D50_B08F_263273A4911E",
+      "oldId": null,
+      "maxPriceWithoutVat": 559.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "browlift-inkl-farg-form",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 3600,
+     "product": 1377,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 699
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 559.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "699 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2023-11-30T12:39:32.000Z"
+   },
+   {
+    "id": 2999023,
+    "name": "LashLift inkl. Brynformning & bryn färg",
+    "price": 799,
+    "duration": 4800,
+    "place": 56559,
+    "sorting": 2,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-F5F00F10_3AC7_4AA8_BC4C_0687673C2F98",
+      "oldId": null,
+      "maxPriceWithoutVat": 639.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "lashlift-inkl-brynformning-bryn-farg",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 4800,
+     "product": 65,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 799
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 639.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4800
+     }
+    },
+    "priceLabel": "799 kr",
+    "durationLabel": "80 min",
+    "createdAt": "2023-11-30T12:32:58.000Z"
+   },
+   {
+    "id": 2999021,
+    "name": "LashLift inkl. färgning ",
+    "price": 699,
+    "duration": 4800,
+    "place": 56559,
+    "sorting": 3,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-85676474_63ED_45F7_80E2_AFCF5CE38663",
+      "oldId": null,
+      "maxPriceWithoutVat": 559.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "lashlift-inkl-fargning",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Vid lashlift så böjs dina fransar upp och färgas. en liten spole limmas på ögonlocken och fransarna kammas upp. När fransarna ärböjda så färgas dom och det läggs på ett serum för bästa resultat.\nHållbarhet är ca 6-8 veckor",
+     "displayDuration": 4800,
+     "product": 65,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 699
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 559.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4800
+     }
+    },
+    "priceLabel": "699 kr",
+    "durationLabel": "80 min",
+    "createdAt": "2023-11-30T12:28:54.000Z"
+   }
+  ]
+ },
+ {
+  "id": 365696,
+  "name": "Fransförlängning",
+  "active": true,
+  "order": 6,
+  "own": true,
+  "services": [
+   {
+    "id": 2999010,
+    "name": "Borttagning av fransar",
+    "price": 300,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-4DAB2D35_0EA0_455F_A3A9_128FFCD9B199",
+      "oldId": null,
+      "maxPriceWithoutVat": 240
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "borttagning-av-fransar",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 1800,
+     "product": 39,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 300
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 240
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     }
+    },
+    "priceLabel": "300 kr",
+    "durationLabel": "30 min",
+    "createdAt": "2023-11-30T12:15:39.000Z"
+   },
+   {
+    "id": 2998995,
+    "name": "fransförlängning singel ",
+    "price": 1199,
+    "duration": 5400,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-32CF6354_5C61_49FA_93E1_517F5A072093",
+      "oldId": null,
+      "maxPriceWithoutVat": 959.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "fransforlangning-singel",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Fransförlängning med singelmetoden. Man fäster en frans på egen frans. Längd och form går vi igenom innan behandling.",
+     "displayDuration": 5400,
+     "product": 37,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1199
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 959.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     }
+    },
+    "priceLabel": "1 199 kr",
+    "durationLabel": "90 min",
+    "createdAt": "2023-11-30T12:00:22.000Z"
+   },
+   {
+    "id": 2998997,
+    "name": "Fransförlängning Volym",
+    "price": 1499,
+    "duration": 7200,
+    "place": 56559,
+    "sorting": 2,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-75497643_65D4_4028_9CFB_8E6AEB93C41F",
+      "oldId": null,
+      "maxPriceWithoutVat": 1199.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "fransforlangning-volym",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Vid fransförlängning med volym så sätter man 1-5 fransar i små knippen. Hur många man sätter beror på hur fylligt man vill ha det och vilka förutsättningar kunden har. man kan få det väldigt naturligt men också lite mer glamouröst. Vi går igenom kundens önskemål innan",
+     "displayDuration": 7200,
+     "product": 38,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1499
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 7200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1199.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 7200
+     }
+    },
+    "priceLabel": "1 499 kr",
+    "durationLabel": "120 min",
+    "createdAt": "2023-11-30T12:05:41.000Z"
+   },
+   {
+    "id": 2999004,
+    "name": "Fransförlängning återbesök 120min",
+    "price": 999,
+    "duration": 7200,
+    "place": 56559,
+    "sorting": 3,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-0F239C1C_7772_4475_B956_6BBEDFA8D416",
+      "oldId": null,
+      "maxPriceWithoutVat": 799.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "fransforlangning-aterbesok-120min",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "återbesök 3-4 veckor men önskar mer volym",
+     "displayDuration": 7200,
+     "product": 39,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 999
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 7200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 799.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 7200
+     }
+    },
+    "priceLabel": "999 kr",
+    "durationLabel": "120 min",
+    "createdAt": "2023-11-30T12:12:25.000Z"
+   },
+   {
+    "id": 2999000,
+    "name": "Fransförlängning återbesök 90min",
+    "price": 799,
+    "duration": 5400,
+    "place": 56559,
+    "sorting": 4,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-44C12C75_BC6E_49AA_8453_CE27B3A1EB39",
+      "oldId": null,
+      "maxPriceWithoutVat": 639.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "fransforlangning-aterbesok-90min",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Återbesök mellan 3-4 veckor.",
+     "displayDuration": 5400,
+     "product": 39,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 799
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 639.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     }
+    },
+    "priceLabel": "799 kr",
+    "durationLabel": "90 min",
+    "createdAt": "2023-11-30T12:09:58.000Z"
+   }
+  ]
+ },
+ {
+  "id": 365846,
+  "name": "Fransar & bryn",
+  "active": true,
+  "order": 5,
+  "own": true,
+  "services": [
+   {
+    "id": 3001528,
+    "name": "Formning av bryn inkl färg",
+    "price": 249,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-F0C49E83_EA20_4883_B449_5CFC3D9BA56C",
+      "oldId": null,
+      "maxPriceWithoutVat": 199.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "formning-av-bryn-inkl-farg",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 1800,
+     "product": 73,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 249
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 199.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     }
+    },
+    "priceLabel": "249 kr",
+    "durationLabel": "30 min",
+    "createdAt": "2023-12-01T21:48:05.000Z"
+   },
+   {
+    "id": 3001527,
+    "name": "färgning fransar & bryn",
+    "price": 499,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-FDCDE7FC_9D18_4D2D_932E_082212F652B9",
+      "oldId": null,
+      "maxPriceWithoutVat": 399.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "fargning-fransar-bryn",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "displayDuration": 1800,
+     "product": 73,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 499
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 399.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     }
+    },
+    "priceLabel": "499 kr",
+    "durationLabel": "30 min",
+    "createdAt": "2023-12-01T21:46:33.000Z"
+   }
+  ]
+ },
+ {
+  "id": 365847,
+  "name": "Tandblekning",
+  "active": true,
+  "order": 13,
+  "own": true,
+  "services": [
+   {
+    "id": 3115249,
+    "name": "Kosmetisk tandblekning ",
+    "price": 950,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-3D815348_4D1C_47AA_8736_225C22BD6FC1",
+      "oldId": null,
+      "maxPriceWithoutVat": 760
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "kosmetisk-tandblekning",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Kosmetisk tandblekning \nRengör tänderna från beläggningar som kaffe,te och vin m.m bleker 2-9 nyanser\nBleker inte emaljen \n\nHar man mycket beläggningar så kan det hända att man måste göra fler behandlingar för att uppnå önskat resultat",
+     "displayDuration": 3600,
+     "product": 87,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 950
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 760
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "950 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2024-07-23T09:38:09.000Z"
+   }
+  ]
+ },
+ {
+  "id": 373071,
+  "name": "Massage",
+  "active": true,
+  "order": 12,
+  "own": true,
+  "services": [
+   {
+    "id": 3063353,
+    "name": "Ansiksmassage ",
+    "price": 799,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-96C44995_437D_48CB_A4D7_4BCCEC2A62CD",
+      "oldId": null,
+      "maxPriceWithoutVat": 639.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "ansiksmassage",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": true,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Ansiksmassage i spa-anda\nAvslappnande för muskler och sinnet. Ekologiska produkter \n\nRengöring \nAnsiksmassage \nDekolletage \nSkalp",
+     "displayDuration": 3600,
+     "product": 70,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 799
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 639.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "799 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2024-03-10T17:52:04.000Z"
+   },
+   {
+    "id": 3158573,
+    "name": "Överkroppsmassage (scalp,ansikte,axlar och armar) ",
+    "price": 899,
+    "duration": 3600,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-D01C24E7_2C8F_43A8_8043_1EFA936D1275",
+      "oldId": null,
+      "maxPriceWithoutVat": 719.2
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "overkroppsmassage-scalp-ansikte-axlar-och-armar",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": true,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "En massage som fokuserar på framsida överkropp. Den är otroligt avslappnande och då vi fokuserar på scalp och ansikte så hjälper den även till för dom som har spänningshuvudvärk. \n\nScalpen och huden rengörs noga  innan massagen. Sedan avslutas med hand och armmassage.",
+     "displayDuration": 3600,
+     "product": 30,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 899
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 719.2
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 3600
+     }
+    },
+    "priceLabel": "899 kr",
+    "durationLabel": "60 min",
+    "createdAt": "2024-10-23T10:47:25.000Z"
+   }
+  ]
+ },
+ {
+  "id": 386346,
+  "name": "Elevbehandlingar",
+  "active": true,
+  "order": 4,
+  "own": true,
+  "services": [
+   {
+    "id": 3159657,
+    "name": "Browlift (elev) ",
+    "price": 300,
+    "duration": 4200,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-2B70261F_3D45_411C_8E5E_0C1007145FF9",
+      "oldId": null,
+      "maxPriceWithoutVat": 240
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "browlift-elev",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Browlift utförs av elev. Elev har kommit så långt i sin utbildning så hon får ta kunder till ett reducerat pris. Lärare finns på plats",
+     "displayDuration": 4200,
+     "product": 1377,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 300
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 240
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     }
+    },
+    "priceLabel": "300 kr",
+    "durationLabel": "70 min",
+    "createdAt": "2024-10-25T06:40:58.000Z"
+   },
+   {
+    "id": 3159651,
+    "name": "Fransförlängning singel (elev) ",
+    "price": 500,
+    "duration": 9000,
+    "place": 56559,
+    "sorting": 1,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-61C8B156_475D_4C60_9B94_7BF5AF1DE697",
+      "oldId": null,
+      "maxPriceWithoutVat": 400
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "fransforlangning-singel-elev",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Fransförlängning singel utförs av elev. Elev har kommit så långt så hon kan ta kunder till ett reducerat pris men tiden är något längre.  Lärare finns på plats",
+     "displayDuration": 9000,
+     "product": 39,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 500
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 9000
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 400
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 9000
+     }
+    },
+    "priceLabel": "500 kr",
+    "durationLabel": "150 min",
+    "createdAt": "2024-10-25T06:35:55.000Z"
+   },
+   {
+    "id": 3159653,
+    "name": "Lashlift (elev) ",
+    "price": 300,
+    "duration": 4200,
+    "place": 56559,
+    "sorting": 2,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-A1652912_FF4C_40BE_8867_B6F0EF36C376",
+      "oldId": null,
+      "maxPriceWithoutVat": 240
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "lashlift-elev",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Lashlift utförs av elev. Elev har gjort klar sin utbildning i lashlift och får nu ta kunder till ett reducerat pris. Lärare finns på plats",
+     "displayDuration": 4200,
+     "product": 65,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 300
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 240
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 4200
+     }
+    },
+    "priceLabel": "300 kr",
+    "durationLabel": "70 min",
+    "createdAt": "2024-10-25T06:38:29.000Z"
+   },
+   {
+    "id": 3424030,
+    "name": "Lashlift&browlift ink färg (elev) ",
+    "price": 600,
+    "duration": 5400,
+    "place": 56559,
+    "sorting": 3,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-093D1B77_7E10_40CB_B305_41EF33E1C480",
+      "oldId": null,
+      "maxPriceWithoutVat": 480
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "lashliftbrowlift-ink-farg-elev",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": true,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Lashlift & browlift ink färg",
+     "displayDuration": 5400,
+     "product": 65,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 600
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 480
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 5400
+     }
+    },
+    "priceLabel": "600 kr",
+    "durationLabel": "90 min",
+    "createdAt": "2026-03-11T09:47:52.000Z"
+   }
+  ]
+ }
+]

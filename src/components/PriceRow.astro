@@ -1,0 +1,27 @@
+---
+import { formatDuration, formatPriceRange } from '../lib/format.ts';
+import { localisePath, type Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+  title: string;
+  durationMinutes: number;
+  priceSek: number;
+  priceFrom: boolean;
+  isFree: boolean;
+}
+
+const { locale, slug, title, durationMinutes, priceSek, priceFrom, isFree } = Astro.props;
+const price = isFree ? (locale === 'sv' ? 'Kostnadsfri' : 'Free') : formatPriceRange(priceSek, priceFrom, locale);
+---
+
+<tr class="border-sand/30 border-b">
+  <th scope="row" class="py-3 pr-4 text-left font-normal">
+    <a class="text-ink hover:text-sand-ink" href={localisePath(`/behandlingar/${slug}/`, locale)}>{title}</a>
+  </th>
+  <td class="text-ink-muted tabular py-3 pr-4 text-right whitespace-nowrap">
+    {formatDuration(durationMinutes, locale)}
+  </td>
+  <td class="text-ink tabular py-3 text-right whitespace-nowrap">{price}</td>
+</tr>

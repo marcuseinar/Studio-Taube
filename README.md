@@ -11,13 +11,13 @@ by Bokadirekt.
 Planning complete, implementation not yet started. The decisions are recorded —
 read them before writing code.
 
-| Document | Contents |
-|---|---|
-| [`CLAUDE.md`](CLAUDE.md) | Working agreement for AI contributors. Read first. |
-| [`docs/DECISIONS.md`](docs/DECISIONS.md) | Locked decisions and their rationale |
-| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Stack, routing, booking layer, CI, costs |
-| [`docs/DESIGN.md`](docs/DESIGN.md) | Palette, typography, components, logo |
-| [`docs/CONTENT.md`](docs/CONTENT.md) | Content collections and writing guidance |
+| Document                                       | Contents                                           |
+| ---------------------------------------------- | -------------------------------------------------- |
+| [`CLAUDE.md`](CLAUDE.md)                       | Working agreement for AI contributors. Read first. |
+| [`docs/DECISIONS.md`](docs/DECISIONS.md)       | Locked decisions and their rationale               |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Stack, routing, booking layer, CI, costs           |
+| [`docs/DESIGN.md`](docs/DESIGN.md)             | Palette, typography, components, logo              |
+| [`docs/CONTENT.md`](docs/CONTENT.md)           | Content collections and writing guidance           |
 
 ## Quick facts
 

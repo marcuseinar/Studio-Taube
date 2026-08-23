@@ -1,0 +1,52 @@
+---
+import CampaignCard from '../CampaignCard.astro';
+import PageHeading from '../PageHeading.astro';
+import Section from '../Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { entrySlug, getCampaigns } from '../../lib/content.ts';
+import { isCampaignActive } from '../../lib/campaigns.ts';
+import { useTranslations, type Locale } from '../../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const campaigns = (await getCampaigns(locale)).filter((campaign) => isCampaignActive(campaign.data, new Date()));
+
+const lead =
+  locale === 'sv'
+    ? 'Aktuella erbjudanden hos Studio Taube. Boka direkt via länken i varje erbjudande.'
+    : 'Current offers at Studio Taube. Book directly through the link in each offer.';
+---
+
+<BaseLayout locale={locale} title={t('campaigns.title')} description={lead}>
+  <Section>
+    <PageHeading eyebrow={t('nav.campaigns')} title={t('campaigns.title')} lead={lead} />
+
+    {
+      campaigns.length === 0 ? (
+        <p class="text-ink-muted mt-10">{t('campaigns.none')}</p>
+      ) : (
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {campaigns.map((campaign) => (
+            <CampaignCard
+              locale={locale}
+              slug={entrySlug(campaign.id)}
+              title={campaign.data.title}
+              summary={campaign.data.summary}
+              priceSek={campaign.data.priceSek}
+              ordinaryPriceSek={campaign.data.ordinaryPriceSek}
+              durationMinutes={campaign.data.durationMinutes}
+              requiresConsultation={campaign.data.requiresConsultation}
+              bokadirektServiceId={campaign.data.bokadirektServiceId}
+              bokadirektSlug={campaign.data.bokadirektSlug}
+            />
+          ))}
+        </div>
+      )
+    }
+  </Section>
+</BaseLayout>

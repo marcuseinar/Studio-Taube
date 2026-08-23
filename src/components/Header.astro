@@ -1,0 +1,55 @@
+---
+import BookingButton from './BookingButton.astro';
+import LanguageSwitch from './LanguageSwitch.astro';
+import Wordmark from './Wordmark.astro';
+import { MAIN_NAV } from '../lib/navigation.ts';
+import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
+import { SALON } from '../lib/site.ts';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = useTranslations(locale);
+const home = localisePath('/', locale);
+---
+
+<header class="border-sand/40 bg-cream/95 sticky top-0 z-50 border-b backdrop-blur">
+  <div class="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-8 gap-y-3 px-5 py-4">
+    <a href={home} class="text-ink shrink-0" aria-label={`${SALON.name} — ${t('nav.home')}`}>
+      <Wordmark class="w-[190px]" label={`${SALON.name} ${SALON.tagline}`} />
+    </a>
+
+    <nav aria-label={t('nav.menu')} class="order-3 w-full sm:order-none sm:w-auto">
+      <ul class="flex flex-wrap items-center gap-x-6 gap-y-1">
+        {
+          MAIN_NAV.map((item) => {
+            const href = localisePath(item.path, locale);
+            const isCurrent = pathname === href;
+            return (
+              <li>
+                <a
+                  href={href}
+                  aria-current={isCurrent ? 'page' : undefined}
+                  class:list={[
+                    'wordmark-label inline-flex min-h-11 items-center text-[0.7rem]',
+                    isCurrent ? 'text-sand-ink' : 'text-ink-muted hover:text-sand-ink',
+                  ]}
+                >
+                  {t(item.labelKey)}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-4">
+      <LanguageSwitch locale={locale} pathname={pathname} />
+      <BookingButton locale={locale} class="hidden sm:inline-flex" />
+    </div>
+  </div>
+</header>

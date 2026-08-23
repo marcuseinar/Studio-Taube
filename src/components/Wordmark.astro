@@ -1,0 +1,12 @@
+---
+import wordmark from '../assets/logo-wordmark-inline.svg?raw';
+
+interface Props {
+  class?: string;
+  label: string;
+}
+
+const { class: className = '', label } = Astro.props;
+---
+
+<span class={`inline-block ${className}`} role="img" aria-label={label} set:html={wordmark} />

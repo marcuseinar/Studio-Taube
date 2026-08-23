@@ -1,0 +1,49 @@
+---
+import { HTML_LANG, LOCALES, alternatePath, type Locale } from '../i18n/index.ts';
+import { beautySalonSchema } from '../lib/seo.ts';
+import { SALON, SITE_URL } from '../lib/site.ts';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  pathname: string;
+}
+
+const { locale, title, description, pathname } = Astro.props;
+
+const pageTitle = `${title} | ${SALON.name}`;
+const canonical = new URL(pathname, SITE_URL).href;
+const schema = JSON.stringify(beautySalonSchema());
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{
+  LOCALES.map((alternate) => (
+    <link
+      rel="alternate"
+      hreflang={HTML_LANG[alternate]}
+      href={new URL(alternatePath(pathname, alternate), SITE_URL).href}
+    />
+  ))
+}
+<link rel="alternate" hreflang="x-default" href={new URL(alternatePath(pathname, 'sv'), SITE_URL).href} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SALON.name} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={locale === 'sv' ? 'sv_SE' : 'en_GB'} />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#faf7f3" />
+
+<script type="application/ld+json" is:inline set:html={schema} />
