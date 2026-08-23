@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test';
+import { url } from './site-paths.ts';
 
 test.describe('mobile navigation', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
   test('the menu opens from a native disclosure and navigates', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(url('/'));
 
     const nav = page.getByRole('navigation', { name: 'Meny' });
     await expect(nav).toBeHidden();
@@ -17,7 +18,7 @@ test.describe('mobile navigation', () => {
   });
 
   test('the sticky header stays out of the way', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(url('/'));
 
     const header = page.locator('header');
     const height = (await header.boundingBox())?.height ?? 0;
@@ -29,7 +30,7 @@ test.describe('desktop navigation', () => {
   test.use({ viewport: { width: 1280, height: 900 } });
 
   test('marks the current page for assistive technology', async ({ page }) => {
-    await page.goto('/priser/');
+    await page.goto(url('/priser/'));
 
     const current = page.getByRole('navigation', { name: 'Meny' }).getByRole('link', { name: 'Priser' });
     await expect(current).toHaveAttribute('aria-current', 'page');

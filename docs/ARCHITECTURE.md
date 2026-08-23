@@ -76,17 +76,40 @@ touching any page or component.
 
 ---
 
-## Domain and DNS
+## Where the site is published
 
-`studiotaube.se` is registered at Loopia and currently parked. Cutover:
+One constant decides it: `DEPLOY_TARGET` in `src/lib/site.ts`.
 
-1. Apex `A` records → GitHub Pages IPs, plus `AAAA` records.
-2. `www` `CNAME` → the GitHub Pages host.
-3. `public/CNAME` committed with the apex domain.
-4. Enforce HTTPS in repository settings once the certificate is issued.
+| Target                   | Serves at                             | Base             |
+| ------------------------ | ------------------------------------- | ---------------- |
+| `github-pages` (current) | `marcuseinar.github.io/Studio-Taube/` | `/Studio-Taube/` |
+| `custom-domain`          | `studiotaube.se`                      | `/`              |
 
-Do not change DNS without Linda's go-ahead — the parked page is currently what
-people find, and a botched cutover takes the domain down.
+`studiotaube.se` is registered at Loopia and still parked, and the DNS move
+waits on Linda deciding to use the site. Until then the project path is the
+live URL, so nothing depends on a domain that has not moved.
+
+Because the site is served from a subdirectory, **no internal link may be
+hand-written as a site-root path**. Everything goes through `localisePath()`
+for routes and `assetUrl()` for files in `public/`; Markdown links written as
+`/behandlingar/...` are prefixed at build time by a rehype plugin in
+`astro.config.mjs`. A link that skips these works locally at `/` and 404s in
+production — `npm run check:links` catches it.
+
+### Switching to the custom domain
+
+1. Point DNS at GitHub: apex `A` records to `185.199.108–111.153`, apex `AAAA`
+   to `2606:50c0:8000–8003::153`, `www` `CNAME` to `marcuseinar.github.io`.
+   Remove Loopia's parking records first.
+2. Set `DEPLOY_TARGET = 'custom-domain'`. The build then emits `dist/CNAME`
+   and drops the base.
+3. Update `BASE` in `tests/e2e/site-paths.ts` to `''`.
+4. Update the sitemap URL in `public/robots.txt` and `site_domain` in
+   `public/admin/config.yml`.
+5. Tick Enforce HTTPS once GitHub has issued the certificate.
+
+Do not move DNS without Linda's go-ahead — the parked page is what people find
+today, and a botched cutover takes the domain down.
 
 ---
 

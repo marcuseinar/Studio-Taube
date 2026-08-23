@@ -5,7 +5,7 @@ backend:
   name: github
   repo: marcuseinar/Studio-Taube
   branch: main
-  site_domain: studiotaube.se
+  site_domain: marcuseinar.github.io
   # Set base_url to the Cloudflare Worker that performs the GitHub OAuth
   # exchange. Until it is deployed, /admin will not be able to sign in.
   # base_url: https://studiotaube-auth.<subdomain>.workers.dev

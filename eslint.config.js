@@ -17,8 +17,11 @@ export default tseslint.config(
     },
   },
   {
-    files: ['scripts/**/*.mjs'],
-    languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
+    // Build scripts and config run in Node, not the browser.
+    files: ['scripts/**/*.mjs', '*.config.mjs', '*.config.js'],
+    languageOptions: {
+      globals: { console: 'readonly', process: 'readonly', URL: 'readonly', URLSearchParams: 'readonly' },
+    },
     rules: { 'no-console': 'off' },
   },
 );

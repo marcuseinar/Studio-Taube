@@ -1,7 +1,7 @@
 ---
 import { HTML_LANG, LOCALES, alternatePath, type Locale } from '../i18n/index.ts';
 import { beautySalonSchema } from '../lib/seo.ts';
-import { SALON, SITE_URL } from '../lib/site.ts';
+import { assetUrl, SALON, SITE_URL } from '../lib/site.ts';
 
 interface Props {
   locale: Locale;
@@ -42,8 +42,8 @@ const schema = JSON.stringify(beautySalonSchema());
 <meta property="og:locale" content={locale === 'sv' ? 'sv_SE' : 'en_GB'} />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href={assetUrl('/favicon.svg')} type="image/svg+xml" />
+<link rel="apple-touch-icon" href={assetUrl('/apple-touch-icon.png')} />
 <meta name="theme-color" content="#faf7f3" />
 
 <script type="application/ld+json" is:inline set:html={schema} />

@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
+import { url } from './site-paths.ts';
 
 const PAGES = [
   '/',
@@ -16,7 +17,7 @@ const PAGES = [
 
 for (const path of PAGES) {
   test(`${path} has no accessibility violations`, async ({ page }) => {
-    await page.goto(path);
+    await page.goto(url(path));
 
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
@@ -27,7 +28,7 @@ for (const path of PAGES) {
 }
 
 test('the skip link is the first thing a keyboard reaches', async ({ page }) => {
-  await page.goto('/');
+  await page.goto(url('/'));
   await page.keyboard.press('Tab');
 
   const focused = page.locator(':focus');

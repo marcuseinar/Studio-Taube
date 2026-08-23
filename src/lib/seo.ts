@@ -1,4 +1,4 @@
-import { OPENING_HOURS, SALON, SITE_URL } from './site.ts';
+import { assetUrl, OPENING_HOURS, SALON, SITE_URL } from './site.ts';
 
 const SCHEMA_WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const;
 
@@ -11,10 +11,10 @@ export function beautySalonSchema(): Record<string, unknown> {
     '@context': 'https://schema.org',
     '@type': 'BeautySalon',
     name: SALON.name,
-    url: SITE_URL,
+    url: new URL(assetUrl('/'), SITE_URL).href,
     telephone: SALON.phone,
     email: SALON.email,
-    image: `${SITE_URL}/apple-touch-icon.png`,
+    image: new URL(assetUrl('/apple-touch-icon.png'), SITE_URL).href,
     priceRange: '249–3499 SEK',
     address: {
       '@type': 'PostalAddress',

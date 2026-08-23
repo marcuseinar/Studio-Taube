@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test';
+import { url } from './site-paths.ts';
 
 test('opening hours and address are visible on the contact page', async ({ page }) => {
-  await page.goto('/kontakt/');
+  await page.goto(url('/kontakt/'));
 
   const main = page.getByRole('main');
   await expect(main.getByText('Spinnerivägen 1')).toBeVisible();
@@ -11,7 +12,7 @@ test('opening hours and address are visible on the contact page', async ({ page 
 });
 
 test('an active campaign appears with its ordinary price struck through', async ({ page }) => {
-  await page.goto('/erbjudanden/');
+  await page.goto(url('/erbjudanden/'));
 
   const card = page.getByRole('article').filter({ hasText: 'Head spa 60 minuter' });
   await expect(card).toContainText('760');
@@ -19,14 +20,14 @@ test('an active campaign appears with its ordinary price struck through', async 
 });
 
 test('the price list carries a price for every treatment', async ({ page }) => {
-  await page.goto('/priser/');
+  await page.goto(url('/priser/'));
 
   const rows = page.locator('tbody tr');
   await expect(rows).toHaveCount(30);
 });
 
 test('structured data describes the salon', async ({ page }) => {
-  await page.goto('/');
+  await page.goto(url('/'));
 
   const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
   const schema = JSON.parse(raw ?? '{}');

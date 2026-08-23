@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://studiotaube.se/sitemap-index.xml
+Sitemap: https://marcuseinar.github.io/Studio-Taube/sitemap-index.xml

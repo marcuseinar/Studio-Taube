@@ -1,8 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { url } from './site-paths.ts';
 
 test.describe('booking journey', () => {
   test('a visitor can reach the correct Bokadirekt page for a treatment', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     const headSpa = page.getByRole('link', { name: 'Head spa 60 minuter' });
     await expect(headSpa).toBeVisible();
@@ -20,7 +21,7 @@ test.describe('booking journey', () => {
   });
 
   test('every booking link points at this salon on Bokadirekt', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     const hrefs = await page
       .locator('a[href*="bokadirekt.se"]')
@@ -33,7 +34,7 @@ test.describe('booking journey', () => {
   });
 
   test('a treatment requiring consultation says so', async ({ page }) => {
-    await page.goto('/behandlingar/co2-laser-hander/');
+    await page.goto(url('/behandlingar/co2-laser-hander/'));
     await expect(page.getByText(/konsultation krävs/i)).toBeVisible();
   });
 });

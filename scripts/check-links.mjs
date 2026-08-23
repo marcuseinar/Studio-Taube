@@ -20,14 +20,24 @@ async function htmlFiles(dir) {
 const pages = await htmlFiles(distDir);
 const routes = new Set(pages.map((page) => `/${relative(distDir, page).replace(/index\.html$/, '')}`));
 
+/*
+ * Links carry the deploy base, dist paths do not. The canonical URL on the
+ * home page is exactly the base, so read it from the build rather than
+ * duplicating the value here where it could drift.
+ */
+const home = await readFile(join(distDir, 'index.html'), 'utf8');
+const canonical = home.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
+const base = canonical ? new URL(canonical).pathname.replace(/\/$/, '') : '';
+
 const broken = [];
 for (const page of pages) {
   const html = await readFile(page, 'utf8');
   for (const match of html.matchAll(/href="(\/[^"#?]*)"/g)) {
     const href = match[1];
-    if (href.startsWith('/_astro/')) continue;
-    const normalised = href.endsWith('/') ? href : `${href}/`;
-    const isFile = /\.[a-z0-9]+$/i.test(href);
+    const rooted = base !== '' && href.startsWith(`${base}/`) ? href.slice(base.length) : href;
+    if (rooted.startsWith('/_astro/')) continue;
+    const normalised = rooted.endsWith('/') ? rooted : `${rooted}/`;
+    const isFile = /\.[a-z0-9]+$/i.test(rooted);
     if (isFile || routes.has(normalised)) continue;
     broken.push({ page: relative(distDir, page), href });
   }

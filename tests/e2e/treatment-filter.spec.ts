@@ -1,8 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { url } from './site-paths.ts';
 
 test.describe('treatment filter', () => {
   test('narrows the list by search term', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     const cards = page.locator('[data-treatment]');
     await expect(cards).toHaveCount(30);
@@ -13,7 +14,7 @@ test.describe('treatment filter', () => {
   });
 
   test('narrows the list by category and hides empty headings', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     await page.getByRole('button', { name: 'Massage', exact: true }).click();
 
@@ -23,7 +24,7 @@ test.describe('treatment filter', () => {
   });
 
   test('reports when nothing matches and can be cleared', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     await page.getByRole('searchbox').fill('något som inte finns');
     await expect(page.getByText('Inga behandlingar matchar din sökning.')).toBeVisible();
@@ -33,7 +34,7 @@ test.describe('treatment filter', () => {
   });
 
   test('the category buttons report their pressed state', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     const massage = page.getByRole('button', { name: 'Massage', exact: true });
     await expect(massage).toHaveAttribute('aria-pressed', 'false');
@@ -52,7 +53,7 @@ test.describe('content is server-rendered, not client-rendered', () => {
   test.use({ javaScriptEnabled: false });
 
   test('the full catalogue and its booking links are in the delivered HTML', async ({ page }) => {
-    await page.goto('/behandlingar/');
+    await page.goto(url('/behandlingar/'));
 
     await expect(page.locator('[data-treatment]')).toHaveCount(30);
     await expect(page.locator('[data-treatment]').locator('visible=true')).toHaveCount(30);

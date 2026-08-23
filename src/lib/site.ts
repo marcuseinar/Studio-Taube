@@ -1,4 +1,21 @@
-export const SITE_URL = 'https://studiotaube.se';
+/**
+ * Where this build is published.
+ *
+ * 'github-pages' serves the site from a project path on github.io, which is
+ * what to use until studiotaube.se is pointed at GitHub. Switching to
+ * 'custom-domain' moves the site to the apex domain and makes the build emit
+ * a CNAME file; nothing else needs to change. See docs/ARCHITECTURE.md.
+ */
+export const DEPLOY_TARGET: 'github-pages' | 'custom-domain' = 'github-pages';
+
+const TARGETS = {
+  'github-pages': { origin: 'https://marcuseinar.github.io', base: '/Studio-Taube/' },
+  'custom-domain': { origin: 'https://studiotaube.se', base: '/' },
+} as const;
+
+export const SITE_URL = TARGETS[DEPLOY_TARGET].origin;
+export const BASE_PATH = TARGETS[DEPLOY_TARGET].base;
+export const CUSTOM_DOMAIN = 'studiotaube.se';
 
 export const SALON = {
   name: 'Studio Taube',
@@ -25,3 +42,9 @@ export const OPENING_HOURS = [
   { weekday: 4, opens: '09:00', closes: '20:00' },
   { weekday: 5, opens: '09:00', closes: '15:00' },
 ] as const;
+
+/** Resolves a file in public/ to a URL that respects the deploy base. */
+export function assetUrl(path: string): string {
+  const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+  return `${base}${path.startsWith('/') ? path : `/${path}`}`;
+}
