@@ -1,0 +1,49 @@
+---
+import HeroVideoControl from './islands/HeroVideoControl.svelte';
+import { assetUrl } from '../lib/site.ts';
+import type { Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  description: string;
+}
+
+const { locale, description } = Astro.props;
+
+const VIDEO_ID = 'hero-loop';
+
+const labels = {
+  sv: { play: 'Spela upp filmen', pause: 'Pausa filmen' },
+  en: { play: 'Play the video', pause: 'Pause the video' },
+}[locale];
+---
+
+<figure class="rounded-card relative m-0 aspect-4/5 overflow-hidden">
+  <!--
+    preload="none" keeps the loop out of the way of the poster, which is what
+    the page's Largest Contentful Paint is measured on. There is no audio
+    track at all, so nothing to caption and nothing to mute badly.
+  -->
+  <video
+    id={VIDEO_ID}
+    class="h-full w-full object-cover"
+    poster={assetUrl('/video/head-spa-poster.jpg')}
+    muted
+    loop
+    playsinline
+    preload="none"
+    disablepictureinpicture
+    aria-label={description}
+  >
+    <!--
+      AV1 is declared precisely so a browser that can decode it takes the
+      smaller file outright. The H.264 fallback is left as a bare video/mp4:
+      anything that skipped AV1 should try it rather than parse a codec string
+      that has to match exactly to be accepted.
+    -->
+    <source src={assetUrl('/video/head-spa.av1.mp4')} type='video/mp4; codecs="av01.0.05M.08"' />
+    <source src={assetUrl('/video/head-spa.mp4')} type="video/mp4" />
+  </video>
+
+  <HeroVideoControl client:idle videoId={VIDEO_ID} labels={labels} />
+</figure>

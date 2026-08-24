@@ -16,7 +16,8 @@
     "verify": "npm run lint && npm run check && npm run test && npm run build && npm run check:links && npm run check:schema && npm run check:i18n",
     "check:links": "node scripts/check-links.mjs dist",
     "check:schema": "node scripts/check-structured-data.mjs dist",
-    "check:i18n": "node scripts/check-translations.mjs"
+    "check:i18n": "node scripts/check-translations.mjs",
+    "build:video": "node scripts/build-hero-video.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -38,6 +39,8 @@
     "astro-eslint-parser": "^1.4.0",
     "eslint": "^10.9.0",
     "eslint-plugin-astro": "^1.7.0",
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",

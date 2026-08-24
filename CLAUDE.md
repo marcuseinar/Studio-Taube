@@ -291,6 +291,12 @@ CI fails the build if any of these regress:
 Images are processed through Astro's image pipeline. Never commit an unoptimised
 photograph straight from a phone into `public/`.
 
+Video is derived from a master in `brand/source/` by `npm run build:video`, never
+hand-encoded. A video must be silent, `preload="none"`, and must not autoplay by
+attribute — playback starts from an island so it can honour
+`prefers-reduced-motion`, and anything that moves by itself needs a pause control
+(WCAG 2.2 SC 2.2.2). The poster carries LCP, so it is what the page is measured on.
+
 ---
 
 ## 11. Testing expectations

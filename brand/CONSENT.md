@@ -16,6 +16,17 @@ consent have not been confirmed with Linda.
 | produkter.jpg           | Instagram collage                     | Products           | no                                                 | no               |
 | behandlingsrum.jpg      | Instagram collage                     | Treatment room     | no                                                 | no               |
 
+## The hero video
+
+The master runs 39 seconds and shows a client's face clearly for much of it.
+The loop on the site is built from two shots only — water through the gold hoop,
+and rinsing under it — chosen because **no face is recognisable in either**. The
+crop and the in and out points in `scripts/build-hero-video.mjs` are what keep it
+that way, so re-cutting the loop means re-checking that.
+
+The master itself is kept in `brand/source/` for provenance and is never
+published.
+
 ## Open questions for Linda
 
 1. **The client in `head-spa-behandling.jpg`.** The photo is published on the

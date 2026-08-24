@@ -109,6 +109,24 @@ outside the scale without a reason in the PR.
 
 ---
 
+## 4a. The hero video
+
+The home page leads with a silent 6.9 s loop of the head spa treatment, built
+from `brand/source/head-spa-master.mp4` by `npm run build:video`.
+
+| Decision                                                  | Why                                                                                                                                             |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Two shots, joined and topped and tailed through **white** | The master's own cut is a white wipe, so the join matches the footage, and white at both ends makes the loop seam invisible                     |
+| Cropped to 4:5 **in ffmpeg**, not by CSS                  | The master is 9:16; `object-cover` in a 4:5 frame crops it to an unreadable close-up. Cropping at build time is where the framing can be chosen |
+| AV1 first, H.264 fallback                                 | Measured: 394 kB against 533 kB for the same quality. VP9 was tried and was larger than both                                                    |
+| No audio track at all                                     | An autoplay loop must be muted, so the audio is pure weight                                                                                     |
+| `preload="none"`, no `autoplay` attribute                 | The poster carries LCP; a visitor who prefers reduced motion never downloads the video at all                                                   |
+| A visible pause control                                   | WCAG 2.2 SC 2.2.2 — motion that starts on its own and runs past five seconds must be stoppable                                                  |
+
+Only footage without a recognisable client is used. See `brand/CONSENT.md`.
+
+---
+
 ## 5. Components
 
 Build these, in this order, each replaceable in isolation:

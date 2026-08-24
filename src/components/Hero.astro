@@ -1,18 +1,17 @@
 ---
-import { Image } from 'astro:assets';
 import BookingButton from './BookingButton.astro';
+import HeroMedia from './HeroMedia.astro';
 import Wordmark from './Wordmark.astro';
 import { SALON } from '../lib/site.ts';
 import { localisePath, useTranslations, type Locale } from '../i18n/index.ts';
-import heroImage from '../assets/photos/head-spa-behandling.jpg';
 
 interface Props {
   locale: Locale;
   lead: string;
-  imageAlt: string;
+  mediaDescription: string;
 }
 
-const { locale, lead, imageAlt } = Astro.props;
+const { locale, lead, mediaDescription } = Astro.props;
 const t = useTranslations(locale);
 ---
 
@@ -34,13 +33,6 @@ const t = useTranslations(locale);
       </div>
     </div>
 
-    <Image
-      src={heroImage}
-      alt={imageAlt}
-      widths={[480, 720, 1040]}
-      sizes="(min-width: 1024px) 45vw, 100vw"
-      class="rounded-card w-full object-cover"
-      loading="eager"
-    />
+    <HeroMedia locale={locale} description={mediaDescription} />
   </div>
 </section>
