@@ -1,16 +1,15 @@
 <script lang="ts">
   /**
-   * Starts and controls the hero loop.
+   * Pause and play for the hero loop.
    *
-   * The video carries no `autoplay` attribute. Playback begins here instead,
-   * which is what lets the loop respect `prefers-reduced-motion` — an
-   * attribute cannot be conditional, and no amount of CSS stops a video. With
-   * scripting unavailable the poster simply stays, which is a good outcome:
-   * the poster is what the page is measured on anyway.
+   * Playback itself is the browser's job — the video carries `autoplay`, and a
+   * reduced-motion visitor has already had it cancelled by the inline guard in
+   * HeroMedia.astro before this ever runs. This island only owns the control,
+   * and it reads the element's real state rather than assuming its own.
    *
-   * The button is not a nicety. WCAG 2.2 SC 2.2.2 requires a way to pause
-   * motion that starts on its own and runs for more than five seconds, and
-   * this loop runs forever.
+   * The button is required, not decorative: WCAG 2.2 SC 2.2.2 asks for a way
+   * to stop motion that starts on its own and runs past five seconds, and this
+   * loop runs indefinitely.
    */
   interface Props {
     videoId: string;
@@ -23,42 +22,37 @@
   let ready = $state(false);
   let playable = $state(true);
 
-  const prefersReducedMotion = () =>
-    typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const video = () => document.getElementById(videoId) as HTMLVideoElement | null;
-
   $effect(() => {
-    const element = video();
-    if (!element) return;
+    const video = document.getElementById(videoId) as HTMLVideoElement | null;
+    if (!video) return;
 
+    const sync = () => (playing = !video.paused);
+    // A source the browser cannot decode leaves a control that would do
+    // nothing, so the button is withdrawn rather than left to disappoint.
+    const fail = () => (playable = false);
+
+    sync();
     ready = true;
-    if (prefersReducedMotion()) return;
 
-    element.play().then(
-      () => (playing = true),
-      (error: DOMException) => {
-        playing = false;
-        // A blocked autoplay leaves a usable video, so keep the button and let
-        // the visitor start it. A source the browser cannot decode does not,
-        // so drop the button rather than offer a control that does nothing.
-        playable = error.name !== 'NotSupportedError';
-      },
-    );
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    video.addEventListener('error', fail);
+
+    return () => {
+      video.removeEventListener('play', sync);
+      video.removeEventListener('pause', sync);
+      video.removeEventListener('error', fail);
+    };
   });
 
   function toggle() {
-    const element = video();
-    if (!element) return;
+    const video = document.getElementById(videoId) as HTMLVideoElement | null;
+    if (!video) return;
 
-    if (element.paused) {
-      element.play().then(
-        () => (playing = true),
-        () => (playing = false),
-      );
+    if (video.paused) {
+      video.play().catch(() => (playing = false));
     } else {
-      element.pause();
-      playing = false;
+      video.pause();
     }
   }
 </script>
@@ -68,7 +62,7 @@
     type="button"
     onclick={toggle}
     aria-pressed={playing}
-    class="text-ink/80 hover:text-ink focus-visible:text-ink absolute right-3 bottom-3 inline-flex h-11 w-11 items-center justify-center rounded-pill bg-cream/85 backdrop-blur transition-colors"
+    class="text-ink/80 hover:text-ink focus-visible:text-ink bg-cream/85 rounded-pill absolute right-3 bottom-3 inline-flex h-11 w-11 items-center justify-center backdrop-blur transition-colors"
   >
     <span class="sr-only">{playing ? labels.pause : labels.play}</span>
     <svg viewBox="0 0 16 16" class="h-4 w-4" aria-hidden="true" fill="currentColor">

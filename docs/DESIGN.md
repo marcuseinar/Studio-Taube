@@ -111,19 +111,24 @@ outside the scale without a reason in the PR.
 
 ## 4a. The hero video
 
-The home page leads with a silent 6.9 s loop of the head spa treatment, built
-from `brand/source/head-spa-master.mp4` by `npm run build:video`.
+The home page leads with the salon's own head spa film, built from
+`brand/source/head-spa-master.mp4` by `npm run build:video`.
 
-| Decision                                                  | Why                                                                                                                                             |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Two shots, joined and topped and tailed through **white** | The master's own cut is a white wipe, so the join matches the footage, and white at both ends makes the loop seam invisible                     |
-| Cropped to 4:5 **in ffmpeg**, not by CSS                  | The master is 9:16; `object-cover` in a 4:5 frame crops it to an unreadable close-up. Cropping at build time is where the framing can be chosen |
-| AV1 first, H.264 fallback                                 | Measured: 394 kB against 533 kB for the same quality. VP9 was tried and was larger than both                                                    |
-| No audio track at all                                     | An autoplay loop must be muted, so the audio is pure weight                                                                                     |
-| `preload="none"`, no `autoplay` attribute                 | The poster carries LCP; a visitor who prefers reduced motion never downloads the video at all                                                   |
-| A visible pause control                                   | WCAG 2.2 SC 2.2.2 — motion that starts on its own and runs past five seconds must be stoppable                                                  |
+| Decision                                           | Why                                                                                                                                                                                                            |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Used **whole and uncropped**, in its original 9:16 | It is a commissioned edit. Re-cutting or cropping it would discard framing someone was paid for. Its first and last frames are the same shot, so it already loops without a fade                               |
+| Shown at a fixed portrait width, not full-column   | A 9:16 film stretched across the hero column stands nearly a thousand pixels tall and pushes everything below the fold                                                                                         |
+| AV1 first, H.264 fallback                          | Measured: 2.58 MB against 3.23 MB. VP9 was tried and was larger than both                                                                                                                                      |
+| No audio track                                     | A hero that starts on its own must be muted to be allowed to play, so the soundtrack could never be heard                                                                                                      |
+| `autoplay` attribute, not a scripted `play()`      | The declarative path is the one browsers honour, and it does not wait for an island. An earlier version started playback from script and simply did not autoplay                                               |
+| An inline reduced-motion guard                     | Placed immediately after the element so it runs during parsing. The file is still fetched by then; declaring the sources from script would avoid that, at the cost of putting autoplay behind script execution |
+| A visible pause control                            | WCAG 2.2 SC 2.2.2 — motion that starts on its own and runs past five seconds must be stoppable                                                                                                                 |
 
-Only footage without a recognisable client is used. See `brand/CONSENT.md`.
+At 2.58 MB this is by far the heaviest asset on the site and it downloads on
+load. That is the deliberate price of an autoplaying film the salon supplied;
+see the budget note in CLAUDE.md §10.
+
+Rights and consent for the film are unconfirmed — see `brand/CONSENT.md`.
 
 ---
 

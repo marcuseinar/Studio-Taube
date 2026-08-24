@@ -277,25 +277,31 @@ a provider must not require touching a single page or component.
 
 CI fails the build if any of these regress:
 
-| Metric                         | Budget              |
-| ------------------------------ | ------------------- |
-| Lighthouse performance         | ≥ 95                |
-| Lighthouse accessibility       | 100                 |
-| Lighthouse SEO                 | ≥ 95                |
-| axe violations                 | 0                   |
-| Largest Contentful Paint       | ≤ 2.0 s (throttled) |
-| Cumulative Layout Shift        | ≤ 0.05              |
-| JS shipped to the landing page | ≤ 25 kB gzipped     |
-| Any single image               | ≤ 250 kB served     |
+| Metric                         | Budget                |
+| ------------------------------ | --------------------- |
+| Lighthouse performance         | ≥ 95                  |
+| Lighthouse accessibility       | 100                   |
+| Lighthouse SEO                 | ≥ 95                  |
+| axe violations                 | 0                     |
+| Largest Contentful Paint       | ≤ 2.0 s (throttled)   |
+| Cumulative Layout Shift        | ≤ 0.05                |
+| JS shipped to the landing page | ≤ 25 kB gzipped       |
+| Any single image               | ≤ 250 kB served       |
+| Hero video                     | ≤ 3 MB, muted, silent |
 
 Images are processed through Astro's image pipeline. Never commit an unoptimised
 photograph straight from a phone into `public/`.
 
 Video is derived from a master in `brand/source/` by `npm run build:video`, never
-hand-encoded. A video must be silent, `preload="none"`, and must not autoplay by
-attribute — playback starts from an island so it can honour
-`prefers-reduced-motion`, and anything that moves by itself needs a pause control
-(WCAG 2.2 SC 2.2.2). The poster carries LCP, so it is what the page is measured on.
+hand-encoded. A video must be silent and carry a poster, which is what LCP is
+measured on. Autoplay is declared with the `autoplay` attribute so it does not
+depend on an island hydrating; `prefers-reduced-motion` is honoured by an inline
+guard placed immediately after the element, and anything that moves by itself
+needs a pause control (WCAG 2.2 SC 2.2.2).
+
+The hero video is the one asset allowed to be large, because it is the page's
+main image and the salon supplied it as a finished edit. Do not raise this
+budget for anything else.
 
 ---
 

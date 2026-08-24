@@ -15,17 +15,22 @@ consent have not been confirmed with Linda.
 | head-spa-basin.jpg      | Instagram collage                     | Basin, hands only  | no                                                 | no               |
 | produkter.jpg           | Instagram collage                     | Products           | no                                                 | no               |
 | behandlingsrum.jpg      | Instagram collage                     | Treatment room     | no                                                 | no               |
+| video/head-spa.\*       | Owner-supplied, believed commissioned | Head spa, in full  | **yes — client's face is recognisable**            | no               |
 
 ## The hero video
 
-The master runs 39 seconds and shows a client's face clearly for much of it.
-The loop on the site is built from two shots only — water through the gold hoop,
-and rinsing under it — chosen because **no face is recognisable in either**. The
-crop and the in and out points in `scripts/build-hero-video.mjs` are what keep it
-that way, so re-cutting the loop means re-checking that.
+The full film is used, unedited and uncropped. The site owner understands it to
+be an edit the salon commissioned, so the production and any release from the
+client would have been handled at that point — but **this has not been
+confirmed**, and a client's face is recognisable through much of it.
 
-The master itself is kept in `brand/source/` for provenance and is never
-published.
+An earlier version of this site cut the film down to two shots in which no face
+appeared. That was reversed on the owner's instruction to use the original.
+
+Confirm before this goes anywhere beyond a demo:
+
+1. Who produced the film, and does the studio hold the right to publish it?
+2. Did the client shown consent to its use on the website specifically?
 
 ## Open questions for Linda
 

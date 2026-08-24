@@ -18,20 +18,21 @@ const labels = {
 }[locale];
 ---
 
-<figure class="rounded-card relative m-0 aspect-4/5 overflow-hidden">
+<figure class="rounded-card relative m-0 mx-auto aspect-9/16 w-full max-w-[340px] overflow-hidden sm:max-w-[380px]">
   <!--
-    preload="none" keeps the loop out of the way of the poster, which is what
-    the page's Largest Contentful Paint is measured on. There is no audio
-    track at all, so nothing to caption and nothing to mute badly.
+    The native autoplay attribute rather than a scripted play(): it is the path
+    browsers actually honour, it does not wait for an island to hydrate, and it
+    still works if scripting never runs. There is no audio track at all, so
+    nothing to caption and nothing left unmuted.
   -->
   <video
     id={VIDEO_ID}
     class="h-full w-full object-cover"
     poster={assetUrl('/video/head-spa-poster.jpg')}
+    autoplay
     muted
     loop
     playsinline
-    preload="none"
     disablepictureinpicture
     aria-label={description}
   >
@@ -45,5 +46,28 @@ const labels = {
     <source src={assetUrl('/video/head-spa.mp4')} type="video/mp4" />
   </video>
 
-  <HeroVideoControl client:idle videoId={VIDEO_ID} labels={labels} />
+  <!--
+    Runs while the document is still parsing, immediately after the element, so
+    a visitor who asked for less motion never sees the first frame move. An
+    island cannot do this: it hydrates too late, and `autoplay` is an attribute
+    that cannot be made conditional in static HTML.
+
+    The browser has already begun fetching by this point, so the file is still
+    downloaded. Declaring the sources from script instead would avoid that, but
+    it would put autoplay — the thing most visitors get — behind script
+    execution, and reliability there is worth more than the saved bytes.
+  -->
+  <script is:inline define:vars={{ videoId: VIDEO_ID }}>
+    (function () {
+      const video = document.getElementById(videoId);
+      const quiet = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (video && quiet) {
+        video.autoplay = false;
+        video.removeAttribute('autoplay');
+        video.pause();
+      }
+    })();
+  </script>
+
+  <HeroVideoControl client:load videoId={VIDEO_ID} labels={labels} />
 </figure>
