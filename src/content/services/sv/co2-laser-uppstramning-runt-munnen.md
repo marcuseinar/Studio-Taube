@@ -14,7 +14,6 @@ featured: true
 summary: 'Fraktionerad CO2-laser för området runt munnen. Konsultation krävs innan behandling.'
 ---
 
-Med fraktionerad co2 laser
-Hudföryngrande runt munnen
+Med fraktionerad CO2-laser. Hudföryngrande runt munnen.
 
-Boka konsultation innan behandling
+Boka konsultation innan behandling.

@@ -49,12 +49,66 @@ body {
   text-transform: uppercase;
 }
 
+/*
+ * Treatment descriptions are the salon's own text, copied from Bokadirekt —
+ * some run to a dozen paragraphs with sub-headings and lists (see the Green
+ * Peel and Cool Peel entries). Tailwind's preflight strips all list styling,
+ * so without these rules a `- item` list renders with no marker, no indent
+ * and no spacing: readable in the Markdown source, a wall of text on the
+ * page. Every rule below exists because real content needed it.
+ */
 .prose-taube :is(h2, h3) {
   font-family: var(--font-serif);
+  color: var(--color-ink);
+  line-height: 1.3;
+}
+
+.prose-taube h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.prose-taube h3 {
+  margin-top: 2rem;
+  font-size: 1.1875rem;
+}
+
+.prose-taube :is(h2, h3) + * {
+  margin-top: 0.75rem;
 }
 
 .prose-taube p + p {
   margin-top: 1rem;
+}
+
+.prose-taube :is(ul, ol) {
+  margin-top: 1rem;
+  padding-inline-start: 1.25rem;
+}
+
+.prose-taube ul {
+  list-style-type: disc;
+}
+
+.prose-taube ol {
+  list-style-type: decimal;
+}
+
+.prose-taube li + li {
+  margin-top: 0.5rem;
+}
+
+.prose-taube li::marker {
+  color: var(--color-sand-deep);
+}
+
+.prose-taube :is(ul, ol) + p {
+  margin-top: 1rem;
+}
+
+.prose-taube strong {
+  color: var(--color-ink);
+  font-weight: 600;
 }
 
 .tabular {

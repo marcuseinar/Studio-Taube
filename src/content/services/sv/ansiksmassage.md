@@ -14,10 +14,9 @@ featured: false
 summary: 'Avslappnande ansiktsmassage i spa-anda med ekologiska produkter.'
 ---
 
-Ansiksmassage i spa-anda
-Avslappnande för muskler och sinnet. Ekologiska produkter
+Ansiktsmassage i spa-anda. Avslappnande för muskler och sinnet. Ekologiska produkter.
 
-Rengöring
-Ansiksmassage
-Dekolletage
-Skalp
+- Rengöring
+- Ansiktsmassage
+- Dekolletage
+- Skalp

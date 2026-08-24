@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import BookingButton from '../BookingButton.astro';
+import PageHeading from '../PageHeading.astro';
+import Section from '../Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { discountPercent } from '../../lib/campaigns.ts';
+import { formatDuration, formatPrice } from '../../lib/format.ts';
+import { localisePath, useTranslations, type Locale } from '../../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+  campaign: CollectionEntry<'campaigns'>;
+  /** Resolved from the Bokadirekt catalogue, never read from campaign.data — see docs/DECISIONS.md D11. */
+  priceSek: number;
+}
+
+const { locale, campaign, priceSek } = Astro.props;
+const t = useTranslations(locale);
+const { Content } = await render(campaign);
+const { data } = campaign;
+
+const saving = data.ordinaryPriceSek ? discountPercent(priceSek, data.ordinaryPriceSek) : undefined;
+---
+
+<BaseLayout locale={locale} title={data.title} description={data.summary}>
+  <Section>
+    <PageHeading eyebrow={t('nav.campaigns')} title={data.title} lead={data.summary} />
+
+    <dl class="border-sand/40 mt-10 flex flex-wrap items-baseline gap-x-12 gap-y-4 border-y py-6">
+      <div>
+        <dt class="wordmark-label text-ink-muted text-[0.65rem]">{t('treatments.price')}</dt>
+        <dd class="tabular text-ink mt-1 flex items-baseline gap-3 text-lg">
+          {formatPrice(priceSek, locale)}
+          {
+            data.ordinaryPriceSek !== undefined && (
+              <span class="text-ink-muted text-sm">
+                <span class="sr-only">{t('campaigns.ordinaryPrice')}: </span>
+                <s>{formatPrice(data.ordinaryPriceSek, locale)}</s>
+              </span>
+            )
+          }
+          {saving !== undefined && <span class="bg-blush text-ink rounded-pill px-3 py-1 text-xs">−{saving}%</span>}
+        </dd>
+      </div>
+      <div>
+        <dt class="wordmark-label text-ink-muted text-[0.65rem]">{t('treatments.duration')}</dt>
+        <dd class="tabular text-ink mt-1 text-lg">{formatDuration(data.durationMinutes, locale)}</dd>
+      </div>
+    </dl>
+
+    {
+      data.requiresConsultation && (
+        <p class="bg-blush/50 text-ink rounded-card mt-8 max-w-[68ch] p-4 text-sm">
+          {t('booking.consultationRequired')}
+        </p>
+      )
+    }
+
+    <div class="prose-taube text-ink-muted mt-8 max-w-[68ch]">
+      <Content />
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-4">
+      <BookingButton
+        locale={locale}
+        service={{ slug: data.bokadirektSlug, bokadirektServiceId: data.bokadirektServiceId }}
+        label={t('booking.cta.service')}
+      />
+      <a
+        href={localisePath('/erbjudanden/', locale)}
+        class="border-sand-deep text-sand-ink hover:bg-shell wordmark-label rounded-pill inline-flex min-h-11 items-center border px-7 py-3 text-sm"
+      >
+        {t('campaigns.title')}
+      </a>
+    </div>
+  </Section>
+</BaseLayout>

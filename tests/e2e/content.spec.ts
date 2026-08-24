@@ -19,6 +19,33 @@ test('an active campaign appears with its ordinary price struck through', async 
   await expect(card.locator('s')).toContainText('950');
 });
 
+test('a campaign card links to its own page with the full description', async ({ page }) => {
+  await page.goto(url('/erbjudanden/'));
+
+  await page
+    .getByRole('article')
+    .filter({ hasText: 'Cool Peel CO2-laser ansikte & hals' })
+    .getByRole('link', { name: 'Läs mer' })
+    .click();
+
+  await expect(page).toHaveURL(/\/erbjudanden\/cool-peel-erbjudande\/$/);
+  await expect(
+    page.getByRole('heading', { level: 3, name: 'Att tänka på inför och efter din behandling' }),
+  ).toBeVisible();
+  // The catalogue price, not whatever the content file happens to say — see D11.
+  await expect(page.getByRole('main')).toContainText('2 999');
+});
+
+test('a treatment description with a bulleted list renders as a real list, not a run-on paragraph', async ({
+  page,
+}) => {
+  await page.goto(url('/behandlingar/head-spa-60-minuter/'));
+
+  const items = page.getByRole('main').getByRole('listitem');
+  await expect(items).toHaveCount(9);
+  await expect(items.first()).toContainText('Ångbad för hår och ansikte');
+});
+
 test('the price list carries a price for every treatment', async ({ page }) => {
   await page.goto(url('/priser/'));
 

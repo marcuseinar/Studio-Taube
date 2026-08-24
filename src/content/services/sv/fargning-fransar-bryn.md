@@ -14,4 +14,4 @@ featured: false
 summary: 'Färgning av både fransar och bryn.'
 ---
 
-## Färgning fransar & bryn
+Färgning av både fransar och bryn.

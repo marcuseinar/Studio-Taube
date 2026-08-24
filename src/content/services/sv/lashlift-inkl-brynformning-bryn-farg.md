@@ -14,4 +14,4 @@ featured: true
 summary: 'Lashlift kombinerad med formning och färgning av brynen.'
 ---
 
-## Lashlift inkl. brynformning & brynfärg
+En lashlift kombinerad med formning och färgning av brynen.

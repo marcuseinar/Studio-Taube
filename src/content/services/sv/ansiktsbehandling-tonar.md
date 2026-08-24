@@ -14,4 +14,4 @@ featured: true
 summary: 'En ansiktsbehandling anpassad för tonårshud.'
 ---
 
-## Ansiktsbehandling tonår
+En ansiktsbehandling anpassad för tonårshud.

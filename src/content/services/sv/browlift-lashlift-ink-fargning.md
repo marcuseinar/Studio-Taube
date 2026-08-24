@@ -14,4 +14,4 @@ featured: true
 summary: 'Lashlift och browlift i samma besök, inklusive färgning.'
 ---
 
-## Browlift & lashlift inkl. färgning
+En browlift och en lashlift i samma besök, inklusive färgning.

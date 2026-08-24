@@ -19,4 +19,26 @@ A superficial fractional ablative CO2 laser, for those who want a shorter recove
 
 It is used for fine lines, pores, superficial pigmentation, uneven skin tone and texture, and acne scarring.
 
-Several treatments are recommended for the best result.
+For the best result, 3 sessions are recommended, roughly 4–6 weeks apart.
+
+### Before and after your treatment
+
+Avoid the treatment if you:
+
+- Are pregnant or breastfeeding
+- Take blood-thinning medication (check with your doctor)
+- Are taking antibiotics
+
+After the treatment, avoid:
+
+- Physical activity, sauna and direct sun exposure
+- Make-up for the first few days
+- Active skincare ingredients
+
+In the first few days after treatment:
+
+- Moisturise the skin
+- Use sun protection
+- Use clean bedding and towels
+
+The treatment is performed by a quality-assured skin therapist for your safety.

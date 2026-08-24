@@ -14,4 +14,4 @@ featured: false
 summary: 'Skonsam borttagning av fransförlängning.'
 ---
 
-## Borttagning av fransar
+Skonsam borttagning av fransförlängning.

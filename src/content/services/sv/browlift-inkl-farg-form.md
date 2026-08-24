@@ -14,4 +14,4 @@ featured: true
 summary: 'Browlift med färgning och formning av brynen.'
 ---
 
-## Browlift inkl. färg & form
+En browlift med färgning och formning av brynen.

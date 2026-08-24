@@ -1,0 +1,23 @@
+---
+import CampaignView from '../../../components/views/CampaignView.astro';
+import { entrySlug, getCampaigns } from '../../../lib/content.ts';
+import { visibleCampaigns } from '../../../lib/campaign-entries.ts';
+
+export async function getStaticPaths() {
+  const entries = await getCampaigns('en');
+  const visible = new Map(visibleCampaigns(entries, new Date()).map((c) => [c.slug, c.priceSek]));
+
+  // Only campaigns still live get a page — a withdrawn or expired one must
+  // not stay reachable at its old URL. See docs/DECISIONS.md D11.
+  return entries
+    .filter((entry) => visible.has(entrySlug(entry.id)))
+    .map((campaign) => {
+      const slug = entrySlug(campaign.id);
+      return { params: { slug }, props: { campaign, priceSek: visible.get(slug)! } };
+    });
+}
+
+const { campaign, priceSek } = Astro.props;
+---
+
+<CampaignView locale="en" campaign={campaign} priceSek={priceSek} />

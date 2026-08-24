@@ -14,4 +14,4 @@ featured: false
 summary: 'Formning och färgning av brynen.'
 ---
 
-## Formning av bryn inkl. färg
+Formning och färgning av brynen.

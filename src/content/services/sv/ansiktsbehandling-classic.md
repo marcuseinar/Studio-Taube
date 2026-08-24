@@ -14,12 +14,13 @@ featured: true
 summary: 'En ansiktsbehandling som rengör och återfuktar, skräddarsydd för din hud.'
 ---
 
-En ansiktsbehandling som rengör och återfuktar
+En ansiktsbehandling som rengör och återfuktar.
 
-Vad som ingår (skräddarsyr för just din hud)
-Rengöring
-Peeling
-Ansiksmassage med ampull
-Mask efter dina behov
+Vad som ingår (skräddarsys för just din hud):
 
-Passar alla
+- Rengöring
+- Peeling
+- Ansiktsmassage med ampull
+- Mask efter dina behov
+
+Passar alla.
