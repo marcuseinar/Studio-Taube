@@ -4,7 +4,10 @@ on:
   push:
     branches: [main]
   schedule:
-    # Rebuild nightly so campaign expiry takes effect without a human deploying.
+    # Runs after Sync Bokadirekt catalogue (03:00) so it deploys that night's
+    # snapshot. This is also what applies a campaign's validTo without anyone
+    # deploying by hand, and it is the only thing that starts a deploy after a
+    # snapshot commit, since a push made with GITHUB_TOKEN triggers nothing.
     - cron: '17 3 * * *'
   workflow_dispatch:
 

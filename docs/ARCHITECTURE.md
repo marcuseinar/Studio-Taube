@@ -121,8 +121,21 @@ HTML validation → JSON-LD validation. Every one is a gate.
 
 `main` runs the same suite and deploys to Pages only if green.
 
-A nightly scheduled rebuild exists so campaign expiry takes effect without a
-human deploying.
+### Keeping up with Bokadirekt
+
+```
+03:00  Sync Bokadirekt catalogue  fetch -> data/bokadirekt-catalogue.json -> verify -> commit
+03:17  Deploy                     builds main, so that night's snapshot goes live
+```
+
+An offer withdrawn from Bokadirekt stops rendering on the next deploy, because
+campaign visibility is derived from the snapshot (docs/DECISIONS.md D11). The
+two jobs are separate and ordered rather than chained: a push made with
+`GITHUB_TOKEN` deliberately triggers no further workflow, so the Deploy cron is
+what picks the snapshot up.
+
+The sync never writes an implausible catalogue, so a Bokadirekt outage leaves
+the previous snapshot — and therefore the site — untouched.
 
 Dependabot for npm and Actions, grouped weekly.
 

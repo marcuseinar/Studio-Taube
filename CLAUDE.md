@@ -225,8 +225,13 @@ separate commit so a reviewer can see the actual change.
   Never store `"från 1 450 kr"` as a string — formatting is presentation.
 - Every content entry exists in both `sv` and `en`, or the build fails.
   A missing translation is not allowed to silently fall back.
-- Campaigns have a `validFrom`/`validTo` and are filtered at build time.
+- Campaigns may have a `validFrom`/`validTo`, and are filtered at build time.
   An expired campaign must not render.
+- A campaign carrying a `bokadirektServiceId` renders **only while that service
+  is still in `data/bokadirekt-catalogue.json`**, and always at the catalogue's
+  price. Never render a campaign price straight from the content file: the
+  salon can end a sale without touching this repo, and advertising a price they
+  no longer honour is a legal problem. See `docs/DECISIONS.md` D11.
 
 See `docs/CONTENT.md` for the collection shapes.
 

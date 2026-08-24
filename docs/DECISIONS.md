@@ -194,3 +194,35 @@ disabled.
 _Revisit if:_ a future feature genuinely needs client-side routing or shared
 state across pages, which would be an argument for SvelteKit rather than for
 React.
+
+---
+
+## D11 — An offer is shown only while Bokadirekt still sells it
+
+**Decided.** Campaign visibility and price are derived from
+`data/bokadirekt-catalogue.json`, not from the content file.
+
+The first version treated an offer with no end date as running until someone
+removed it by hand. That was wrong. Bokadirekt does not publish an end date, so
+every offer was open-ended: when the salon ended a sale, the site would have
+gone on advertising the old price, and the booking link would have redirected
+away because the service id no longer existed. Advertising a price the salon no
+longer honours is a marketing-law problem, not a stale-content problem.
+
+Now an offer tied to a `bokadirektServiceId` renders only while that service is
+in the snapshot, and always at the snapshot's price. `validFrom`/`validTo`
+still work and can withdraw an offer early. An offer with no service id is
+purely editorial and follows its dates alone.
+
+**Visibility is derived, not validated.** The tempting alternative — fail the
+build when content and catalogue disagree — fails in the wrong direction: the
+deploy stops, so the stale price stays on the live site. Filtering degrades the
+right way.
+
+The snapshot is refreshed nightly by `.github/workflows/sync-catalogue.yml`,
+which refuses to write an implausible catalogue: a failed fetch or a broken
+parse leaves the previous snapshot in place, so a Bokadirekt outage can never
+blank the site's prices.
+
+_Revisit if:_ the Bokadirekt API module (399 kr/mån) is taken, which would
+replace the scrape with a supported feed.

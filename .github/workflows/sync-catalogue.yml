@@ -1,0 +1,47 @@
+name: Sync Bokadirekt catalogue
+
+on:
+  schedule:
+    # Runs before the nightly Deploy, so a withdrawn offer is off the site the
+    # same night. See the ordering note below.
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-catalogue
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+
+      - name: Refresh the catalogue snapshot
+        run: node scripts/sync-bokadirekt-catalogue.mjs
+
+      - name: Check the site still builds against it
+        run: npm run verify
+
+      - name: Commit the snapshot if it changed
+        run: |
+          if git diff --quiet -- data/bokadirekt-catalogue.json; then
+            echo "Catalogue unchanged."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/bokadirekt-catalogue.json
+          git commit -m 'chore: refresh Bokadirekt catalogue snapshot'
+          git push
+          # A push made with GITHUB_TOKEN deliberately does not trigger other
+          # workflows, so this does not start a deploy. The nightly Deploy cron
+          # runs shortly after and picks the new snapshot up.

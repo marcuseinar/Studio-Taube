@@ -1,28 +1,76 @@
 import { describe, expect, it } from 'vitest';
-import { discountPercent, isCampaignActive } from './campaigns.ts';
+import { discountPercent, resolveCampaign, type CampaignLookup } from './campaigns.ts';
 
 const now = new Date('2026-08-23T12:00:00Z');
 
-describe('isCampaignActive', () => {
-  it('treats a campaign with no dates as running', () => {
-    expect(isCampaignActive({}, now)).toBe(true);
+const HEAD_SPA = {
+  id: 3464121,
+  name: 'Head spa 60 min',
+  priceSek: 760,
+  durationMinutes: 70,
+  categoryName: 'KAMPANJ',
+};
+
+const onBokadirekt: CampaignLookup = (id) => (id === HEAD_SPA.id ? HEAD_SPA : undefined);
+const withdrawn: CampaignLookup = () => undefined;
+
+describe('resolveCampaign', () => {
+  it('shows an offer that is still in the Bokadirekt catalogue', () => {
+    const result = resolveCampaign({ priceSek: 760, bokadirektServiceId: HEAD_SPA.id }, onBokadirekt, now);
+    expect(result).toEqual({ visible: true, priceSek: 760 });
   });
 
-  it('hides a campaign that has not started', () => {
-    expect(isCampaignActive({ validFrom: new Date('2026-09-01') }, now)).toBe(false);
+  it('hides an offer the salon has withdrawn, even with no end date', () => {
+    const result = resolveCampaign({ priceSek: 760, bokadirektServiceId: HEAD_SPA.id }, withdrawn, now);
+    expect(result).toEqual({ visible: false, reason: 'withdrawn-from-bokadirekt' });
   });
 
-  it('shows a campaign on its final day', () => {
-    expect(isCampaignActive({ validTo: new Date('2026-08-23') }, now)).toBe(true);
+  it('takes the price from Bokadirekt when the content file has drifted', () => {
+    // Content still says 760; the salon has since raised it to 800.
+    const raised: CampaignLookup = () => ({ ...HEAD_SPA, priceSek: 800 });
+    const result = resolveCampaign({ priceSek: 760, bokadirektServiceId: HEAD_SPA.id }, raised, now);
+    expect(result).toEqual({ visible: true, priceSek: 800 });
   });
 
-  it('hides a campaign the day after it ends', () => {
-    expect(isCampaignActive({ validTo: new Date('2026-08-22') }, now)).toBe(false);
+  it('hides an offer before it starts', () => {
+    const result = resolveCampaign(
+      { priceSek: 760, bokadirektServiceId: HEAD_SPA.id, validFrom: new Date('2026-09-01') },
+      onBokadirekt,
+      now,
+    );
+    expect(result).toEqual({ visible: false, reason: 'before-start' });
   });
 
-  it('respects both bounds together', () => {
-    const period = { validFrom: new Date('2026-08-01'), validTo: new Date('2026-08-31') };
-    expect(isCampaignActive(period, now)).toBe(true);
+  it('shows an offer on its final day', () => {
+    const result = resolveCampaign(
+      { priceSek: 760, bokadirektServiceId: HEAD_SPA.id, validTo: new Date('2026-08-23') },
+      onBokadirekt,
+      now,
+    );
+    expect(result).toEqual({ visible: true, priceSek: 760 });
+  });
+
+  it('hides an offer the day after it ends', () => {
+    const result = resolveCampaign(
+      { priceSek: 760, bokadirektServiceId: HEAD_SPA.id, validTo: new Date('2026-08-22') },
+      onBokadirekt,
+      now,
+    );
+    expect(result).toEqual({ visible: false, reason: 'after-end' });
+  });
+
+  it('lets an end date withdraw an offer that is still listed on Bokadirekt', () => {
+    const result = resolveCampaign(
+      { priceSek: 760, bokadirektServiceId: HEAD_SPA.id, validTo: new Date('2026-08-01') },
+      onBokadirekt,
+      now,
+    );
+    expect(result.visible).toBe(false);
+  });
+
+  it('shows an editorial offer that is not tied to a Bokadirekt service', () => {
+    const result = resolveCampaign({ priceSek: 500 }, withdrawn, now);
+    expect(result).toEqual({ visible: true, priceSek: 500 });
   });
 });
 

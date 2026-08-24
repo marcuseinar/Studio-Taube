@@ -8,7 +8,7 @@ import Section from '../Section.astro';
 import TreatmentCard from '../TreatmentCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCampaigns, getServices, entrySlug } from '../../lib/content.ts';
-import { isCampaignActive } from '../../lib/campaigns.ts';
+import { visibleCampaigns } from '../../lib/campaign-entries.ts';
 import { localisePath, useTranslations, type Locale } from '../../i18n/index.ts';
 import { SALON } from '../../lib/site.ts';
 
@@ -22,7 +22,7 @@ const t = useTranslations(locale);
 const services = await getServices(locale);
 const featured = services.filter((service) => service.data.featured).slice(0, 6);
 
-const campaigns = (await getCampaigns(locale)).filter((campaign) => isCampaignActive(campaign.data, new Date()));
+const campaigns = visibleCampaigns(await getCampaigns(locale), new Date());
 
 const copy = {
   sv: {
@@ -57,10 +57,10 @@ const copy = {
           {campaigns.map((campaign) => (
             <CampaignCard
               locale={locale}
-              slug={entrySlug(campaign.id)}
+              slug={campaign.slug}
               title={campaign.data.title}
               summary={campaign.data.summary}
-              priceSek={campaign.data.priceSek}
+              priceSek={campaign.priceSek}
               ordinaryPriceSek={campaign.data.ordinaryPriceSek}
               durationMinutes={campaign.data.durationMinutes}
               requiresConsultation={campaign.data.requiresConsultation}
