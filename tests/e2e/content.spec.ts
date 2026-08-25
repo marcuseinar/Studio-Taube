@@ -22,10 +22,13 @@ test('an active campaign appears with its ordinary price struck through', async 
 test('a campaign card links to its own page with the full description', async ({ page }) => {
   await page.goto(url('/erbjudanden/'));
 
+  // The card's hit area is stretched over the whole thing (see .card-link in
+  // global.css), so the "Läs mer" label is decorative, not its own link — the
+  // title carries the real, accessible link.
   await page
     .getByRole('article')
     .filter({ hasText: 'Cool Peel CO2-laser ansikte & hals' })
-    .getByRole('link', { name: 'Läs mer' })
+    .getByRole('link', { name: 'Cool Peel CO2-laser ansikte & hals' })
     .click();
 
   await expect(page).toHaveURL(/\/erbjudanden\/cool-peel-erbjudande\/$/);

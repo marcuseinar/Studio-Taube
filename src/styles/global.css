@@ -116,6 +116,66 @@ body {
 }
 
 /*
+ * Clickable cards (treatments, campaigns).
+ *
+ * The only thing that used to say "there's more here" was the title text
+ * turning a different colour under the cursor — easy to miss next to a bold
+ * booking button that reads as the card's one action. Two changes fix that:
+ *
+ * 1. .card-link's hit area is stretched over the whole card via ::after, so
+ *    pointing anywhere on it — not just the two words of the title — acts as
+ *    the link. This is the standard "stretched link" technique: the overlay
+ *    carries no explicit z-index, so it sits below any sibling that opts in
+ *    with position:relative + a positive z-index, which is how the booking
+ *    button stays independently clickable on top of it.
+ * 2. .card-interactive reacts on :hover and :focus-within — not just the
+ *    link's own text — so moving the mouse over any part of the card gives
+ *    feedback, which is what makes "this is clickable" obvious before a
+ *    visitor commits to a click.
+ *
+ * A visible "Läs mer" label still ships alongside the title as a decorative,
+ * non-link span: with the whole card already one hit area, a second real
+ * anchor to the same destination would just be a duplicate link for anyone
+ * navigating by screen reader.
+ */
+.card-interactive {
+  position: relative;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.card-interactive:hover,
+.card-interactive:focus-within {
+  border-color: var(--color-sand-deep);
+  box-shadow: 0 12px 28px -18px rgb(43 38 34 / 0.35);
+}
+
+.card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card-affordance {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  transition: gap 150ms ease;
+}
+
+.card-interactive:hover .card-affordance,
+.card-interactive:focus-within .card-affordance {
+  gap: 0.55em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-affordance {
+    transition: none;
+  }
+}
+
+/*
  * Navigation link states.
  *
  * The current page is marked by a rule as well as by colour: colour alone

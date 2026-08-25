@@ -34,10 +34,10 @@ const t = useTranslations(locale);
 const saving = ordinaryPriceSek ? discountPercent(priceSek, ordinaryPriceSek) : undefined;
 ---
 
-<article class="border-sand/50 bg-cream rounded-card flex flex-col border p-6">
+<article class="border-sand/50 bg-cream rounded-card card-interactive flex flex-col border p-6">
   <div class="flex items-start justify-between gap-4">
     <h3 class="text-ink font-serif text-xl leading-snug">
-      <a class="hover:text-sand-ink" href={localisePath(`/erbjudanden/${slug}/`, locale)}>{title}</a>
+      <a class="card-link hover:text-sand-ink" href={localisePath(`/erbjudanden/${slug}/`, locale)}>{title}</a>
     </h3>
     {
       saving !== undefined && (
@@ -48,11 +48,12 @@ const saving = ordinaryPriceSek ? discountPercent(priceSek, ordinaryPriceSek) : 
 
   <p class="text-ink-muted mt-3 grow text-sm">{summary}</p>
 
-  <p class="mt-3">
-    <a class="text-sand-ink hover:text-ink wordmark-label text-xs" href={localisePath(`/erbjudanden/${slug}/`, locale)}>
-      {t('treatments.readMore')} →
-    </a>
-  </p>
+  <span class="card-affordance wordmark-label text-sand-ink mt-3 text-xs" aria-hidden="true">
+    {t('treatments.readMore')}
+    <svg viewBox="0 0 12 12" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M2.5 6h7M6.5 2.5 10 6l-3.5 3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </span>
 
   <p class="mt-5 flex items-baseline gap-3">
     <span class="text-ink tabular font-serif text-2xl">{formatPrice(priceSek, locale)}</span>
@@ -74,6 +75,6 @@ const saving = ordinaryPriceSek ? discountPercent(priceSek, ordinaryPriceSek) : 
     locale={locale}
     service={{ slug: bokadirektSlug, bokadirektServiceId }}
     label={t('booking.cta.service')}
-    class="mt-6 self-start"
+    class="relative z-10 mt-6 self-start"
   />
 </article>

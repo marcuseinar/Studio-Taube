@@ -39,16 +39,23 @@ const searchIndex = `${title} ${summary}`.toLowerCase();
 ---
 
 <article
-  class="border-sand/50 bg-cream rounded-card flex flex-col border p-6"
+  class="border-sand/50 bg-cream rounded-card card-interactive flex flex-col border p-6"
   data-treatment
   data-category={category}
   data-search={searchIndex}
 >
   <h3 class="text-ink font-serif text-xl leading-snug">
-    <a class="hover:text-sand-ink" href={localisePath(`/behandlingar/${slug}/`, locale)}>{title}</a>
+    <a class="card-link hover:text-sand-ink" href={localisePath(`/behandlingar/${slug}/`, locale)}>{title}</a>
   </h3>
 
   <p class="text-ink-muted mt-3 grow text-sm">{summary}</p>
+
+  <span class="card-affordance wordmark-label text-sand-ink mt-3 text-xs" aria-hidden="true">
+    {t('treatments.readMore')}
+    <svg viewBox="0 0 12 12" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M2.5 6h7M6.5 2.5 10 6l-3.5 3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </span>
 
   <dl class="text-ink-muted mt-5 flex flex-wrap gap-x-6 text-sm">
     <div class="flex gap-2">
@@ -68,6 +75,6 @@ const searchIndex = `${title} ${summary}`.toLowerCase();
     service={{ slug, bokadirektServiceId }}
     variant="secondary"
     label={t('booking.cta.service')}
-    class="mt-6 self-start"
+    class="relative z-10 mt-6 self-start"
   />
 </article>
