@@ -5,10 +5,16 @@ on:
     # Runs before the nightly Deploy, so a withdrawn offer is off the site the
     # same night. See the ordering note below.
     - cron: '0 3 * * *'
+  # Lets a Bokadirekt webhook refresh the site within minutes instead of at the
+  # next nightly run. See docs/ARCHITECTURE.md for the relay that turns a
+  # webhook into this event.
+  repository_dispatch:
+    types: [bokadirekt-changed]
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: sync-catalogue
@@ -25,23 +31,74 @@ jobs:
           cache: npm
       - run: npm ci
 
+      # Exit 2 means a source failed but a fallback produced a usable
+      # catalogue: the site should still be updated, and someone should still
+      # be told. Anything else non-zero leaves the previous snapshot in place.
       - name: Refresh the catalogue snapshot
-        run: node scripts/sync-bokadirekt-catalogue.mjs
+        id: sync
+        env:
+          BOKADIREKT_SOURCE: ${{ vars.BOKADIREKT_SOURCE || 'page' }}
+          BOKADIREKT_API_URL: ${{ secrets.BOKADIREKT_API_URL }}
+          BOKADIREKT_API_KEY: ${{ secrets.BOKADIREKT_API_KEY }}
+          BOKADIREKT_API_AUTH: ${{ vars.BOKADIREKT_API_AUTH }}
+          BOKADIREKT_API_AUTH_NAME: ${{ vars.BOKADIREKT_API_AUTH_NAME }}
+          BOKADIREKT_API_DURATION: ${{ vars.BOKADIREKT_API_DURATION }}
+        run: |
+          set +e
+          node scripts/sync-bokadirekt-catalogue.mjs
+          code=$?
+          set -e
+          echo "degraded=$([ "$code" = "2" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "0" ] || [ "$code" = "2" ]; then exit 0; fi
+          exit "$code"
 
       - name: Check the site still builds against it
         run: npm run verify
 
       - name: Commit the snapshot if it changed
         run: |
-          if git diff --quiet -- data/bokadirekt-catalogue.json; then
-            echo "Catalogue unchanged."
+          if git diff --quiet -- data/; then
+            echo "Catalogue and metadata unchanged."
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/bokadirekt-catalogue.json
+          git add data/
           git commit -m 'chore: refresh Bokadirekt catalogue snapshot'
           git push
           # A push made with GITHUB_TOKEN deliberately does not trigger other
           # workflows, so this does not start a deploy. The nightly Deploy cron
           # runs shortly after and picks the new snapshot up.
+
+      # Nobody watches the Actions tab of a site that has been handed over. An
+      # issue e-mails whoever is watching the repository and stays visible
+      # until it is dealt with, which a red workflow run does not.
+      - name: Report a failed or degraded sync
+        if: failure() || steps.sync.outputs.degraded == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const degraded = '${{ steps.sync.outputs.degraded }}' === 'true';
+            const title = degraded
+              ? 'Bokadirekt sync is falling back to the salon page'
+              : 'Bokadirekt catalogue sync is failing';
+            const body = [
+              degraded
+                ? 'The preferred catalogue source failed and the sync fell back. The site is current, but the preferred source needs attention.'
+                : 'The catalogue sync failed, so the site is still serving the previous snapshot. Prices will drift until this is fixed.',
+              '',
+              `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join('\n');
+
+            const { data: open } = await github.rest.issues.listForRepo({
+              ...context.repo,
+              state: 'open',
+              labels: 'catalogue-sync',
+            });
+
+            const existing = open.find((issue) => issue.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({ ...context.repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ ...context.repo, title, body, labels: ['catalogue-sync'] });
+            }

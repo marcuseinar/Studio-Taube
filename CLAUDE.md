@@ -142,6 +142,9 @@ npm run lint         # eslint + stylelint + prettier --check
 npm run test         # vitest
 npm run test:e2e     # playwright, includes axe accessibility assertions
 npm run verify       # everything CI runs. Run this before you push.
+
+npm run sync:catalogue    # refresh the Bokadirekt snapshot (network, not part of a build)
+npm run check:catalogue   # report how stale the snapshot is
 ```
 
 `npm run verify` is the contract. If it passes locally and fails in CI, that

@@ -13,10 +13,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "verify": "npm run lint && npm run check && npm run test && npm run build && npm run check:links && npm run check:schema && npm run check:i18n",
+    "verify": "npm run lint && npm run check && npm run test && npm run build && npm run check:links && npm run check:schema && npm run check:i18n && npm run check:catalogue",
     "check:links": "node scripts/check-links.mjs dist",
     "check:schema": "node scripts/check-structured-data.mjs dist",
     "check:i18n": "node scripts/check-translations.mjs",
+    "check:catalogue": "node scripts/check-catalogue-freshness.mjs",
+    "sync:catalogue": "node scripts/sync-bokadirekt-catalogue.mjs",
     "build:video": "node scripts/build-hero-video.mjs"
   },
   "dependencies": {

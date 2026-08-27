@@ -226,3 +226,58 @@ blank the site's prices.
 
 _Revisit if:_ the Bokadirekt API module (399 kr/mån) is taken, which would
 replace the scrape with a supported feed.
+
+---
+
+## D12 — The catalogue source is swappable, and the site says when it goes stale
+
+**Decided.** Where the catalogue comes from is configuration, not code, and the
+age of the snapshot is a fact the site reports rather than one nobody notices.
+
+This site is built to be handed over. After that there is no developer reading
+the Actions tab and no agent noticing that something stopped working, so every
+failure has to either fix itself or reach a human on its own. Three things in
+the old arrangement failed neither way — they simply went quiet:
+
+1. **The scrape has no contract.** The catalogue is a JSON blob brace-matched
+   out of a page Bokadirekt can restyle without telling anyone. When it breaks,
+   the sync exits non-zero, the previous snapshot stays, and the site keeps
+   serving prices that are no longer being checked.
+2. **A failed run tells nobody.** A red scheduled workflow is visible only to
+   someone who goes looking.
+3. **GitHub disables scheduled workflows after 60 days without repository
+   activity.** The sync only committed when the catalogue changed, so a salon
+   with stable prices would have gone quiet, lost its schedule, and frozen the
+   site — with nothing anywhere reporting it.
+
+So: `BOKADIREKT_SOURCE` selects between the public salon page (free, default),
+the API module (`api`), or the API with the page as a fallback (`api+page`).
+Both sources return the same shape and pass the same validation, so moving
+between them is a configuration change — the bargain D6 already makes for
+booking. A fallback that succeeds is reported rather than swallowed, because a
+working fallback still means the preferred source is broken.
+
+Alongside the snapshot, `data/bokadirekt-catalogue.meta.json` records when it
+was fetched, which source produced it, and whether that run was degraded. The
+metadata is rewritten at least weekly even when nothing changed, which keeps
+the repository active and the schedule alive. A stale snapshot opens a GitHub
+issue, because an issue e-mails whoever is watching and stays open until it is
+dealt with.
+
+**Staleness alarms; it never blocks.** Refusing to deploy on an old snapshot
+would strand the site on exactly the prices that are out of date and block the
+fix along with them — the same trap D11 describes, so the same answer.
+
+**What the API is not used for.** Booking still goes through deep links. A
+static page cannot hold an API key, so real-time availability would need a
+proxy to keep the credential server-side, and the deep link already sends the
+visitor to the right treatment at no cost. `BookingApiProvider` stays
+unbuilt until something needs it that a link cannot do.
+
+_Consequence:_ taking the API module is now a configuration change plus
+confirming the response shape against Bokadirekt's reference. No public API
+documentation exists, so the endpoint, auth scheme and duration unit are all
+configuration rather than assumptions — see `docs/ARCHITECTURE.md`.
+
+_Revisit if:_ Bokadirekt publishes a documented public feed, which would make
+the page source redundant.

@@ -15,6 +15,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: pages
@@ -32,6 +33,40 @@ jobs:
       - run: npm ci
       - name: Verify before deploying
         run: npm run verify
+
+      # Catches a sync that stopped working without ever reporting it — the
+      # workflow removed, never scheduled, or disabled. Deliberately does not
+      # block the deploy: refusing to publish because the prices are old would
+      # strand the site on those same prices and block the fix (D11).
+      - name: Check the catalogue is still being refreshed
+        id: freshness
+        continue-on-error: true
+        run: npm run check:catalogue -- --strict
+
+      - name: Report a stale catalogue
+        if: steps.freshness.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'Bokadirekt catalogue has stopped refreshing';
+            const body = [
+              'The catalogue snapshot is old enough that the sync has almost certainly stopped running.',
+              'The site is still deploying, but it is publishing prices that are no longer being checked against Bokadirekt.',
+              '',
+              'Most likely: GitHub disabled the scheduled workflows after a quiet period. Re-enable them in the Actions tab.',
+              '',
+              `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join('\n');
+
+            const { data: open } = await github.rest.issues.listForRepo({
+              ...context.repo,
+              state: 'open',
+              labels: 'catalogue-sync',
+            });
+
+            if (!open.some((issue) => issue.title === title)) {
+              await github.rest.issues.create({ ...context.repo, title, body, labels: ['catalogue-sync'] });
+            }
       # enablement turns Pages on for the repository if it is off. It can fail
       # when the default token lacks admin rights; if it does, set
       # Settings > Pages > Source to "GitHub Actions" once and drop this input.

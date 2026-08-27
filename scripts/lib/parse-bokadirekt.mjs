@@ -42,7 +42,3 @@ export function parseCatalogue(html) {
 
   throw new Error('Services block in the Bokadirekt page never closed.');
 }
-
-export function countServices(categories) {
-  return categories.reduce((total, category) => total + (category.services?.length ?? 0), 0);
-}

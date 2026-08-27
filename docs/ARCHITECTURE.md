@@ -124,7 +124,7 @@ HTML validation → JSON-LD validation. Every one is a gate.
 ### Keeping up with Bokadirekt
 
 ```
-03:00  Sync Bokadirekt catalogue  fetch -> data/bokadirekt-catalogue.json -> verify -> commit
+03:00  Sync Bokadirekt catalogue  fetch -> validate -> data/bokadirekt-catalogue.json -> verify -> commit
 03:17  Deploy                     builds main, so that night's snapshot goes live
 ```
 
@@ -134,8 +134,72 @@ two jobs are separate and ordered rather than chained: a push made with
 `GITHUB_TOKEN` deliberately triggers no further workflow, so the Deploy cron is
 what picks the snapshot up.
 
-The sync never writes an implausible catalogue, so a Bokadirekt outage leaves
-the previous snapshot — and therefore the site — untouched.
+The sync never writes a catalogue that fails validation, so a Bokadirekt outage
+leaves the previous snapshot — and therefore the site — untouched.
+
+#### Where the catalogue comes from
+
+`BOKADIREKT_SOURCE` selects the source. Both produce the same shape and pass
+the same validation, so switching is configuration, not code (D12).
+
+| Value            | Source                                         |
+| ---------------- | ---------------------------------------------- |
+| `page` (default) | The public salon page. Free, no credentials.   |
+| `api`            | The Bokadirekt API module.                     |
+| `api+page`       | The API, falling back to the page if it fails. |
+
+Bokadirekt publishes no public API reference — it arrives with the paid module
+— so nothing is assumed about it. These are set as repository **variables**,
+except the two marked secret:
+
+| Setting                    | Meaning                                          |
+| -------------------------- | ------------------------------------------------ |
+| `BOKADIREKT_API_URL`       | _(secret)_ endpoint listing the salon's services |
+| `BOKADIREKT_API_KEY`       | _(secret)_ credential                            |
+| `BOKADIREKT_API_AUTH`      | `bearer` (default), `header` or `query`          |
+| `BOKADIREKT_API_AUTH_NAME` | header or query parameter name when not bearer   |
+| `BOKADIREKT_API_DURATION`  | `seconds` (default) or `minutes`                 |
+
+`BOKADIREKT_API_DURATION` is configuration rather than a guess because reading
+minutes as seconds is a silent sixtyfold error: every plausibility check passes
+and the site advertises a 90-second facial.
+
+When credentials arrive, confirm the response shape against the real reference.
+`toCategories()` in `scripts/lib/catalogue-sources/bokadirekt-api.mjs` handles
+the shapes worth anticipating and throws naming the keys it actually received,
+so adjusting it is a small, obvious edit rather than an investigation.
+
+#### Refreshing on a webhook
+
+The sync also runs on a `repository_dispatch` event of type
+`bokadirekt-changed`, so a change at the salon can reach the site in minutes
+rather than waiting for 03:00. Bokadirekt's webhook cannot call GitHub directly
+— the dispatch endpoint needs a token that must not sit in a webhook
+configuration — so it posts to the Cloudflare Worker that already relays CMS
+auth, which holds the token and forwards:
+
+```
+POST /repos/marcuseinar/Studio-Taube/dispatches
+{ "event_type": "bokadirekt-changed" }
+```
+
+This is optional. Without it the nightly cron still covers everything.
+
+#### Running unattended
+
+Once handed over, nobody is reading workflow logs, so each way this can rot has
+to raise its own alarm (D12):
+
+| Failure                           | What happens                                                         |
+| --------------------------------- | -------------------------------------------------------------------- |
+| A source breaks                   | Falls back if configured; the run reports it either way              |
+| The sync fails                    | Previous snapshot kept, GitHub issue opened or updated               |
+| The sync silently stops           | Deploy's freshness check opens an issue after 10 days                |
+| Repository goes quiet for 60 days | Metadata is committed weekly regardless, so the schedule stays alive |
+
+`npm run check:catalogue` reports the snapshot's age; `-- --strict` makes an
+alarm a failing exit code, which is how the Deploy workflow raises it. It never
+blocks a deploy — see D12.
 
 Dependabot for npm and Actions, grouped weekly.
 
