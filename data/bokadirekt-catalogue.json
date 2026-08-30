@@ -2174,5 +2174,311 @@
     "createdAt": "2026-03-11T09:47:52.000Z"
    }
   ]
+ },
+ {
+  "id": 365848,
+  "name": "Tatueringsborttagning",
+  "active": true,
+  "order": 14,
+  "own": true,
+  "services": [
+   {
+    "id": 3508112,
+    "name": "Tatueringsborttagning (max 2x5)",
+    "price": 800,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-6EF4E617_D3F1_4D68_8648_3F7AE942F875",
+      "oldId": null,
+      "maxPriceWithoutVat": 640
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "tatueringsborttagning-max-2x5",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": false,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Tatueringsborttagning med TORO® Laser – Säkert, snabbt och effektivtÅngrar du en gammal tatuering? Med TORO®, en av världens mest avancerade medicinska laserplattformar från italienska DEKA, kan vi hjälpa dig att sudda ut det förflutna.Oavsett om du vill ta bort en tatuering helt, eller bara bleka delar av den inför en cover-up, erbjuder vi en av marknadens säkraste och mest effektiva behandlingar.Varför välja TORO-lasern?Äldre lasrar har ofta haft svårt att rå på vissa färger och har krävt väldigt många sittningar. TORO är revolutionerande eftersom den kombinerar piko- och nanosekundsteknologi med tre olika våglängder. Det ger oss unika fördelar:Klarar alla färger: Lasern är extremt effektiv på både mörkt bläck (svart/blått) och svåra, ljusa färgpigment (som rött, grönt och gult).Snabbare resultat: Tekniken spränger bläcket i mycket mindre partiklar än traditionella lasrar, vilket gör att kroppen kan transportera bort pigmentet snabbare. Det innebär färre behandlingstillfällen för dig.Skonsam mot huden: Laserns ultrasnabba ljuspuffar skapar minimal värme. Det skyddar den omkringliggande huden och minskar risken för ärrbildning till ett minimum.Hur fungerar det?Lasern skickar extremt korta och intensiva ljusimpulser ner i huden där tatueringsbläcket sitter. Energin skapar en mekanisk tryckvåg som finfördelar bläckpartiklarna till ett mikroskopiskt damm. Ditt immunförsvar tar sedan hand om dessa partiklar och rensar ut dem ur kroppen under veckorna efter behandlingen. Tatueringen bleknar gradvis för varje gång.Hur många behandlingar krävs?Hur många gånger du behöver komma beror helt på tatueringens storlek, placering, hur djupt bläcket sitter och vilka färger som använts. Vid en kostnadsfri konsultation undersöker vi din tatuering och ger dig en uppskattning av hur många sittningar som krävs för just ditt utgångsläge. Det krävs alltid ett antal veckors läkning mellan varje besök.Gör det ont?Att ta bort en tatuering känns, och upplevelsen beskrivs ofta som en intensiv, snärtande känsla (ungefär som ett gummiband mot huden). Eftersom TORO arbetar så otroligt snabbt går själva laserbehandlingen mycket fort. Vi erbjuder alltid kylning för att göra ditt besök så bekvämt som möjligt.",
+     "displayDuration": 1800,
+     "product": 192,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 800
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 640
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     }
+    },
+    "priceLabel": "800 kr",
+    "durationLabel": "30 min",
+    "createdAt": "2026-08-30T07:58:16.000Z"
+   },
+   {
+    "id": 3508113,
+    "name": "Tatueringsborttagning (max 5x5)",
+    "price": 1200,
+    "duration": 2400,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-62DFA3B7_D5E8_495F_B8A0_EA2A917686D1",
+      "maxPriceWithoutVat": 960
+     },
+     "inactive": false
+    },
+    "about": {
+     "slug": "tatueringsborttagning-max-5x5",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": false,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "description": "Tatueringsborttagning med TORO® Laser – Säkert, snabbt och effektivtÅngrar du en gammal tatuering? Med TORO®, en av världens mest avancerade medicinska laserplattformar från italienska DEKA, kan vi hjälpa dig att sudda ut det förflutna.Oavsett om du vill ta bort en tatuering helt, eller bara bleka delar av den inför en cover-up, erbjuder vi en av marknadens säkraste och mest effektiva behandlingar.Varför välja TORO-lasern?Äldre lasrar har ofta haft svårt att rå på vissa färger och har krävt väldigt många sittningar. TORO är revolutionerande eftersom den kombinerar piko- och nanosekundsteknologi med tre olika våglängder. Det ger oss unika fördelar:Klarar alla färger: Lasern är extremt effektiv på både mörkt bläck (svart/blått) och svåra, ljusa färgpigment (som rött, grönt och gult).Snabbare resultat: Tekniken spränger bläcket i mycket mindre partiklar än traditionella lasrar, vilket gör att kroppen kan transportera bort pigmentet snabbare. Det innebär färre behandlingstillfällen för dig.Skonsam mot huden: Laserns ultrasnabba ljuspuffar skapar minimal värme. Det skyddar den omkringliggande huden och minskar risken för ärrbildning till ett minimum.Hur fungerar det?Lasern skickar extremt korta och intensiva ljusimpulser ner i huden där tatueringsbläcket sitter. Energin skapar en mekanisk tryckvåg som finfördelar bläckpartiklarna till ett mikroskopiskt damm. Ditt immunförsvar tar sedan hand om dessa partiklar och rensar ut dem ur kroppen under veckorna efter behandlingen. Tatueringen bleknar gradvis för varje gång.Hur många behandlingar krävs?Hur många gånger du behöver komma beror helt på tatueringens storlek, placering, hur djupt bläcket sitter och vilka färger som använts. Vid en kostnadsfri konsultation undersöker vi din tatuering och ger dig en uppskattning av hur många sittningar som krävs för just ditt utgångsläge. Det krävs alltid ett antal veckors läkning mellan varje besök.Gör det ont?Att ta bort en tatuering känns, och upplevelsen beskrivs ofta som en intensiv, snärtande känsla (ungefär som ett gummiband mot huden). Eftersom TORO arbetar så otroligt snabbt går själva laserbehandlingen mycket fort. Vi erbjuder alltid kylning för att göra ditt besök så bekvämt som möjligt.",
+     "displayDuration": 2400,
+     "product": 192
+    },
+    "priceType": {
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1200
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 960
+     },
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2400
+     },
+     "range": "",
+     "durationRange": ""
+    },
+    "priceLabel": "1 200 kr",
+    "durationLabel": "40 min",
+    "createdAt": "2026-08-30T07:59:36.000Z"
+   },
+   {
+    "id": 3508114,
+    "name": "Tatueringsborttagning (max 10x10) ",
+    "price": 1500,
+    "duration": 2400,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-D1E67E7D_A035_483B_9665_7EA3001375D9",
+      "maxPriceWithoutVat": 1200
+     },
+     "inactive": false
+    },
+    "about": {
+     "slug": "tatueringsborttagning-max-10x10",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": false,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "description": "Tatueringsborttagning med TORO® Laser – Säkert, snabbt och effektivtÅngrar du en gammal tatuering? Med TORO®, en av världens mest avancerade medicinska laserplattformar från italienska DEKA, kan vi hjälpa dig att sudda ut det förflutna.Oavsett om du vill ta bort en tatuering helt, eller bara bleka delar av den inför en cover-up, erbjuder vi en av marknadens säkraste och mest effektiva behandlingar.Varför välja TORO-lasern?Äldre lasrar har ofta haft svårt att rå på vissa färger och har krävt väldigt många sittningar. TORO är revolutionerande eftersom den kombinerar piko- och nanosekundsteknologi med tre olika våglängder. Det ger oss unika fördelar:Klarar alla färger: Lasern är extremt effektiv på både mörkt bläck (svart/blått) och svåra, ljusa färgpigment (som rött, grönt och gult).Snabbare resultat: Tekniken spränger bläcket i mycket mindre partiklar än traditionella lasrar, vilket gör att kroppen kan transportera bort pigmentet snabbare. Det innebär färre behandlingstillfällen för dig.Skonsam mot huden: Laserns ultrasnabba ljuspuffar skapar minimal värme. Det skyddar den omkringliggande huden och minskar risken för ärrbildning till ett minimum.Hur fungerar det?Lasern skickar extremt korta och intensiva ljusimpulser ner i huden där tatueringsbläcket sitter. Energin skapar en mekanisk tryckvåg som finfördelar bläckpartiklarna till ett mikroskopiskt damm. Ditt immunförsvar tar sedan hand om dessa partiklar och rensar ut dem ur kroppen under veckorna efter behandlingen. Tatueringen bleknar gradvis för varje gång.Hur många behandlingar krävs?Hur många gånger du behöver komma beror helt på tatueringens storlek, placering, hur djupt bläcket sitter och vilka färger som använts. Vid en kostnadsfri konsultation undersöker vi din tatuering och ger dig en uppskattning av hur många sittningar som krävs för just ditt utgångsläge. Det krävs alltid ett antal veckors läkning mellan varje besök.Gör det ont?Att ta bort en tatuering känns, och upplevelsen beskrivs ofta som en intensiv, snärtande känsla (ungefär som ett gummiband mot huden). Eftersom TORO arbetar så otroligt snabbt går själva laserbehandlingen mycket fort. Vi erbjuder alltid kylning för att göra ditt besök så bekvämt som möjligt.",
+     "displayDuration": 2400,
+     "product": 192
+    },
+    "priceType": {
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1500
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2400
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1200
+     },
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2400
+     },
+     "range": "",
+     "durationRange": ""
+    },
+    "priceLabel": "1 500 kr",
+    "durationLabel": "40 min",
+    "createdAt": "2026-08-30T08:01:10.000Z"
+   },
+   {
+    "id": 3508115,
+    "name": "Tatueringsborttagning (15x15)",
+    "price": 1900,
+    "duration": 2700,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-06CDA2B9_F379_4282_A2A8_21F565080EA0",
+      "oldId": null,
+      "maxPriceWithoutVat": 1520
+     },
+     "inactive": false,
+     "addOnServices": []
+    },
+    "about": {
+     "slug": "tatueringsborttagning-15x15",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": false,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "formFields": [],
+     "description": "Tatueringsborttagning med TORO® Laser – Säkert, snabbt och effektivtÅngrar du en gammal tatuering? Med TORO®, en av världens mest avancerade medicinska laserplattformar från italienska DEKA, kan vi hjälpa dig att sudda ut det förflutna.Oavsett om du vill ta bort en tatuering helt, eller bara bleka delar av den inför en cover-up, erbjuder vi en av marknadens säkraste och mest effektiva behandlingar.Varför välja TORO-lasern?Äldre lasrar har ofta haft svårt att rå på vissa färger och har krävt väldigt många sittningar. TORO är revolutionerande eftersom den kombinerar piko- och nanosekundsteknologi med tre olika våglängder. Det ger oss unika fördelar:Klarar alla färger: Lasern är extremt effektiv på både mörkt bläck (svart/blått) och svåra, ljusa färgpigment (som rött, grönt och gult).Snabbare resultat: Tekniken spränger bläcket i mycket mindre partiklar än traditionella lasrar, vilket gör att kroppen kan transportera bort pigmentet snabbare. Det innebär färre behandlingstillfällen för dig.Skonsam mot huden: Laserns ultrasnabba ljuspuffar skapar minimal värme. Det skyddar den omkringliggande huden och minskar risken för ärrbildning till ett minimum.Hur fungerar det?Lasern skickar extremt korta och intensiva ljusimpulser ner i huden där tatueringsbläcket sitter. Energin skapar en mekanisk tryckvåg som finfördelar bläckpartiklarna till ett mikroskopiskt damm. Ditt immunförsvar tar sedan hand om dessa partiklar och rensar ut dem ur kroppen under veckorna efter behandlingen. Tatueringen bleknar gradvis för varje gång.Hur många behandlingar krävs?Hur många gånger du behöver komma beror helt på tatueringens storlek, placering, hur djupt bläcket sitter och vilka färger som använts. Vid en kostnadsfri konsultation undersöker vi din tatuering och ger dig en uppskattning av hur många sittningar som krävs för just ditt utgångsläge. Det krävs alltid ett antal veckors läkning mellan varje besök.Gör det ont?Att ta bort en tatuering känns, och upplevelsen beskrivs ofta som en intensiv, snärtande känsla (ungefär som ett gummiband mot huden). Eftersom TORO arbetar så otroligt snabbt går själva laserbehandlingen mycket fort. Vi erbjuder alltid kylning för att göra ditt besök så bekvämt som möjligt.",
+     "displayDuration": 2700,
+     "product": 192,
+     "externalUrl": null
+    },
+    "priceType": {
+     "gaps": {},
+     "range": "",
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1900
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2700
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1520
+     },
+     "durationRange": "",
+     "rangeWithoutVat": "",
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 2700
+     }
+    },
+    "priceLabel": "1 900 kr",
+    "durationLabel": "45 min",
+    "createdAt": "2026-08-30T08:03:28.000Z"
+   },
+   {
+    "id": 3508137,
+    "name": "Tatueringsborttagning (ögonbryn) ",
+    "price": 900,
+    "duration": 1800,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-1249E5AD_E9DD_4AF3_BB1F_BDA5C8C98FA7",
+      "maxPriceWithoutVat": 720
+     },
+     "inactive": false
+    },
+    "about": {
+     "slug": "tatueringsborttagning-ogonbryn",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": false,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "description": "Är det första gången så behöver vi kolla på dina bryn först så boka en konsultation ✨",
+     "displayDuration": 1800,
+     "product": 192
+    },
+    "priceType": {
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 900
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 720
+     },
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 1800
+     },
+     "range": "",
+     "durationRange": ""
+    },
+    "priceLabel": "900 kr",
+    "durationLabel": "30 min",
+    "createdAt": "2026-08-30T08:34:30.000Z"
+   }
+  ]
  }
 ]
