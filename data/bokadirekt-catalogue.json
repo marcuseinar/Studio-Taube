@@ -256,6 +256,63 @@
     "createdAt": "2025-12-04T11:21:07.000Z"
    },
    {
+    "id": 3508116,
+    "name": "Konsultation ",
+    "price": 0,
+    "duration": 900,
+    "place": 56559,
+    "sorting": 0,
+    "extra": {
+     "external": {
+      "erpId": "itsp_20789-D134BC22_2465_420C_A987_B0C900AB9209-4213182F_5C45_4E69_B3FE_48E8988616D8",
+      "maxPriceWithoutVat": 0
+     },
+     "inactive": false
+    },
+    "about": {
+     "slug": "konsultation",
+     "settings": {
+      "isFree": false,
+      "isAddOn": false,
+      "showFrom": false,
+      "hidePrice": false,
+      "isExtraTime": false,
+      "onlinePlace": false,
+      "hideDuration": false,
+      "isChargeable": true,
+      "allowMarketing": false,
+      "healthCareCard": false,
+      "useDynamicPricing": false,
+      "sistaminutenTarget": 0,
+      "sistaminutenDiscount": 40,
+      "onlinePaymentRequired": false,
+      "onlinePaymentRequiredOnlyForNewCustomers": false
+     },
+     "description": "Tatueringsborttagning med TORO® Laser – Säkert, snabbt och effektivtÅngrar du en gammal tatuering? Med TORO®, en av världens mest avancerade medicinska laserplattformar från italienska DEKA, kan vi hjälpa dig att sudda ut det förflutna.Oavsett om du vill ta bort en tatuering helt, eller bara bleka delar av den inför en cover-up, erbjuder vi en av marknadens säkraste och mest effektiva behandlingar.Varför välja TORO-lasern?Äldre lasrar har ofta haft svårt att rå på vissa färger och har krävt väldigt många sittningar. TORO är revolutionerande eftersom den kombinerar piko- och nanosekundsteknologi med tre olika våglängder. Det ger oss unika fördelar:Klarar alla färger: Lasern är extremt effektiv på både mörkt bläck (svart/blått) och svåra, ljusa färgpigment (som rött, grönt och gult).Snabbare resultat: Tekniken spränger bläcket i mycket mindre partiklar än traditionella lasrar, vilket gör att kroppen kan transportera bort pigmentet snabbare. Det innebär färre behandlingstillfällen för dig.Skonsam mot huden: Laserns ultrasnabba ljuspuffar skapar minimal värme. Det skyddar den omkringliggande huden och minskar risken för ärrbildning till ett minimum.Hur fungerar det?Lasern skickar extremt korta och intensiva ljusimpulser ner i huden där tatueringsbläcket sitter. Energin skapar en mekanisk tryckvåg som finfördelar bläckpartiklarna till ett mikroskopiskt damm. Ditt immunförsvar tar sedan hand om dessa partiklar och rensar ut dem ur kroppen under veckorna efter behandlingen. Tatueringen bleknar gradvis för varje gång.Hur många behandlingar krävs?Hur många gånger du behöver komma beror helt på tatueringens storlek, placering, hur djupt bläcket sitter och vilka färger som använts. Vid en kostnadsfri konsultation undersöker vi din tatuering och ger dig en uppskattning av hur många sittningar som krävs för just ditt utgångsläge. Det krävs alltid ett antal veckors läkning mellan varje besök.Gör det ont?Att ta bort en tatuering känns, och upplevelsen beskrivs ofta som en intensiv, snärtande känsla (ungefär som ett gummiband mot huden). Eftersom TORO arbetar så otroligt snabbt går själva laserbehandlingen mycket fort. Vi erbjuder alltid kylning för att göra ditt besök så bekvämt som möjligt.",
+     "displayDuration": 900,
+     "product": 192
+    },
+    "priceType": {
+     "prices": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 0
+     },
+     "durations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 900
+     },
+     "withoutVat": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 0
+     },
+     "displayDurations": {
+      "2BC08036_A328_400E_8987_B0C900AB9209": 900
+     },
+     "range": "",
+     "durationRange": ""
+    },
+    "priceLabel": "",
+    "durationLabel": "15 min",
+    "createdAt": "2026-08-30T08:05:04.000Z"
+   },
+   {
     "id": 3424039,
     "name": "Konsultation hudvård ",
     "price": 0,
