@@ -24,11 +24,9 @@ export const sv = {
   'treatments.duration': 'Tid',
   'treatments.price': 'Pris',
   'treatments.readMore': 'Läs mer',
-  'treatments.performedBy': 'Utförs av',
 
   'campaigns.title': 'Erbjudanden',
   'campaigns.none': 'Inga aktiva erbjudanden just nu.',
-  'campaigns.validUntil': 'Gäller till',
   'campaigns.ordinaryPrice': 'Ordinarie pris',
 
   'contact.title': 'Kontakt',
@@ -37,10 +35,8 @@ export const sv = {
   'contact.email': 'E-post',
   'contact.openingHours': 'Öppettider',
   'contact.closed': 'Stängt',
-  'contact.findUs': 'Hitta hit',
   'contact.viewOnMap': 'Visa på karta',
 
-  'about.title': 'Om oss',
   'about.staff': 'Vi som jobbar här',
 
   'weekday.1': 'Måndag',
@@ -56,7 +52,6 @@ export const sv = {
   'footer.privacy': 'Integritetspolicy',
   'footer.rights': 'Alla rättigheter förbehållna',
 
-  'language.switchTo': 'In English',
   'language.current': 'Svenska',
 } as const;
 

@@ -30,7 +30,8 @@ markup and never replaces it — see CLAUDE.md §3a.
 | `/behandlingar/`        | Treatment overview           |
 | `/behandlingar/<slug>/` | Single treatment             |
 | `/priser/`              | Full price list              |
-| `/kampanjer/`           | Active campaigns             |
+| `/erbjudanden/`         | Active campaigns             |
+| `/erbjudanden/<slug>/`  | Single campaign              |
 | `/om-oss/`              | About, staff                 |
 | `/kontakt/`             | Address, hours, map, contact |
 | `/integritetspolicy/`   | GDPR                         |

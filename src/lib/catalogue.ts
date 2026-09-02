@@ -47,7 +47,3 @@ const SERVICES = indexById(rawCatalogue as RawCategory[]);
 export function findCatalogueService(id: number): CatalogueService | undefined {
   return SERVICES.get(id);
 }
-
-export function catalogueSize(): number {
-  return SERVICES.size;
-}

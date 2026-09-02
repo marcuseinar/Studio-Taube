@@ -25,11 +25,9 @@ export const en: Record<keyof typeof sv, string> = {
   'treatments.duration': 'Duration',
   'treatments.price': 'Price',
   'treatments.readMore': 'Read more',
-  'treatments.performedBy': 'Performed by',
 
   'campaigns.title': 'Offers',
   'campaigns.none': 'No current offers.',
-  'campaigns.validUntil': 'Valid until',
   'campaigns.ordinaryPrice': 'Regular price',
 
   'contact.title': 'Contact',
@@ -38,10 +36,8 @@ export const en: Record<keyof typeof sv, string> = {
   'contact.email': 'Email',
   'contact.openingHours': 'Opening hours',
   'contact.closed': 'Closed',
-  'contact.findUs': 'Find us',
   'contact.viewOnMap': 'View on map',
 
-  'about.title': 'About us',
   'about.staff': 'The team',
 
   'weekday.1': 'Monday',
@@ -57,6 +53,5 @@ export const en: Record<keyof typeof sv, string> = {
   'footer.privacy': 'Privacy policy',
   'footer.rights': 'All rights reserved',
 
-  'language.switchTo': 'På svenska',
   'language.current': 'English',
 };
