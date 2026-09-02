@@ -19,7 +19,8 @@
     "check:i18n": "node scripts/check-translations.mjs",
     "check:catalogue": "node scripts/check-catalogue-freshness.mjs",
     "sync:catalogue": "node scripts/sync-bokadirekt-catalogue.mjs",
-    "build:video": "node scripts/build-hero-video.mjs"
+    "build:video": "node scripts/build-hero-video.mjs",
+    "check:drift": "node scripts/check-catalogue-drift.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

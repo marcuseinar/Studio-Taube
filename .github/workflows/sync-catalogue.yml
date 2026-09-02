@@ -55,6 +55,26 @@ jobs:
       - name: Check the site still builds against it
         run: npm run verify
 
+      # A treatment the salon added this morning is not a reason to stop
+      # deploying, so this reports rather than gates. What it cannot do is
+      # write the Swedish and English copy the new treatment needs, which is
+      # why it ends in an issue addressed to a person.
+      - name: Look for treatments the site has not caught up with
+        id: drift
+        continue-on-error: true
+        run: |
+          set +e
+          report=$(node scripts/check-catalogue-drift.mjs --strict)
+          code=$?
+          set -e
+          echo "$report"
+          {
+            echo 'report<<DRIFT_EOF'
+            echo "$report"
+            echo 'DRIFT_EOF'
+          } >> "$GITHUB_OUTPUT"
+          exit "$code"
+
       - name: Commit the snapshot if it changed
         run: |
           if git diff --quiet -- data/; then
@@ -101,4 +121,39 @@ jobs:
               await github.rest.issues.createComment({ ...context.repo, issue_number: existing.number, body });
             } else {
               await github.rest.issues.create({ ...context.repo, title, body, labels: ['catalogue-sync'] });
+            }
+
+      # Kept as one issue that is edited in place rather than a nightly comment:
+      # this list changes only when the salon changes it, and a thread that
+      # grows every night is a thread nobody opens.
+      - name: Report treatments missing from the site
+        if: steps.drift.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'Bokadirekt has treatments the site does not';
+            // toJSON emits a complete JS string literal, so it is assigned
+            // rather than interpolated — inside a template literal its quotes
+            // would end up in the issue body.
+            const report = ${{ toJSON(steps.drift.outputs.report) }};
+            const body = [
+              report,
+              '',
+              'Prices and durations look after themselves; these need words. Add an entry in',
+              '`src/content/services/{sv,en}/` for each, or close this if the salon does not want them published.',
+              '',
+              `Last checked: ${new Date().toISOString().slice(0, 10)}`,
+            ].join('\n');
+
+            const { data: open } = await github.rest.issues.listForRepo({
+              ...context.repo,
+              state: 'open',
+              labels: 'catalogue-drift',
+            });
+
+            const existing = open.find((issue) => issue.title === title);
+            if (existing) {
+              await github.rest.issues.update({ ...context.repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ ...context.repo, title, body, labels: ['catalogue-drift'] });
             }
