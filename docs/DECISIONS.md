@@ -202,6 +202,16 @@ React.
 **Decided.** Campaign visibility and price are derived from
 `data/bokadirekt-catalogue.json`, not from the content file.
 
+**Amended:** this now covers ordinary treatments too, not only campaigns.
+Limiting it to campaigns was an oversight rather than a decision — every price,
+duration and from-price flag on the site is resolved against the catalogue by
+`resolveService`, and a treatment withdrawn from Bokadirekt stops rendering.
+The reasoning below never only applied to offers: a facial advertised at a
+price the salon stopped charging is the same marketing-law problem as an
+expired campaign, and it went unnoticed for longer because nothing announced
+it. Content files remain the source of descriptions, which is what they
+genuinely author.
+
 The first version treated an offer with no end date as running until someone
 removed it by hand. That was wrong. Bokadirekt does not publish an end date, so
 every offer was open-ended: when the salon ended a sale, the site would have

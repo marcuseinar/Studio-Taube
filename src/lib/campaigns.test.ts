@@ -8,6 +8,7 @@ const HEAD_SPA = {
   name: 'Head spa 60 min',
   priceSek: 760,
   durationMinutes: 70,
+  priceFrom: false,
   categoryName: 'KAMPANJ',
 };
 

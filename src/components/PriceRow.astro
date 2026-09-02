@@ -10,13 +10,14 @@ interface Props {
   priceSek: number;
   priceFrom: boolean;
   isFree: boolean;
+  bokadirektServiceId?: number | undefined;
 }
 
-const { locale, slug, title, durationMinutes, priceSek, priceFrom, isFree } = Astro.props;
+const { locale, slug, title, durationMinutes, priceSek, priceFrom, isFree, bokadirektServiceId } = Astro.props;
 const price = isFree ? (locale === 'sv' ? 'Kostnadsfri' : 'Free') : formatPriceRange(priceSek, priceFrom, locale);
 ---
 
-<tr class="border-sand/30 border-b">
+<tr class="border-sand/30 border-b" data-bokadirekt-service-id={bokadirektServiceId}>
   <th scope="row" class="py-3 pr-4 text-left font-normal">
     <a class="text-ink hover:text-sand-ink" href={localisePath(`/behandlingar/${slug}/`, locale)}>{title}</a>
   </th>

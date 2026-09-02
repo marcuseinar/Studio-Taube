@@ -10,6 +10,8 @@ export interface CatalogueService {
   readonly name: string;
   readonly priceSek: number;
   readonly durationMinutes: number;
+  /** Bokadirekt's "visa från-pris" flag: the price is a starting point. */
+  readonly priceFrom: boolean;
   readonly categoryName: string;
 }
 
@@ -18,6 +20,7 @@ interface RawService {
   name: string;
   price: number;
   duration: number;
+  about?: { settings?: { showFrom?: boolean } };
 }
 
 interface RawCategory {
@@ -34,6 +37,7 @@ function indexById(categories: RawCategory[]): Map<number, CatalogueService> {
         name: service.name.trim(),
         priceSek: service.price,
         durationMinutes: Math.round(service.duration / 60),
+        priceFrom: service.about?.settings?.showFrom === true,
         categoryName: category.name,
       });
     }

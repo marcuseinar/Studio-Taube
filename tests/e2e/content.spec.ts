@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { url } from './site-paths.ts';
 
@@ -54,6 +55,35 @@ test('the price list carries a price for every treatment', async ({ page }) => {
 
   const rows = page.locator('tbody tr');
   await expect(rows).toHaveCount(30);
+});
+
+test('every published price is the one Bokadirekt is currently charging', async ({ page }) => {
+  const catalogue = JSON.parse(readFileSync('data/bokadirekt-catalogue.json', 'utf8')) as {
+    services?: { id: number; name: string; price: number }[];
+  }[];
+
+  const priceById = new Map(
+    catalogue.flatMap((category) => (category.services ?? []).map((service) => [service.id, service.price])),
+  );
+
+  await page.goto(url('/priser/'));
+
+  // Each row carries its Bokadirekt id, so a price that drifted from the
+  // catalogue fails here rather than on the live site. See DECISIONS.md D11.
+  const rows = await page.locator('tbody tr[data-bokadirekt-service-id]').all();
+  expect(rows.length).toBeGreaterThan(0);
+
+  for (const row of rows) {
+    const id = Number(await row.getAttribute('data-bokadirekt-service-id'));
+    const expected = priceById.get(id);
+    expect(expected, `service ${id} is on the site but not in the catalogue`).toBeDefined();
+
+    const rendered = (await row.innerText()).replace(/\s/gu, '');
+    expect(rendered, `service ${id} shows a price the catalogue does not`).toContain(
+      // Thousands are grouped for reading, so compare digits against digits.
+      expected === 0 ? 'Kostnadsfri' : String(expected),
+    );
+  }
 });
 
 test('structured data describes the salon', async ({ page }) => {
