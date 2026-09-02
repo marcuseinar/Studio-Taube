@@ -25,29 +25,29 @@
   "dependencies": {
     "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/svelte": "^7.2.5",
+    "@astrojs/svelte": "^9.0.1",
     "@fontsource-variable/jost": "^5.3.0",
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^5.18.2",
-    "svelte": "^5.56.10",
+    "astro": "^7.2.9",
+    "svelte": "^5.57.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.62.1",
-    "astro-eslint-parser": "^1.4.0",
-    "eslint": "^10.9.0",
-    "eslint-plugin-astro": "^1.7.0",
+    "astro-eslint-parser": "^3.1.0",
+    "eslint": "^10.9.1",
+    "eslint-plugin-astro": "^3.1.0",
     "ffmpeg-static": "^5.3.0",
     "ffprobe-static": "^3.1.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "typescript-eslint": "^8.67.0",
+    "typescript-eslint": "^8.68.0",
     "vitest": "^4.1.11"
   }
 }
