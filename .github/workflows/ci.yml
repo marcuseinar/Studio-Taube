@@ -87,3 +87,40 @@ jobs:
         run: node scripts/check-structured-data.mjs dist
       - name: Report untranslated content
         run: node scripts/check-translations.mjs
+
+  # Dependency updates only help if somebody merges them, and after the site is
+  # handed over nobody will. Left alone they stop being a click and become a
+  # migration: skip a year of updates and the deploy eventually fails on a
+  # retired Action rather than on anything anyone changed.
+  #
+  # It lives in this workflow rather than its own so that `needs` is the gate:
+  # by the time it runs, lint, types, 98 unit tests, the build, 86 Playwright
+  # tests, axe, the Lighthouse budgets and the link, schema and translation
+  # checks have all passed on this exact commit. GitHub's own `gh pr merge
+  # --auto` would be the obvious alternative, but it waits on *required*
+  # checks, and this repository has no branch protection on purpose — the
+  # nightly catalogue sync pushes straight to main, which protection would
+  # block. So the merge happens here, once, after the gates it actually needs.
+  auto-merge-dependencies:
+    name: Auto-merge safe dependency updates
+    runs-on: ubuntu-latest
+    needs: [e2e, budgets]
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Read what Dependabot is proposing
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # A major can pass every check here and still change behaviour in a way
+      # no assertion covers, so those stay for a person to read.
+      - name: Merge
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        run: gh pr merge --squash --delete-branch "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

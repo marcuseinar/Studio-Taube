@@ -202,7 +202,21 @@ to raise its own alarm (D12):
 alarm a failing exit code, which is how the Deploy workflow raises it. It never
 blocks a deploy — see D12.
 
-Dependabot for npm and Actions, grouped weekly.
+### Keeping dependencies alive
+
+Dependabot raises npm and Actions updates weekly. Minor and patch updates are
+grouped into one pull request that `ci.yml` merges automatically once every
+gate has passed on that commit; majors are ungrouped and wait for a person.
+
+The merge is a job inside `ci.yml` with `needs: [e2e, budgets]`, not GitHub's
+`gh pr merge --auto`. `--auto` waits on _required_ status checks, and this
+repository has no branch protection deliberately: the nightly catalogue sync
+pushes straight to `main`, which protection would block. `needs` gives the same
+guarantee without the setting.
+
+This exists because the site outlives its developer. Unmerged updates are not
+a tidiness problem — skip a year of them and the deploy fails on a retired
+Action rather than on anything anyone changed.
 
 ---
 
